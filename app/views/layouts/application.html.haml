@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = display_meta_tags :site => "StarCraft.md"
+    = csrf_meta_tags
+  %body
+    %h1 StarCraft.md
+    = yield
+

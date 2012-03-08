@@ -1,0 +1,3 @@
+== SC2 News
+
+Port starcraft.md to Ruby on Rails
