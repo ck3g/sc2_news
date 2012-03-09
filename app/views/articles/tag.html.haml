@@ -1,0 +1,3 @@
+%h2
+  = t("articles.tag.h2", :tag => @tag_title)
+= render :partial => 'articles/article_list', :locals => {:articles => @articles}

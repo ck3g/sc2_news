@@ -1,0 +1,5 @@
+- flash.each do |type, message|
+  %div(data-dismiss="alert" class=" alert fade in #{twitterized_type(type)}")
+    %a.close(href="#") ×
+    %p
+      =message

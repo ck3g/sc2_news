@@ -1,4 +1,13 @@
 Sc2News::Application.routes.draw do
+  devise_for :users
+
+  resources :articles, :only => [:index, :show] do
+    #get :tag, :on => :collection
+  end
+
+  match "articles/tag/:tag" => "articles#tag", :as => :tag_articles
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +57,7 @@ Sc2News::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'news#index'
+  root :to => 'articles#index'
 
   # See how all your routes lay out with "rake routes"
 

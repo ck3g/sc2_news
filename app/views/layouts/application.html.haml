@@ -7,5 +7,32 @@
     = csrf_meta_tags
   %body
     %h1 StarCraft.md
-    = yield
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar(data-toggle="collapse" data-target=".nav-collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand(href="/") Starcraft.md
+          .nav-collapse
+            %ul.nav
+              %li.active
+                %a(href="/") Home
+              %li
+                %a(href="/about") About
+              %li
+                %a(href="/contact") Contact
+
+          = form_for "user", :url => user_session_path, :html => {action: user_session, class: "navbar-form pull-right"} do |f|
+            = f.text_field :email, :placeholder => "email", :class => "input-small"
+            = f.password_field :password, :placeholder => "Пароль", :class => "input-small"
+            %button.btn(type="submit") Войти
+
+    .container
+      = render :partial => "shared/flash_messages", :locals => {flash: flash}
+      = yield
+
+
 

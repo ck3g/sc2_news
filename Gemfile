@@ -5,10 +5,15 @@ gem 'rails', '3.2.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', "< 3.0"
+#gem 'mysql2', "< 3.0"
+gem 'sqlite3'
 gem 'haml', '~> 3.1.3'
 gem 'meta-tags', '~> 1.2.4', :require => 'meta_tags'
-gem 'kaminari', "~> 0.12.4"
+gem 'kaminari' , "~> 0.12.4"
+gem 'devise'
+gem 'acts_as_commentable'
+
+
 
 
 # Gems used only for assets and not required
@@ -36,6 +41,12 @@ group :development do
 
   # To use debugger
   # gem 'ruby-debug19', :require => 'ruby-debug'
+end
+
+group :test, :development do
+  gem 'rspec-rails', '~> 2.6'
+  gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 gem 'jquery-rails'

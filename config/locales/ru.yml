@@ -1,0 +1,12 @@
+ru:
+  articles:
+    index:
+      h2: "Новости"
+    tag:
+      h2: "Статьи в категории \"%{tag}\""
+    meta:
+      views_count: "Просмотров: %{views_count}"
+      comments_count:
+        zero: "Нет комментариев"
+        one: "Один комментарий"
+        other: "%{count} Комментари[й|я|ев]"

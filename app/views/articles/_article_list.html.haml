@@ -1,0 +1,29 @@
+- articles.each do |article|
+  .article(id="article_#{article.id}")
+    .pull-left
+      %h3
+        = link_to article.title, article
+    .pull-right
+      %i.icon-eye-open
+      = t("articles.meta.views_count", :views_count => article.views_count)
+      %a{href: "users/#{article.user.id}"}
+        %i.icon-user
+        = article.user.email
+    .spacer
+    .article-body
+      = article.body
+    .article-tags.pull-left
+      - article.tags.each do |tag|
+        %a{href: tag_articles_path(tag.title)}
+          %i.icon-tag
+          = tag.title
+        &nbsp;&nbsp;
+    .article-meta.pull-right
+      %i.icon-time
+      = article.created_at
+      %a{href: article_path(article, :anchor => "comments")}
+        %i.icon-comment
+        = t("articles.meta.comments_count", :count => article.comments.length)
+    .spacer
+    %br
+    %hr
