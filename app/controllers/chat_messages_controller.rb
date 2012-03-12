@@ -1,6 +1,6 @@
 class ChatMessagesController  < ApplicationController
   layout false
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :index
 
 
   def index
