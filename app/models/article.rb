@@ -4,7 +4,7 @@ class Article < ActiveRecord::Base
 
   before_create :default_values
 
-  scope :recent, order("created_at DESC")
+  scope :recent, order("created_at DESC").joins(:user)
 
   has_and_belongs_to_many :tags, :class_name => Article::Tag
 

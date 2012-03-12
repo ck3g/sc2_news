@@ -1,5 +1,5 @@
 - @messages.each do |message|
   %span.chat-user
-    = "#{message.user.name}: "
+    = link_to "#{message.user.name}: ", message.user
   %span.chat-message
     = message.body

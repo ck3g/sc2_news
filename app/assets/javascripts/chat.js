@@ -1,8 +1,11 @@
 $(function(){
-
+    var firstTime = true;
     (function loadChatMessages() {
         $(".chat-messages").load("/chat_messages", function(){
-            $(this).attr("scrollTop", $(this).height());
+            if (firstTime) {
+                $(this).prop({ scrollTop: $(this).prop("scrollHeight") });
+                firstTime = false;
+            }
             setTimeout(loadChatMessages, 2000);
         });
     })();
