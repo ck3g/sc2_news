@@ -1,0 +1,5 @@
+- @messages.each do |message|
+  %span.chat-user
+    = "#{message.user.name}: "
+  %span.chat-message
+    = message.body

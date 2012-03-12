@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :articles, :dependent => :destroy
 
+  alias_attribute :name, :email
+
 
 
 end

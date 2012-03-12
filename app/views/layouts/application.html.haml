@@ -43,7 +43,13 @@
 
     .container
       = render :partial => "shared/flash_messages", :locals => {flash: flash}
-      = yield
+      .span8
+        = yield
+      .span3
+        .chat-wrapper
+          .chat-messages
+          .chat-form
+            %input.chat-form-input(type="text")
 
 
 

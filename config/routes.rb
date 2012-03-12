@@ -1,11 +1,11 @@
 Sc2News::Application.routes.draw do
   devise_for :users
 
-  resources :articles, :only => [:index, :show] do
-    #get :tag, :on => :collection
-  end
+  resources :articles, :only => [:index, :show]
 
   match "articles/tag/:tag" => "articles#tag", :as => :tag_articles
+
+  resources :chat_messages, :only => [:index, :create]
 
 
   # The priority is based upon order of creation:
