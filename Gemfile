@@ -5,8 +5,11 @@ gem 'rails', '3.2.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'mysql2', "< 3.0"
-gem 'sqlite3'
+gem 'mysql2', "< 3.0"
+# gem 'sqlite3'
+gem 'tiny_tds'
+gem 'activerecord-sqlserver-adapter', '~> 3.2.0'
+
 gem 'haml', '~> 3.1.3'
 gem 'meta-tags', '~> 1.2.4', :require => 'meta_tags'
 gem 'kaminari' , "~> 0.12.4"

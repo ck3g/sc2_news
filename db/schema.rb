@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120311132606) do
+ActiveRecord::Schema.define(:version => 20120312194951) do
 
   create_table "article_tags", :force => true do |t|
     t.string   "title"
@@ -54,6 +54,30 @@ ActiveRecord::Schema.define(:version => 20120311132606) do
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "country_id"
+    t.string   "race"
+    t.string   "bnet_name"
+    t.string   "bnet_server"
+    t.string   "league"
+    t.integer  "experience"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "details"
+    t.string   "avatar_style"
+    t.integer  "achievements"
+    t.integer  "rank"
+    t.integer  "points"
+    t.integer  "wins"
+    t.integer  "loses"
+    t.string   "win_rate"
+    t.string   "profile_url"
+    t.datetime "synchronized_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -67,6 +91,8 @@ ActiveRecord::Schema.define(:version => 20120311132606) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "old_id"
+    t.string   "user_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

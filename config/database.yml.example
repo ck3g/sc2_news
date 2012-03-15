@@ -23,3 +23,12 @@ production:
   username: root
   password: '123'
 
+sc2_md: 
+  adapter: sqlserver
+  mode: dblib
+  dataserver: dbserver.example.com
+  database: db_name
+  username: db_user
+  password: password
+  timeout: 5000
+  encoding: utf8
