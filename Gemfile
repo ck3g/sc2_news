@@ -18,6 +18,8 @@ gem 'acts_as_commentable'
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :git => 'git://github.com/anjlab/bootstrap-rails.git'
+gem 'has_scope', "~> 0.5.1"
+gem "squeel"
 
 
 

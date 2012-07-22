@@ -6,7 +6,8 @@
     = display_meta_tags site: t(:site_name)
     = csrf_meta_tags
   %body
-    = image_tag 'logo.gif', alt: t(:site_name)
+    = link_to root_path do
+      = image_tag 'logo.gif', alt: t(:site_name)
     = render 'shared/top_nav_bar'
 
     .container-fluid.background.main-container

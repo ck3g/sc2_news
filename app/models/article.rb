@@ -10,13 +10,6 @@ class Article < ActiveRecord::Base
   delegate :email, to: :user, prefix: true
   delegate :name, to: :user, prefix: true, allow_nil: true
 
-  scope :recent, order("created_at DESC").joins(:user)
-
-  def self.by_tag(tag)
-    tag = Tag.find_by_name(tag)
-    raise ActiveRecord::RecordNotFound if tag.nil?
-    tag.articles.recent.all
-  end
-
+  scope :by_tag, ->(tag_name) { joins{tags}.where{ {tags.name => tag_name} } }
 
 end

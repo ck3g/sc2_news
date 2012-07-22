@@ -1,14 +1,9 @@
 class ArticlesController < ApplicationController
 
+  has_scope :by_tag
+
   def index
-    @articles = Article.recent.order("created_at DESC").page(params[:page])
+    @articles = apply_scopes(Article.includes(:user)).order("created_at DESC").page(params[:page])
   end
 
-  def tag
-
-    # need a rescue here from not_found. Maybe not here, but in app_controller
-    @tag = params[:tag]
-    @articles = Article.by_tag(@tag)
-    respond_with @articles
-  end
 end
