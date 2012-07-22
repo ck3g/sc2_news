@@ -11,7 +11,7 @@
         = article.user.name
     .spacer
     .article-body
-      = article.body
+      = simple_format article.body
     .article-tags.pull-left
       - article.tags.each do |tag|
         %a{href: tag_articles_path(tag.title)}
@@ -26,7 +26,7 @@
         = t("articles.meta.comments_count", :count => article.comments.length)
     .spacer
     %br
-    .fb-like(data-href="#{article_url(article)}" data-send="false" data-layout="button_count" data-width="20" data-show-faces="false")
-    %a.twitter-share-button(href="https://twitter.com/share" data-url="#{article_url(article)}" data-text="#{article.title}")
-      Tweet
+    -# .fb-like(data-href="#{article_url(article)}" data-send="false" data-layout="button_count" data-width="20" data-show-faces="false")
+    -# %a.twitter-share-button(href="https://twitter.com/share" data-url="#{article_url(article)}" data-text="#{article.title}")
+    -#   Tweet
     %hr

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312194951) do
+ActiveRecord::Schema.define(:version => 20120722140739) do
 
   create_table "article_tags", :force => true do |t|
     t.string   "title"
@@ -26,8 +26,12 @@ ActiveRecord::Schema.define(:version => 20120312194951) do
     t.integer  "views_count", :default => 0
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+    t.string   "ip_address"
+    t.integer  "legacy_id"
   end
 
+  add_index "articles", ["ip_address"], :name => "index_articles_on_ip_address"
+  add_index "articles", ["legacy_id"], :name => "index_articles_on_legacy_id"
   add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
 
   create_table "articles_tags", :id => false, :force => true do |t|
