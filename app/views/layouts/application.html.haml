@@ -6,9 +6,15 @@
     = display_meta_tags site: t(:site_name)
     = csrf_meta_tags
   %body
-    = link_to root_path do
-      = image_tag 'logo.gif', alt: t(:site_name)
-    = render 'shared/top_nav_bar'
+    .row-fluid
+      .span6
+        = link_to root_path do
+          = image_tag 'logo.gif', alt: t(:site_name)
+      .span6
+        = link_to "#", class: "pull-right top-right-banner" do
+          = image_tag "http://starcraft.md/Content/img/banners/sc2.wow.md.gif"
+    .row-fluid
+      = render 'shared/top_nav_bar'
 
     .container-fluid.background.main-container
       = render partial: "shared/flash_messages", locals: {flash: flash}
@@ -16,7 +22,7 @@
         .span1
         .span8
           = yield
-        .my_span2
+        .span2
           = render :partial => 'shared/side_right'
       %hr/
   %footer.background
