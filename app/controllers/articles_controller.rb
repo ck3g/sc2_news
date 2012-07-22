@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   has_scope :by_tag
 
   def index

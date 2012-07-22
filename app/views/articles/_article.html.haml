@@ -3,14 +3,15 @@
     %h3
       = link_to article.title, article
   .pull-right
-    %i.icon-eye-open
-    = t("articles.meta.views_count", :views_count => article.views_count)
+    = succeed ":" do
+      = t(:published_by)
     = link_to user_path(article.user) do
-      %i.icon-user
       = article.user_name || article.user_email
+    = " @"
+    = l article.created_at, format: :long
   .spacer
   .article-body
-    = raw(article.body)
+    = raw article.body.split(Article::CUTTER).first
   .article-tags.pull-left
     - article.tags.each do |tag|
       = link_to tag_articles_path(tag.name) do
@@ -18,11 +19,11 @@
         = tag.name
       &nbsp;&nbsp;
   .article-meta.pull-right
-    %i.icon-time
-    = article.created_at
-    = link_to article_path(article, anchor: "comments") do
-      %i.icon-comment
-      = t("articles.meta.comments_count", :count => article.comments.length)
+    = succeed ":" do
+      = t(:comments)
+    = link_to article.comments.count, article_path(article, anchor: "comments")
+    = "|"
+    = t("articles.meta.views_count", :views_count => article.views_count)
   .spacer
   %br
   -# .fb-like(data-href="#{article_url(article)}" data-send="false" data-layout="button_count" data-width="20" data-show-faces="false")

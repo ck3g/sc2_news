@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  CUTTER = "&lt;cut&gt;"
 
   acts_as_commentable
 
