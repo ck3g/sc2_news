@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120722155807) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
-    t.string   "body"
+    t.text     "body"
     t.integer  "user_id"
     t.integer  "views_count", :default => 0
     t.datetime "created_at",                 :null => false
