@@ -1,71 +1,37 @@
 !!!
 %html
   %head
-    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
-    = display_meta_tags :site => "StarCraft.md"
+    = display_meta_tags site: t(:site_name)
     = csrf_meta_tags
   %body
-    :plain
-      <div id="fb-root"></div>
-      <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
+    = image_tag 'logo.gif', alt: t(:site_name)
+    = render 'shared/top_nav_bar'
 
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    %h1 StarCraft.md
-
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar(data-toggle="collapse" data-target=".nav-collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="/") Starcraft.md
-          .nav-collapse
-            %ul.nav
-              %li.active
-                %a(href="/") Home
-              %li
-                %a(href="/about") About
-              %li
-                %a(href="/contact") Contact
-
-            - if user_signed_in?
-              %ul.nav.pull-right
-                %li.dropdown
-                  %a.dropdown-toggle(data-toggle="dropdown" href="#")
-                    = "#{t("users.welcome")}, #{current_user.name}"
-                    %b.caret
-                  %ul.dropdown-menu
-                    %li
-                      = link_to t("users.profile"), current_user
-                    %li
-                      = link_to t("users.logout"), :destroy_user_session, :method => :delete
-            - else
-              = form_for "user", :url => user_session_path, :html => {action: user_session, class: "navbar-form pull-right"} do |f|
-                = f.text_field :email, :placeholder => "email", :class => "input-small"
-                = f.password_field :password, :placeholder => "Пароль", :class => "input-small"
-                %button.btn(type="submit") Войти
-
-    .container
-      = render :partial => "shared/flash_messages", :locals => {flash: flash}
-      .span8
-        = yield
-      .span3
-        .chat-wrapper
-          .chat-messages
-          .chat-form
-            - if user_signed_in?
-              %input.chat-form-input(type="text")
-            - else
-              .chat-not-signed-in
-                = t("users.must_sign_in")
+    .container-fluid.background.main-container
+      = render partial: "shared/flash_messages", locals: {flash: flash}
+      .row-fluid
+        .span1
+        .span8
+          = yield
+        .my_span2
+          = render :partial => 'shared/side_right'
+      %hr/
+  %footer.background
+    .pull-left.blizzard-logo
+      = image_tag "blizzard_logo.gif"
+    .pull-left
+      = t(:site_name)
+      %br/
+      = link_to t(:fan_site), "#"
+    .pull-right.align-right
+      %p.copyright
+        = t(:copyright, current_year: Date.current.year)
+      %p.terms-mini
+        = t(:terms_mini)
+    .clear
 
 
+    = render 'shared/social_widgets'
 

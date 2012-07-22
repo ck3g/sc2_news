@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
 
   def index
-    @articles = Article.recent.limit(20)
+    @articles = Article.recent.limit(4)
     respond_with @articles
   end
 

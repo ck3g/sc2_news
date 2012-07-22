@@ -1,0 +1,9 @@
+.chat-wrapper.well
+  .chat-messages
+  .chat-form
+    - if user_signed_in?
+      %input.chat-form-input(type="text")
+    - else
+      .chat-not-signed-in
+        = t("users.must_sign_in")
+.spacer

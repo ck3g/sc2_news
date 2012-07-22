@@ -1,0 +1,51 @@
+$marginLeft: 20px;
+$marginRight: 20px;
+$bgColor: #efefef;
+$spacerSize: 10px;
+
+body {
+  background-image: image_url("main_background.gif");
+}
+
+.background {
+  background-color: $bgColor;
+}
+
+.main-container {
+  margin: 0 $marginRight 10px $marginLeft;
+}
+
+.row-fluid {
+  .my_span2 {
+    width: 18%;
+  }
+}
+
+footer {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+  margin-left: $marginLeft;
+  margin-right: $marginRight;
+  border: 5px solid $bgColor;
+}
+
+.clear { clear: both; }
+.align-right { text-align: right; }
+.spacer { margin-top: $spacerSize; }
+
+.blizzard-logo {
+  margin-right: 10px;
+}
+
+p.terms-mini {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.navbar {
+  margin-bottom: 0px;
+  form {
+    margin: 0px;
+  }
+}

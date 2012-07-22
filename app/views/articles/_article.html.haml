@@ -1,4 +1,4 @@
-.article(id="article_#{article.id}")
+.article.well{id: dom_id(article)}
   .pull-left
     %h3
       = link_to article.title, article
@@ -10,7 +10,7 @@
       = article.user_name || article.user_email
   .spacer
   .article-body
-    = simple_format article.body
+    = raw(article.body)
   .article-tags.pull-left
     - article.tags.each do |tag|
       = link_to tag_articles_path(tag.name) do
@@ -20,7 +20,7 @@
   .article-meta.pull-right
     %i.icon-time
     = article.created_at
-    %a{href: article_path(article, :anchor => "comments")}
+    = link_to article_path(article, anchor: "comments") do
       %i.icon-comment
       = t("articles.meta.comments_count", :count => article.comments.length)
   .spacer
