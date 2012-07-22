@@ -35,6 +35,26 @@ namespace :import do
     puts "\ndone"
   end
 
+  desc "Import comments"
+  task comments: :environment do
+    puts "Importing comments..."
+    articles = Article.all
+    total = articles.count
+    $stdout.sync = true
+
+    ActiveRecord::Base.connection.execute("TRUNCATE comments")
+    articles.each_with_index do |article, index|
+      legacy_comments = Legacy::Comment.where(parent_id: article.legacy_id)
+      legacy_comments.each_with_index do |comment|
+        comment.import(article)
+      end
+
+      print "\r#{index + 1} of #{total} articles imported"
+    end
+
+    puts "\ndone"
+  end
+
   desc "Import tags and link them to articles"
   task tags: :environment do
     puts "Importing tags..."

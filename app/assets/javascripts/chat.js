@@ -6,7 +6,7 @@ $(function(){
                 $(this).prop({ scrollTop: $(this).prop("scrollHeight") });
                 firstTime = false;
             }
-            setTimeout(loadChatMessages, 2000);
+            // setTimeout(loadChatMessages, 2000);
         });
     })();
 
