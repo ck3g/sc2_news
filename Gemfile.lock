@@ -49,6 +49,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.1)
       ffi (~> 1.0.6)
+    coderay (1.0.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -93,6 +94,7 @@ GEM
       treetop (~> 1.4.8)
     meta-tags (1.2.6)
       actionpack
+    method_source (0.8)
     mime-types (1.17.2)
     multi_json (1.1.0)
     mysql2 (0.3.11)
@@ -111,6 +113,10 @@ GEM
       rack
       rake (>= 0.8.1)
     polyglot (0.3.3)
+    pry (0.9.10)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -163,6 +169,7 @@ GEM
       ffi (~> 1.0)
       multi_json (~> 1.0)
       rubyzip
+    slop (3.3.2)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -202,6 +209,7 @@ DEPENDENCIES
   meta-tags (~> 1.2.4)
   mysql2 (< 3.0)
   passenger
+  pry
   rails (= 3.2.2)
   rails-dev-tweaks
   rspec-rails (~> 2.6)

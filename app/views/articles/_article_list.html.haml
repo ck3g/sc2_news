@@ -6,7 +6,7 @@
     .pull-right
       %i.icon-eye-open
       = t("articles.meta.views_count", :views_count => article.views_count)
-      %a{href: "/#{user_path(article.user)}"}
+      = link_to user_path(article.user) do
         %i.icon-user
         = article.user.name
     .spacer

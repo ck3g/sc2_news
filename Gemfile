@@ -41,6 +41,8 @@ group :development do
  
   # Deploy with Capistrano
   gem 'capistrano'
+  gem 'pry'
+  gem 'passenger'
 
   # To use debugger
   # gem 'ruby-debug19', :require => 'ruby-debug'
