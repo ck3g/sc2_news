@@ -1,9 +1,7 @@
 class ArticlesController < ApplicationController
 
-
   def index
-    @articles = Article.recent.limit(4)
-    respond_with @articles
+    @articles = Article.recent.order("created_at DESC").page(params[:page])
   end
 
   def tag
