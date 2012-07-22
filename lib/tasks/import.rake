@@ -34,4 +34,34 @@ namespace :import do
 
     puts "\ndone"
   end
+
+  desc "Import tags and link them to articles"
+  task tags: :environment do
+    puts "Importing tags..."
+    legacy_tags = Legacy::Tag.all
+    total = legacy_tags.count
+    $stdout.sync = true
+    legacy_tags.each_with_index do |legacy_tag, index|
+      legacy_tag.import
+      print "\r#{index + 1} of #{total} imporded"
+    end
+
+    puts "\ndone"
+
+    Rake::Task["import:link_tags_and_articles"].invoke
+  end
+
+  task link_tags_and_articles: :environment do
+    puts "Linking tags and articles..."
+    articles = Article.all
+    total = articles.count
+    $stdout.sync = true
+    articles.each_with_index do |article, index|
+      legacy_tag_ids = Legacy::NewsTag.where(news_id: article.legacy_id).pluck(:tag_id)
+      article.tags = Tag.where(legacy_id: legacy_tag_ids)
+      print "\r#{index + 1} of #{total} linked"
+    end
+
+    puts "\ndone"
+  end
 end

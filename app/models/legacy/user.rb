@@ -3,7 +3,7 @@ class Legacy::User < Legacy::Base
 
   def import(membership)
     pass = rand(10000) + 100000
-    user = User.find_or_create_by_email(membership.Email)
+    user = ::User.find_or_create_by_email(membership.Email)
     user.password = pass
     user.password_confirmation = pass
     user.created_at = membership.CreateDate
