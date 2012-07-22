@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: 63d8eed8bff9c81e4c572627f0ff4d59fd98e980
+  specs:
+    anjlab-bootstrap-rails (2.0.4.3)
+      railties (>= 3.0)
+      sass
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -199,6 +207,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-sqlserver-adapter (~> 3.2.0)
   acts_as_commentable
+  anjlab-bootstrap-rails!
   capistrano
   capybara
   coffee-rails (~> 3.2.1)

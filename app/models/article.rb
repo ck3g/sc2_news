@@ -3,9 +3,12 @@ class Article < ActiveRecord::Base
   acts_as_commentable
 
   has_and_belongs_to_many :tags
-
   belongs_to :user
+
   validates :title, :body, :user, presence: true
+
+  delegate :email, to: :user, prefix: true
+  delegate :name, to: :user, prefix: true, allow_nil: true
 
   scope :recent, order("created_at DESC").joins(:user)
 

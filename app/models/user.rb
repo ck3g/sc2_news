@@ -5,12 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :created_at, :old_id, :user_name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :created_at, :legacy_id, :username
 
   has_many :articles
   has_one :profile, :dependent => :destroy
 
-  alias_attribute :name, :email
+  alias_attribute :name, :username
 
   after_create :create_profile
 

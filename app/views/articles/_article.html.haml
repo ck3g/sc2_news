@@ -7,7 +7,7 @@
     = t("articles.meta.views_count", :views_count => article.views_count)
     = link_to user_path(article.user) do
       %i.icon-user
-      = article.user.name
+      = article.user_name || article.user_email
   .spacer
   .article-body
     = simple_format article.body
