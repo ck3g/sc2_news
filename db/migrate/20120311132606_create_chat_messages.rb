@@ -6,5 +6,7 @@ class CreateChatMessages < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :chat_messages, :user_id
   end
 end

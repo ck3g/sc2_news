@@ -28,10 +28,15 @@ ActiveRecord::Schema.define(:version => 20120312194951) do
     t.datetime "updated_at",                 :null => false
   end
 
-  create_table "articles_tags", :force => true do |t|
+  add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
+
+  create_table "articles_tags", :id => false, :force => true do |t|
     t.integer "article_id"
     t.integer "tag_id"
   end
+
+  add_index "articles_tags", ["article_id"], :name => "index_articles_tags_on_article_id"
+  add_index "articles_tags", ["tag_id"], :name => "index_articles_tags_on_tag_id"
 
   create_table "chat_messages", :force => true do |t|
     t.string   "body"
@@ -39,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20120312194951) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "chat_messages", ["user_id"], :name => "index_chat_messages_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -78,9 +85,14 @@ ActiveRecord::Schema.define(:version => 20120312194951) do
     t.datetime "updated_at",      :null => false
   end
 
+  add_index "profiles", ["country_id"], :name => "index_profiles_on_country_id"
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "username"
+    t.string   "legacy_id"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -91,8 +103,6 @@ ActiveRecord::Schema.define(:version => 20120312194951) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "old_id"
-    t.string   "user_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

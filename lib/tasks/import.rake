@@ -23,5 +23,15 @@ namespace :import do
 
   desc "Import news from MSSQL"
   task news: :environment do
+    puts "Importing news..."
+    legacy_news_ids = Legacy::News.order(:created_at).pluck(:id)
+    total = legacy_news_ids.count
+    $stdout.sync = true
+    legacy_news_ids.each_with_index do |legacy_id, index|
+      Legacy::News.import(legacy_id)
+      print "\r#{index + 1} of #{total} imported"
+    end
+
+    puts "\ndone"
   end
 end

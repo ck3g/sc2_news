@@ -1,5 +1,5 @@
 class Legacy::Profile < Legacy::Base
-  set_table_name "UsersProfiles"
+  self.table_name = "UsersProfiles"
 
   def import(profile)
     profile.country_id       = self.country_id
