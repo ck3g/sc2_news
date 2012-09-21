@@ -39,9 +39,10 @@ group :development do
   gem "capistrano", :require => false
   gem 'capistrano-recipes', :require => false
   gem 'capistrano_colors', :require => false
-  gem 'pry'
+  gem 'pry-rails'
   gem 'passenger'
   gem "rails_best_practices"
+  gem "thin"
 end
 
 group :test, :development do
