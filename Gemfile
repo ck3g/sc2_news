@@ -1,25 +1,28 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.6'
+gem 'rails', '~> 3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2', "< 3.0"
 # gem 'sqlite3'
-gem 'tiny_tds'
+
+gem 'jquery-rails'
+gem 'tiny_tds', "~> 0.5.1"
 gem 'activerecord-sqlserver-adapter', '~> 3.2.0'
 
 gem 'haml', '~> 3.1.6'
 gem 'meta-tags', '~> 1.2.6', :require => 'meta_tags'
 gem 'kaminari' , "~> 0.13.0"
-gem 'devise'
-gem 'acts_as_commentable'
+gem 'devise', "~> 2.1.2"
+gem 'acts_as_commentable', "~> 3.0.1"
 
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :git => 'git://github.com/anjlab/bootstrap-rails.git'
+gem 'anjlab-bootstrap-rails', ">= 2.2", :require => 'bootstrap-rails'
 gem 'has_scope', "~> 0.5.1"
-gem "squeel"
+gem "squeel", "~> 1.0.7"
+
+gem 'jquery-rails'
 
 
 
@@ -31,7 +34,6 @@ group :assets do
 end
 
 group :production do
-  gem 'passenger'
   gem 'exception_notification'
 end
 
@@ -40,7 +42,6 @@ group :development do
   gem 'capistrano-recipes', :require => false
   gem 'capistrano_colors', :require => false
   gem 'pry-rails'
-  gem 'passenger'
   gem "rails_best_practices"
   gem "thin"
 end
@@ -66,5 +67,3 @@ group :test do
   gem 'rb-inotify',       '>= 0.8.6', :require => false
   gem 'libnotify',        '~> 0.5.7', :require => false
 end
-
-gem 'jquery-rails'
