@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  ROLES = [:admin, :writer, :editor, :streamer]
+  bitmask :roles, as: ROLES
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,5 +17,9 @@ class User < ActiveRecord::Base
 
   after_create :create_profile
 
-
+  ROLES.each do |role|
+    define_method "#{role}?" do
+      self.roles?(role)
+    end
+  end
 end

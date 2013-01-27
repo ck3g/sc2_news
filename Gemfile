@@ -22,6 +22,8 @@ gem 'acts_as_commentable', "~> 3.0.1"
 gem 'anjlab-bootstrap-rails', ">= 2.2", :require => 'bootstrap-rails'
 gem 'has_scope', "~> 0.5.1"
 gem "squeel", "~> 1.0.7"
+gem "bitmask_attributes", "~> 0.4.0"
+gem "russian", "~> 0.6.0"
 
 
 group :assets do
