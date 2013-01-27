@@ -9,6 +9,7 @@ gem 'mysql2', "< 3.0"
 # gem 'sqlite3'
 
 gem 'jquery-rails'
+
 gem 'tiny_tds', "~> 0.5.1"
 gem 'activerecord-sqlserver-adapter', '~> 3.2.0'
 
@@ -21,9 +22,6 @@ gem 'acts_as_commentable', "~> 3.0.1"
 gem 'anjlab-bootstrap-rails', ">= 2.2", :require => 'bootstrap-rails'
 gem 'has_scope', "~> 0.5.1"
 gem "squeel", "~> 1.0.7"
-
-gem 'jquery-rails'
-
 
 
 group :assets do
@@ -49,7 +47,6 @@ end
 group :test, :development do
   gem 'rspec-rails',        '~> 2.11.0'
   gem 'factory_girl_rails', '~> 3.5.0'
-  gem "guard-rspec",        "~> 1.2.0"
 end
 
 group :test do
@@ -57,13 +54,6 @@ group :test do
   gem 'capybara',         "~> 1.1.2"
   gem "database_cleaner", "~> 0.8.0"
   gem "launchy",          "~> 2.1.0"
-  gem 'spork',            '>= 0.9.0.rc9'
-  gem 'guard-spork',      '~> 1.1.0'
   gem "shoulda",          "~> 3.1.1"
   gem "email_spec",       "~> 1.2.1"
-
-  gem 'rb-fsevent',       '>= 0.4.3', :require => false
-  gem 'growl',            '~> 1.0.3', :require => false
-  gem 'rb-inotify',       '>= 0.8.6', :require => false
-  gem 'libnotify',        '~> 0.5.7', :require => false
 end
