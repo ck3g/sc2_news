@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Article do
+describe Tag do
   it "has a valid factory" do
-    expect(create :article).to be_valid
+    expect(create :tag).to be_valid
   end
 end

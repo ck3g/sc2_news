@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :chat_message do
     body "MyString"
-    user_id 1
+    user
   end
 end

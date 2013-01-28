@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Article do
+describe Comment do
   it "has a valid factory" do
-    expect(create :article).to be_valid
+    expect(create :comment).to be_valid
   end
 end

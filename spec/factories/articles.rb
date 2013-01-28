@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :article do
     title "MyString"
     body "MyString"
-    user_id 1
+    user
     views_count 1
   end
 end
