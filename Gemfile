@@ -24,6 +24,7 @@ gem 'has_scope', "~> 0.5.1"
 gem "squeel", "~> 1.0.7"
 gem "bitmask_attributes", "~> 0.4.0"
 gem "russian", "~> 0.6.0"
+gem "cancan", "~> 1.6.8"
 
 
 group :assets do

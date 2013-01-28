@@ -43,6 +43,7 @@ GEM
     bourne (1.1.2)
       mocha (= 0.10.5)
     builder (3.0.4)
+    cancan (1.6.8)
     capistrano (2.14.1)
       highline
       net-scp (>= 1.0.0)
@@ -283,6 +284,7 @@ DEPENDENCIES
   acts_as_commentable (~> 3.0.1)
   anjlab-bootstrap-rails (>= 2.2)
   bitmask_attributes (~> 0.4.0)
+  cancan (~> 1.6.8)
   capistrano
   capistrano-recipes
   capistrano_colors
