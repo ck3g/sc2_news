@@ -1,3 +1,14 @@
 .spacer
 .row-fluid
   = render "article", article: @article
+
+#comments
+  - @article.comments.each do |comment|
+    .row-fluid
+      .span12.well
+        .span2
+          %p= avatar_tag(comment.user)
+          %p= link_to comment.username, "#"
+        .span10
+          %p.muted= l comment.created_at, format: :long
+          %p= simple_format comment.comment

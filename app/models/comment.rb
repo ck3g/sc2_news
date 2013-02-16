@@ -7,4 +7,5 @@ class Comment < ActiveRecord::Base
 
   default_scope :order => 'created_at ASC'
 
+  delegate :username, to: :user, prefix: false
 end

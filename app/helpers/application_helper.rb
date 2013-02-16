@@ -15,4 +15,8 @@ module ApplicationHelper
     end
   end
 
+  def avatar_tag(user)
+    image_tag "avatars/default.gif"
+  end
+
 end
