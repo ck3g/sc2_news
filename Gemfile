@@ -27,6 +27,10 @@ gem "russian", "~> 0.6.0"
 gem "cancan", "~> 1.6.8"
 gem "simple_form", "~> 2.0.4"
 
+gem "carrierwave", "~> 0.8.0"
+gem "mini_magick", "~> 3.5.0"
+gem "ckeditor", "~> 4.0.2"
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'

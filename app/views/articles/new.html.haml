@@ -2,8 +2,14 @@
 
 .well
   = simple_form_for @article do |f|
-    = f.input :title, label: false, placeholder: Article.human_attribute_name(:title), input_html: { class: "input-fullwidth" }
-    = f.input :body, label: false, placeholder: Article.human_attribute_name(:body), input_html: { class: "input-fullwidth" }
+    = f.input :title, label: false,
+      placeholder: Article.human_attribute_name(:title),
+      input_html: { class: "input-fullwidth" }
+
+    = f.input :body, as: :ckeditor, label: false,
+      placeholder: Article.human_attribute_name(:body),
+      input_html: { class: "input-fullwidth", ckeditor: { toolbar: "Simple" } }
+
     .form-actions
       = f.button :submit, class: "btn btn-primary", :"disable-with" => t(:wait)
       = link_to t(:cancel), root_path, class: "btn"

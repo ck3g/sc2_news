@@ -18,3 +18,4 @@ config/database.yml
 *.swp
 
 public/Content/Gallery
+public/uploads/*

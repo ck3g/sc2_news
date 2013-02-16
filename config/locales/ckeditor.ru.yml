@@ -1,0 +1,9 @@
+
+ru:
+  ckeditor:
+    page_title: "CKEditor менеджер файлов"
+    confirm_delete: "Удалить файл?"
+    buttons:
+      cancel: "Отменить"
+      upload: "Загрузить"
+      delete: "Удалить"
