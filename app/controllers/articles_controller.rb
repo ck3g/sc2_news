@@ -15,15 +15,26 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.new params[:article]
+    @article.ip_address = request.remote_ip
     if @article.save
-      redirect_to articles_path, notice: I18n.t(:created_successfully)
+      redirect_to @article, notice: t(:created_successfully)
     else
       render :new
     end
   end
 
   def show
+  end
 
+  def edit
+  end
+
+  def update
+    if @article.update_attributes params[:article]
+      redirect_to @article, notice: t(:updated_successfully)
+    else
+      render :edit
+    end
   end
 
   def destroy

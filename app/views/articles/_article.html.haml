@@ -3,6 +3,8 @@
     .row-fluid
       .manage-button-wrapper
         = link_to t(:delete), article, method: :delete, confirm: t(:are_you_sure_delete_article), class: "manage-button"
+      .manage-button-wrapper
+        = link_to t(:edit), edit_article_path(article), class: "manage-button"
   .row-fluid.article-title.clearfix
     .pull-left
       %h3
