@@ -2,7 +2,7 @@
 %html
   %head
     = stylesheet_link_tag    "application", media: "all"
-    = javascript_include_tag "application"
+    = favicon_link_tag "favicon.ico"
     = display_meta_tags site: t(:site_name)
     = csrf_meta_tags
   %body
@@ -42,3 +42,4 @@
 
     = render 'shared/social_widgets'
 
+    = javascript_include_tag "application"
