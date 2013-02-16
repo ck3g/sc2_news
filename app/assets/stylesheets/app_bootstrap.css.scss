@@ -5,5 +5,33 @@ $baseLineHeight: 18px;
   width: 98%;
 }
 
+.manage-button-wrapper {
+  float: right;
+  line-height: 14px;
+  margin-left: 5px;
+}
+
+.manage-button {
+  display: inline-block;
+  font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: #444;
+  background-color: #f8f8f8;
+  border: 1px solid #aaa;
+  padding: 0px 7px 1px 7px;
+  min-width: 62px;
+  text-align: center;
+  vertical-align: 2px;
+  text-decoration: none;
+  &:hover {
+    color: #08c;
+    background-color: #f1f1f1;
+  }
+}
+
 @import "twitter/bootstrap";
 @import "twitter/bootstrap-responsive";
