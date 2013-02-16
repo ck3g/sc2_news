@@ -44,6 +44,7 @@ ru:
   wait: "..."
   created_successfully: Успешно создана
   updated_successfully: Успешно обновлена
+  are_you_sure_delete_article: Уверен? Новость потом не вернуть.
   copyright: 2010-%{current_year} © StarCraft.md
   site_name: StarCraft.md
   terms_mini: Использование материалов сайта разрешено при условии размещения ссылок на сайт StarCraft.md
@@ -55,4 +56,6 @@ ru:
   create_article: Добавить новость!
   new_article: Новая новость
   cancel: Отменить
+  delete: Удалить
+  edit: Редактировать
 

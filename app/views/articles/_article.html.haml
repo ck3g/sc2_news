@@ -1,15 +1,20 @@
 .article.well{id: dom_id(article)}
-  .pull-left
-    %h3
-      = link_to article.title, article
-  .pull-right
-    = succeed ":" do
-      = t(:published_by)
-    = link_to user_path(article.user) do
-      = article.user_name || article.user_email
-    = " @"
-    = l article.created_at, format: :long
-  .spacer
+  - if can? :manage, article
+    .row-fluid
+      .manage-button-wrapper
+        = link_to t(:delete), article, method: :delete, confirm: t(:are_you_sure_delete_article), class: "manage-button"
+  .row-fluid.article-title.clearfix
+    .pull-left
+      %h3
+        = link_to article.title, article
+    .pull-right
+      = succeed ":" do
+        = t(:published_by)
+      = link_to user_path(article.user) do
+        = article.user_name || article.user_email
+      = " @"
+      = l article.created_at, format: :long
+
   .article-body
     = raw article.body.split(Article::CUTTER).first
   .article-tags.pull-left

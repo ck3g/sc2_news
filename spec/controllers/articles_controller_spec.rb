@@ -3,7 +3,8 @@ require 'spec_helper'
 describe ArticlesController do
   login_admin
 
-  let!(:article) { create :article }
+  let(:article) { create :article }
+
   describe "GET #index" do
     before { get :index }
     it { should respond_with :success }
@@ -47,6 +48,23 @@ describe ArticlesController do
           post :create, article: attributes_for(:invalid_article)
         }.to_not change(Article, :count)
       end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before do
+      article
+      unless example.metadata[:skip_destroy]
+        delete :destroy, id: article
+      end
+    end
+
+    it { should redirect_to articles_path }
+    it { should assign_to(:article).with article }
+    it "removes the article", skip_destroy: true do
+      expect {
+        delete :destroy, id: article
+      }
     end
   end
 end
