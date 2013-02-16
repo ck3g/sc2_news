@@ -41,6 +41,9 @@ ru:
     profile: "Профиль"
     must_sign_in: "Залогинтесь для чата"
 
+  wait: "..."
+  created_successfully: Успешно создана
+  updated_successfully: Успешно обновлена
   copyright: 2010-%{current_year} © StarCraft.md
   site_name: StarCraft.md
   terms_mini: Использование материалов сайта разрешено при условии размещения ссылок на сайт StarCraft.md
@@ -49,3 +52,7 @@ ru:
   about: О Нас
   published_by: Опубликовал
   comments: Комментариев
+  create_article: Добавить новость!
+  new_article: Новая новость
+  cancel: Отменить
+

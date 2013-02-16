@@ -2,9 +2,13 @@
 
 FactoryGirl.define do
   factory :article do
-    title "MyString"
-    body "MyString"
+    title { Faker::Lorem.words }
+    body { Faker::Lorem.paragraphs.join("\n\n") }
     user
-    views_count 1
+    views_count 503
+
+    factory :invalid_article do
+      body nil
+    end
   end
 end

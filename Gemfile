@@ -19,12 +19,13 @@ gem 'kaminari' , "~> 0.13.0"
 gem 'devise', "~> 2.1.2"
 gem 'acts_as_commentable', "~> 3.0.1"
 
-gem 'anjlab-bootstrap-rails', ">= 2.2", :require => 'bootstrap-rails'
+gem 'anjlab-bootstrap-rails', ">= 2.3", :require => 'bootstrap-rails'
 gem 'has_scope', "~> 0.5.1"
 gem "squeel", "~> 1.0.7"
 gem "bitmask_attributes", "~> 0.4.0"
 gem "russian", "~> 0.6.0"
 gem "cancan", "~> 1.6.8"
+gem "simple_form", "~> 2.0.4"
 
 
 group :assets do
@@ -53,7 +54,7 @@ group :test, :development do
 end
 
 group :test do
-  gem "faker",            "~> 1.0.1"
+  gem "ffaker",           "~> 1.15.0"
   gem 'capybara',         "~> 1.1.2"
   gem "database_cleaner", "~> 0.8.0"
   gem "launchy",          "~> 2.1.0"

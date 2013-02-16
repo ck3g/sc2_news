@@ -1,7 +1,7 @@
 Sc2News::Application.routes.draw do
   devise_for :users
 
-  resources :articles, :only => [:index, :show]
+  resources :articles
 
   match "articles/tag/:by_tag" => "articles#index", :as => :tag_articles
 

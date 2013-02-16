@@ -13,6 +13,10 @@
             = link_to t(:about), "/about"
           %li{class: ("active" if current_page?("/jobs"))}
             = link_to t(:jobs), "/jobs"
+          - if can? :create, Article
+            %li.divider-vertical
+            %li{class: ("active" if current_page?(new_article_path))}
+              = link_to t(:create_article), new_article_path
 
         - if user_signed_in?
           .btn-group.pull-right

@@ -1,5 +1,9 @@
 $baseFontSize: 13px;
 $baseLineHeight: 18px;
 
+.input-fullwidth {
+  width: 98%;
+}
+
 @import "twitter/bootstrap";
 @import "twitter/bootstrap-responsive";

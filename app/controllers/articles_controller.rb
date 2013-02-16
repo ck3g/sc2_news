@@ -13,6 +13,15 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def create
+    @article = current_user.articles.new params[:article]
+    if @article.save
+      redirect_to articles_path, notice: I18n.t(:created_successfully)
+    else
+      render :new
+    end
+  end
+
   def show
 
   end
