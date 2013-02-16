@@ -28,7 +28,7 @@ describe "Ability" do
     it { should be_able_to :index, Article }
     it { should be_able_to :show, Article }
     it { should be_able_to :read, Tag }
-    it { should_not be_able_to :manage, create(:comment) }
+    it { should_not be_able_to :manage, Comment }
     it { should_not be_able_to :manage, create(:profile) }
   end
 
