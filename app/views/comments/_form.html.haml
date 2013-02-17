@@ -1,0 +1,4 @@
+= simple_form_for [article, comment], remote: true do |f|
+  = f.input :comment, label: false, placeholder: Comment.human_attribute_name(:comment),
+    input_html: { class: "input-fullwidth", rows: 5 }
+  = f.button :submit, class: "btn btn-primary disabled", disabled: true

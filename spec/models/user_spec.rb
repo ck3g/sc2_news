@@ -10,8 +10,9 @@ describe User do
   end
 
   describe ".associations" do
-    it { should have_many :articles }
-    it { should have_one :profile }
+    it { should have_many(:articles).dependent(:nullify) }
+    it { should have_many(:comments).dependent(:nullify) }
+    it { should have_one(:profile).dependent(:destroy) }
   end
 
   User::ROLES.each do |role|

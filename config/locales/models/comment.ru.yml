@@ -1,0 +1,6 @@
+
+ru:
+  activerecord:
+    attributes:
+      comment:
+        comment: Комментарий

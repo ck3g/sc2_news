@@ -1,0 +1,13 @@
+.row-fluid{id: dom_id(comment)}
+  .span12.well.js-comment-content
+    .span2
+      %p= avatar_tag(comment.user)
+      %p= link_to comment.username, "#"
+    .span10.clearfix
+      - if can? :manage, comment
+        .manage-button-wrapper
+          = link_to t(:delete), [comment.commentable, comment], method: :delete,
+            confirm: t(:are_you_sure_delete_comment), remote: true,
+            class: "manage-button"
+      %p.muted= l comment.created_at, format: :long
+      %p= simple_format comment.comment

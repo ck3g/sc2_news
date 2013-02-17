@@ -24,6 +24,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @comment = @article.comments.new
+    @comments = @article.comments.order("created_at ASC")
   end
 
   def edit

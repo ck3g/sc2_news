@@ -1,0 +1,3 @@
+$("#comments").append("<%=j render "comments/comment", comment: @comment %>");
+$("#<%= dom_id(@comment) %>").children(".well").effect("highlight", {}, 1000);
+$("#comments-form").html("<%=j render "comments/form", article: @article, comment: @new_comment %>");

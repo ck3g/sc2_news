@@ -17,6 +17,8 @@ describe ArticlesController do
     it { should respond_with :success }
     it { should render_template :show }
     it { should assign_to(:article).with article }
+    it { should assign_to(:comment).with_kind_of Comment }
+    it { should assign_to(:comments).with article.comments }
   end
 
   describe "GET #new" do

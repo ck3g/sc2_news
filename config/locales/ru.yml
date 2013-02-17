@@ -45,6 +45,8 @@ ru:
   created_successfully: Успешно создана
   updated_successfully: Успешно обновлена
   are_you_sure_delete_article: Уверен? Новость потом не вернуть.
+  are_you_sure_delete_comment: Удалить комментарий? Удаленный комментарий уже не восстановить
+  are_you_sure: Вы уверены?
   copyright: 2010-%{current_year} © StarCraft.md
   site_name: StarCraft.md
   terms_mini: Использование материалов сайта разрешено при условии размещения ссылок на сайт StarCraft.md
@@ -59,4 +61,7 @@ ru:
   cancel: Отменить
   delete: Удалить
   edit: Редактировать
+  only_registered_users_allowed_to_comment: Комментарии могут оставлять только зарегистрированные пользователи.
+  no_comments_youre_able_to_become_first: Для этой новости еще нет комментариев, но Вы можете стать первым.
+
 

@@ -3,7 +3,9 @@ Sc2News::Application.routes.draw do
 
   devise_for :users
 
-  resources :articles
+  resources :articles do
+    resources :comments, only: [:create, :update, :destroy]
+  end
 
   match "articles/tag/:by_tag" => "articles#index", :as => :tag_articles
 

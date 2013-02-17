@@ -10,8 +10,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :created_at, :legacy_id, :username
 
-  has_many :articles
-  has_one :profile, :dependent => :destroy
+  has_many :articles, dependent: :nullify
+  has_many :comments, dependent: :nullify
+  has_one :profile, dependent: :destroy
 
   alias_attribute :name, :username
 
