@@ -10,4 +10,8 @@ module ArticlesHelper
       "#{hint_tags} - #{description}".html_safe
     end
   end
+
+  def article_hint_by_rule(rule)
+    article_hint rule.first, I18n.t("hint.#{rule.first.first}_desc", icon: image_tag(rule.last))
+  end
 end

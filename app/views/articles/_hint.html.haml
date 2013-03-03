@@ -9,14 +9,6 @@
             = t(:hint_description)
 
         %p
-          = article_hint "cut", t("hint.cut_description")
-          = article_hint ["zerg", "зерг", "z2"], t("hint.zerg_desc", icon: image_tag("icons/zerg.png"))
-          = article_hint ["protoss", "протосс", "p2"], t("hint.protoss_desc", icon: image_tag("icons/protoss.png"))
-          = article_hint ["terran", "терран", "t2"], t("hint.terran_desc", icon: image_tag("icons/terran.png"))
-          = article_hint ["random", "случайная", "r"], t("hint.random_desc", icon: image_tag("icons/random.png"))
-          = article_hint ["zerg1", "зерг1", "z1"], t("hint.zerg1_desc", icon: image_tag("icons/zerg1.png"))
-          = article_hint ["protoss1", "протосс1", "p1"], t("hint.protoss1_desc", icon: image_tag("icons/protoss1.png"))
-          = article_hint ["terran1", "терран1", "t1"], t("hint.terran1_desc", icon: image_tag("icons/terran1.png"))
-          = article_hint ["gold", "g1"], t("hint.gold_desc", icon: image_tag("icons/gold.gif"))
-          = article_hint ["silver", "s1"], t("hint.silver_desc", icon: image_tag("icons/silver.gif"))
-          = article_hint ["bronze", "b1"], t("hint.bronze_desc", icon: image_tag("icons/bronze.gif"))
+          = article_hint "cut", t("hint.cut_desc")
+          - ReplaceIconsStrategy.rules.each do |rule|
+            = article_hint_by_rule(rule)
