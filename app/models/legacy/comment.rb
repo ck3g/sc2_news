@@ -3,9 +3,9 @@ class Legacy::Comment < Legacy::Base
 
   def import(article)
     user = User.find_by_legacy_id(self.author_id)
-    article.comments.create(comment: self.body,
-                            user_id: user.try(:id),
-                            created_at: self.created_at,
-                            ip_address: self.ip_address)
+    article.comments.new(comment: self.body, ip_address: self.ip_address)
+    article.user_id = user.try(:id)
+    article.created_at = self.created_at
+    article.save
   end
 end
