@@ -10,7 +10,7 @@ gem "pg"
 gem 'jquery-rails'
 
 gem 'tiny_tds', "~> 0.5.1"
-gem 'activerecord-sqlserver-adapter', '~> 3.2.0'
+gem 'activerecord-sqlserver-adapter', '~> 3.2.10'
 
 gem 'haml', '~> 3.1.6'
 gem 'meta-tags', '~> 1.2.6', :require => 'meta_tags'
@@ -20,11 +20,11 @@ gem 'acts_as_commentable', "~> 3.0.1"
 
 gem 'anjlab-bootstrap-rails', ">= 2.3", :require => 'bootstrap-rails'
 gem 'has_scope', "~> 0.5.1"
-gem "squeel", "~> 1.0.7"
+gem "squeel", "~> 1.0.17"
 gem "bitmask_attributes", "~> 0.4.0"
 gem "russian", "~> 0.6.0"
 gem "cancan", "~> 1.6.8"
-gem "simple_form", "~> 2.0.4"
+gem "simple_form", "~> 2.1.0"
 gem "client_side_validations", "~> 3.2.1"
 
 gem "carrierwave", "~> 0.8.0"
