@@ -31,6 +31,7 @@ gem "client_side_validations", "~> 3.2.1"
 gem "carrierwave", "~> 0.8.0"
 gem "mini_magick", "~> 3.5.0"
 gem "ckeditor", "~> 4.0.2"
+gem "twitter_cldr", "~> 2.2.0"
 
 
 group :assets do
