@@ -13,8 +13,8 @@ script:
 
 before_script:
   - cp config/database.travis.yml config/database.yml
-  - mysql -e 'create database sc2_test'
-  - mysql -e 'create database sc2_test_stub'
+  - psql -c 'create database sc2_test;' -U postgres
+  - psql -c 'create database sc2_test_stub;' -U postgres
 
 before_install:
   - sudo apt-get install freetds-dev freetds-bin tdsodbc
