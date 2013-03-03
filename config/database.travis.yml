@@ -1,0 +1,14 @@
+common: &common
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  username: root
+  password:
+
+test:
+  <<: *common
+  database: sc2_test
+
+sc2_md:
+  <<: *common
+  database: sc2_test_stub

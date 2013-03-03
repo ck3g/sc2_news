@@ -1,0 +1,21 @@
+brances:
+  only:
+    - 'master'
+
+language: ruby
+rvm:
+  - 1.9.3
+
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
+
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - mysql -e 'create database sc2_test'
+  - mysql -e 'create database sc2_test_stub'
+
+before_install:
+  - sudo apt-get install freetds-dev freetds-bin tdsodbc
+
