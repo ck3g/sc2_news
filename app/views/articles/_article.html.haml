@@ -18,7 +18,7 @@
       = l article.created_at, format: :long
 
   .article-body
-    = raw article.body.split(Article::CUTTER).first
+    = raw formatted(article.body, params[:action] == "index")
   .article-tags.pull-left
     - article.tags.each do |tag|
       = link_to tag_articles_path(tag.name) do
