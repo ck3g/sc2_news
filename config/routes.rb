@@ -7,7 +7,7 @@ Sc2News::Application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
   end
 
-  match "articles/tag/:by_tag" => "articles#index", :as => :tag_articles
+  get "articles/tag/:tagged_with" => "articles#index", :as => :tagged_articles
 
   resources :chat_messages, :only => [:index, :create]
 

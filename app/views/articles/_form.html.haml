@@ -8,6 +8,8 @@
       placeholder: Article.human_attribute_name(:body),
       input_html: { class: "input-fullwidth", ckeditor: { toolbar: "Simple" } }
 
+    = f.input :tag_list, label: false, placeholder: "Tags"
+
     = render 'hint'
 
     .form-actions

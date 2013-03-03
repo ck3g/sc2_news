@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   before_filter :find_article, only: [:show, :update, :destroy]
 
-  has_scope :by_tag
+  has_scope :tagged_with
 
   def index
     @articles = apply_scopes(Article.includes(:user)).order("created_at DESC").page(params[:page])

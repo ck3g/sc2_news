@@ -30,6 +30,8 @@ GEM
     activesupport (3.2.11)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.3.3)
+      rails (~> 3.0)
     acts_as_commentable (3.0.1)
     addressable (2.3.2)
     anjlab-bootstrap-rails (2.3.0.0)
@@ -297,6 +299,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-sqlserver-adapter (~> 3.2.10)
+  acts-as-taggable-on (~> 2.3.3)
   acts_as_commentable (~> 3.0.1)
   anjlab-bootstrap-rails (>= 2.3)
   bitmask_attributes (~> 0.4.0)

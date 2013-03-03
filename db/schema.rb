@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216114509) do
+ActiveRecord::Schema.define(:version => 20130303153732) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -27,14 +27,6 @@ ActiveRecord::Schema.define(:version => 20130216114509) do
   add_index "articles", ["ip_address"], :name => "index_articles_on_ip_address"
   add_index "articles", ["legacy_id"], :name => "index_articles_on_legacy_id"
   add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
-
-  create_table "articles_tags", :id => false, :force => true do |t|
-    t.integer "article_id"
-    t.integer "tag_id"
-  end
-
-  add_index "articles_tags", ["article_id"], :name => "index_articles_tags_on_article_id"
-  add_index "articles_tags", ["tag_id"], :name => "index_articles_tags_on_tag_id"
 
   create_table "chat_messages", :force => true do |t|
     t.string   "body"
@@ -104,14 +96,22 @@ ActiveRecord::Schema.define(:version => 20130216114509) do
   add_index "profiles", ["country_id"], :name => "index_profiles_on_country_id"
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
 
-  create_table "tags", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "legacy_id"
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
   end
 
-  add_index "tags", ["legacy_id"], :name => "index_tags_on_legacy_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

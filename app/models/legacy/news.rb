@@ -8,8 +8,8 @@ class Legacy::News < Legacy::Base
   def self.import(legacy_id)
     legacy = self.find_by_id(legacy_id)
 
-    user = User.find_by_legacy_id(legacy.author_id)
-    article = Article.find_or_create_by_legacy_id(legacy_id)
+    user = User.where(legacy_id: legacy.author_id).first
+    article = Article.where(legacy_id: legacy_id).first_or_initialize
 
     article.title       = legacy.title
     article.body        = legacy.body
@@ -18,6 +18,9 @@ class Legacy::News < Legacy::Base
     article.created_at  = legacy.created_at or DateTime.current
     article.updated_at  = legacy.modified_at or DateTime.current
     article.ip_address  = legacy.ip_address
+
+    article.tag_list = legacy.legacy_tags.pluck(:name).join(", ")
+
     article.save
   end
 end

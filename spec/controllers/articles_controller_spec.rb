@@ -6,10 +6,17 @@ describe ArticlesController do
   let(:article) { create :article }
 
   describe "GET #index" do
+    let!(:old) { create :old_article, tag_list: "sc2, tournament" }
+    let!(:very_old) { create :very_old_article, tag_list: "tournament, stream" }
     before { get :index }
     it { should respond_with :success }
     it { should render_template :index }
-    it { should assign_to(:articles).with [article] }
+    it { should assign_to(:articles).with [article, old, very_old] }
+
+    context "when selected by tags" do
+      before { get :index, tagged_with: "tournament" }
+      it { should assign_to(:articles).with [old, very_old] }
+    end
   end
 
   describe "GET #show" do

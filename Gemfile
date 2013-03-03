@@ -17,6 +17,7 @@ gem 'meta-tags', '~> 1.2.6', :require => 'meta_tags'
 gem 'kaminari' , "~> 0.13.0"
 gem 'devise', "~> 2.1.2"
 gem 'acts_as_commentable', "~> 3.0.1"
+gem "acts-as-taggable-on", "~> 2.3.3"
 
 gem 'anjlab-bootstrap-rails', ">= 2.3", :require => 'bootstrap-rails'
 gem 'has_scope', "~> 0.5.1"
