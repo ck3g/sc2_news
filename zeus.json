@@ -8,7 +8,8 @@
           "prerake": {"rake": []},
           "console": ["c"],
           "server": ["s"],
-          "generate": ["g"]
+          "generate": ["g"],
+          "destroy": ["d"]
         },
         "test_environment": {
           "test_helper": {"test": ["rspec"]}
