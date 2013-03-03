@@ -8,6 +8,9 @@
       placeholder: Article.human_attribute_name(:body),
       input_html: { class: "input-fullwidth", ckeditor: { toolbar: "Simple" } }
 
+    = render 'hint'
+
     .form-actions
       = f.button :submit, class: "btn btn-primary", :"disable-with" => t(:wait)
       = link_to t(:cancel), root_path, class: "btn"
+
