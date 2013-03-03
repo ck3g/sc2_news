@@ -2,6 +2,9 @@ class Legacy::News < Legacy::Base
   self.table_name = "News"
   self.inheritance_column = :_type_disabled
 
+  has_many :legacy_news_tags, class_name: "Legacy::NewsTag"
+  has_many :legacy_tags, through: :legacy_news_tags
+
   def self.import(legacy_id)
     legacy = self.find_by_id(legacy_id)
 
