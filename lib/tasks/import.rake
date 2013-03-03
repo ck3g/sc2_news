@@ -71,6 +71,7 @@ namespace :import do
     Rake::Task["import:link_tags_and_articles"].invoke
   end
 
+  # TODO: change tags import. avoid storing legacy tags
   task link_tags_and_articles: :environment do
     puts "Linking tags and articles..."
     articles = Article.all
