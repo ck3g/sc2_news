@@ -51,6 +51,7 @@ group :development do
   gem 'pry-rails'
   gem "rails_best_practices"
   gem "thin"
+  gem "zeus"
 end
 
 group :test, :development do
