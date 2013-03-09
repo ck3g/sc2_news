@@ -1,4 +1,4 @@
-%h2= t(:tag_cloud)
+%h2= title t(:tag_cloud)
 - if can?(:manage, Tag) && !manage?
   = link_to t(:manage_tags), tags_path(manage: 1), :class => "btn btn-success"
 

@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = apply_scopes(Article.includes(:user)).order("created_at DESC").page(params[:page])
+    set_meta_tags title: I18n.t(:articles)
   end
 
   def new
