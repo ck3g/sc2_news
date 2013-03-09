@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303153732) do
+ActiveRecord::Schema.define(:version => 20130309124320) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -68,6 +68,21 @@ ActiveRecord::Schema.define(:version => 20130303153732) do
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["ip_address"], :name => "index_comments_on_ip_address"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "pages", :force => true do |t|
+    t.string   "permalink",                      :null => false
+    t.string   "title",                          :null => false
+    t.text     "content",                        :null => false
+    t.string   "description"
+    t.string   "keywords"
+    t.boolean  "enabled",     :default => false, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "pages", ["enabled"], :name => "index_pages_on_enabled"
+  add_index "pages", ["permalink"], :name => "index_pages_on_permalink", :unique => true
+  add_index "pages", ["title"], :name => "index_pages_on_title", :unique => true
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
