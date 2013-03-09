@@ -1,0 +1,7 @@
+%h2= t(:edit_tag)
+
+= simple_form_for @tag, html: { class: "form-horizontal" } do |f|
+  = f.input :name
+  .form-actions
+    = f.button :submit, class: "btn btn-primary", :"disable-with" => t(:wait)
+    = link_to t(:cancel), tags_path(manage: 1), class: "btn"

@@ -19,4 +19,9 @@ module ApplicationHelper
     image_tag "avatars/default.gif"
   end
 
+  def link_to_nav(title, path)
+    content_tag :li, :class => ("active" if current_page?(path)) do
+      link_to title, path
+    end
+  end
 end

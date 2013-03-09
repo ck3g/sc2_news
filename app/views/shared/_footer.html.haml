@@ -1,0 +1,13 @@
+%footer.background
+  .pull-left.blizzard-logo
+    = image_tag "blizzard_logo.gif"
+  .pull-left
+    = t(:site_name)
+    %br/
+    = link_to t(:fan_site), "#"
+  .pull-right.align-right
+    %p.copyright
+      = t(:copyright, current_year: Date.current.year)
+    %p.terms-mini
+      = t(:terms_mini)
+  .clear

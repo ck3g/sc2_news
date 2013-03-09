@@ -13,4 +13,7 @@ class Article < ActiveRecord::Base
   delegate :email, to: :user, prefix: true
   delegate :name, to: :user, prefix: true, allow_nil: true
 
+  def self.top_tags(count)
+    Article.tag_counts_on(:tags).sort_by(&:count).reverse.first(count)
+  end
 end

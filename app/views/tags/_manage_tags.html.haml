@@ -1,0 +1,15 @@
+.span12
+  - tags.each_slice((tags.count + 1) / 2).each do |tag_group|
+    .span5
+      %table.table.table-striped.table-composed
+        %thead
+          %th= Tag.human_attribute_name(:name)
+          %th
+        %tbody
+          - tag_group.each do |tg|
+            %tr{id: dom_id(tg)}
+              %td= tg.name
+              %td
+                = link_to t(:edit), edit_tag_path(tg), :class => "btn-manage"
+                = link_to t(:delete), tg, :class => "btn-manage",
+                  method: :delete, data: { confirm: t(:are_you_sure_delete_tag) }

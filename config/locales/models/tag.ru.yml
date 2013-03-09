@@ -1,0 +1,6 @@
+
+ru:
+  activerecord:
+    attributes:
+      tag:
+        name: Название

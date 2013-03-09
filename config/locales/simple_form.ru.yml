@@ -3,6 +3,8 @@ ru:
     submit:
       comment:
         create: Оставить комментарий
+      tag:
+        update: Обновить тег
   simple_form:
     "yes": 'Yes'
     "no": 'No'

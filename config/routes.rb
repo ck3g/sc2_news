@@ -13,6 +13,7 @@ Sc2News::Application.routes.draw do
 
   resources :users
 
+  resources :tags, only: [:index, :edit, :update, :destroy]
 
   root :to => 'articles#index'
 end

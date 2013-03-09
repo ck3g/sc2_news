@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    = stylesheet_link_tag    "application", media: "all"
+    = stylesheet_link_tag  "application", media: "all"
     = favicon_link_tag "favicon.ico"
     = display_meta_tags site: t(:site_name)
     = csrf_meta_tags
@@ -23,23 +23,13 @@
         .span8
           = yield
         .span2
-          = render :partial => 'shared/side_right'
+          = render 'shared/side_right'
       %hr/
-  %footer.background
-    .pull-left.blizzard-logo
-      = image_tag "blizzard_logo.gif"
-    .pull-left
-      = t(:site_name)
-      %br/
-      = link_to t(:fan_site), "#"
-    .pull-right.align-right
-      %p.copyright
-        = t(:copyright, current_year: Date.current.year)
-      %p.terms-mini
-        = t(:terms_mini)
-    .clear
 
+    = render 'shared/tags'
 
-    = render 'shared/social_widgets'
+    = render 'shared/footer'
+
+    =# render 'shared/social_widgets'
 
     = javascript_include_tag "application"

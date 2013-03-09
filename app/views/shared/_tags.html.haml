@@ -1,0 +1,5 @@
+.container-fluid.background.main-container
+  .simple-tag-cloud
+    - Article.top_tags(10).each do |tg|
+      = link_to "#{tg.name}(#{tg.count})", tagged_articles_path(tg.name)
+    = link_to "#{t(:tag_cloud)}...", tags_path

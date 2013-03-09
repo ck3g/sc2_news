@@ -20,6 +20,7 @@ class Ability
     elsif user.editor?
       can :manage, [Article, Tag, Comment]
       can :manage, [Profile], user_id: user.id
+      can :manage, [Tag]
     elsif user.writer?
       can :manage, [Article, Profile], user_id: user.id
       can :read, Tag

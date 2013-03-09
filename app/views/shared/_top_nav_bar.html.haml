@@ -7,16 +7,13 @@
         %span.icon-bar
       .nav-collapse
         %ul.nav
-          %li{class: ("active" if current_page?(root_path))}
-            = link_to t(:home), root_path
-          %li{class: ("active" if current_page?("/about"))}
-            = link_to t(:about), "/about"
-          %li{class: ("active" if current_page?("/jobs"))}
-            = link_to t(:jobs), "/jobs"
+          = link_to_nav t(:home), root_path
+          = link_to_nav t(:about), "/about"
+          = link_to_nav t(:jobs), "/jobs"
+          = link_to_nav t(:tag_cloud), tags_path
           - if can? :create, Article
             %li.divider-vertical
-            %li{class: ("active" if current_page?(new_article_path))}
-              = link_to t(:create_article), new_article_path
+            = link_to_nav t(:create_article), new_article_path
 
         - if user_signed_in?
           .btn-group.pull-right
