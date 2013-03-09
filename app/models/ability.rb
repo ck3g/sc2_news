@@ -12,15 +12,14 @@ class Ability
     #   end
 
     user ||= User.new
-    cannot :all, [Article, Comment, Tag, Profile]
+    cannot :all, [Article, Comment, Tag, Profile, Page]
     can :manage, [Comment], user_id: user.id
 
     if user.admin?
       can :manage, :all
     elsif user.editor?
-      can :manage, [Article, Tag, Comment]
+      can :manage, [Article, Tag, Comment, Page]
       can :manage, [Profile], user_id: user.id
-      can :manage, [Tag]
     elsif user.writer?
       can :manage, [Article, Profile], user_id: user.id
       can :read, Tag

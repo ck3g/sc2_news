@@ -24,4 +24,12 @@ module ApplicationHelper
       link_to title, path
     end
   end
+
+  def link_to_page_nav(permalink)
+    return unless page = Page.by_permalink(permalink)
+
+    content_tag :li, :class => ("active" if current_page?(page_path(permalink))) do
+      link_to page.title, page_path(permalink)
+    end
+  end
 end

@@ -1,0 +1,11 @@
+
+ru:
+  activerecord:
+    attributes:
+      page:
+        permalink: Прямая ссылка
+        title: Заголовок
+        description: Meta description
+        keywords: Meta keywords
+        content: Содержимое
+        enabled: Включена

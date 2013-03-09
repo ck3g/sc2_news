@@ -42,6 +42,8 @@ ru:
     must_sign_in: "Залогинтесь для чата"
 
   wait: "..."
+  "true": "Да"
+  "false": "Нет"
   created_successfully: Успешно создана
   updated_successfully: Успешно обновлена
   are_you_sure_delete_article: Уверен? Новость потом не вернуть.
@@ -84,4 +86,8 @@ ru:
   manage_tags: Управление тегами
   edit_tag: Редактирование тега
   are_you_sure_delete_tag: При удалении тега он пропадает изо всех новостей. Удалить?
+  static_pages: Статические страницы
+  new_page: Новая страница
+  create_page: Создать страницу
+  pages: Страницы
 

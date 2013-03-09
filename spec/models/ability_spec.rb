@@ -12,6 +12,7 @@ shared_examples "as writer" do
   it { should_not be_able_to :manage, Tag }
   it { should be_able_to :manage, own_comment }
   it { should_not be_able_to :manage, ally_comment }
+  it { should_not be_able_to :manage, Page }
 end
 
 shared_examples "manage Profiles" do
@@ -31,6 +32,7 @@ describe "Ability" do
     it { should_not be_able_to :manage, Comment }
     it { should_not be_able_to :manage, create(:profile) }
     it { should_not be_able_to :manage, Tag }
+    it { should_not be_able_to :manage, Page }
   end
 
   describe "as admin" do
@@ -49,6 +51,7 @@ describe "Ability" do
     it { should_not be_able_to :index, User }
     it { should_not be_able_to :manage, User }
     it { should be_able_to :all, Tag }
+    it { should be_able_to :manage, Page }
     it_behaves_like "manage Profiles"
   end
 

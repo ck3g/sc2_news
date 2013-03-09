@@ -5,6 +5,10 @@ ru:
         create: Оставить комментарий
       tag:
         update: Обновить тег
+      page:
+        create: Создать страницу
+        update: Обновить страницу
+
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -29,4 +33,15 @@ ru:
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
+    placeholders:
+      page:
+        permalink: Прямая ссылка
+        title: Заголовок
+        description: Meta description
+        keywords: Meta keywords
+        content: Содержимое
+        enabled: Включена
+      article:
+        title: Заголовок
+        body: Содержимое новости
 

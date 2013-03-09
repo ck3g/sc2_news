@@ -18,9 +18,14 @@ class User < ActiveRecord::Base
 
   after_create :create_profile
 
+  def self.admin?(user)
+    user && user.admin?
+  end
+
   ROLES.each do |role|
     define_method "#{role}?" do
       self.roles?(role)
     end
   end
+
 end

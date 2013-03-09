@@ -15,4 +15,14 @@ describe Page do
       it { should validate_presence_of :content }
     end
   end
+
+  describe ".scopes" do
+    describe ".enabled" do
+      let!(:enabled_page) { create :page }
+      let!(:disabled_page) { create :disabled_page }
+      it "returns only enabled pages" do
+        expect(Page.enabled.all).to eq [enabled_page]
+      end
+    end
+  end
 end

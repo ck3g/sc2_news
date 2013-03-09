@@ -1,16 +1,8 @@
 .well
-  = simple_form_for article do |f|
-    = f.input :title, label: false,
-      placeholder: Article.human_attribute_name(:title),
-      input_html: { class: "input-fullwidth" }
-
-    = f.input :body, as: :ckeditor, label: false,
-      placeholder: Article.human_attribute_name(:body),
-      input_html: { class: "input-fullwidth", ckeditor: { toolbar: "Simple" } }
-
-    = f.input :tag_list, label: false,
-      hint: t(:tags_hint),
-      input_html: { class: "input-fullwidth" }
+  = simple_form_for article, defaults: { label: false, input_html: { class: "input-fullwidth" } } do |f|
+    = f.input :title
+    = f.input :body, as: :ckeditor
+    = f.input :tag_list, hint: t(:tags_hint)
 
     = render 'hint'
 

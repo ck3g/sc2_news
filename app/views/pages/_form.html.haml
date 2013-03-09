@@ -1,0 +1,10 @@
+= simple_form_for page, defaults: { label: false, input_html: { class: "input-fullwidth" } } do |f|
+  = f.input :permalink
+  = f.input :title
+  = f.input :description
+  = f.input :keywords
+  = f.input :content, as: :ckeditor
+  = f.input :enabled, inline_label: true
+  .form-actions
+    = f.button :submit, class: "btn btn-primary", :"disable-with" => t(:wait)
+    = link_to t(:cancel), pages_path, class: "btn"

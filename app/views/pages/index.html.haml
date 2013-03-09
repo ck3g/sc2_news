@@ -1,0 +1,23 @@
+%h2= title t(:static_pages)
+
+%p
+  = link_to t(:create_page), new_page_path, class: "btn btn-success"
+
+%table.table.table-contensed
+  %thead
+    %tr
+      %th= "#"
+      %th= Page.human_attribute_name(:permalink)
+      %th= Page.human_attribute_name(:title)
+      %th= Page.human_attribute_name(:enabled)
+      %th
+  %tbody
+    - @pages.each do |page|
+      %tr{class: page_enabled_class(page)}
+        %td= page.id
+        %td= link_to "/#{page.permalink}", page_path(page.permalink)
+        %td= page.title
+        %td= t(page.enabled?.to_s)
+        %td
+          = link_to t(:edit), edit_page_path(page), class: "btn-manage"
+          = link_to t(:delete), page, class: "btn-manage", method: :delete, data: { confirm: t(:are_you_sure) }

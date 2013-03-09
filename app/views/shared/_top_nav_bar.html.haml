@@ -8,12 +8,14 @@
       .nav-collapse
         %ul.nav
           = link_to_nav t(:home), root_path
-          = link_to_nav t(:about), "/about"
-          = link_to_nav t(:jobs), "/jobs"
+          = link_to_page_nav "about"
+          = link_to_page_nav "jobs"
           = link_to_nav t(:tag_cloud), tags_path
+          %li.divider-vertical
           - if can? :create, Article
-            %li.divider-vertical
             = link_to_nav t(:create_article), new_article_path
+          - if can? :create, Page
+            = link_to_nav t(:pages), pages_path
 
         - if user_signed_in?
           .btn-group.pull-right
