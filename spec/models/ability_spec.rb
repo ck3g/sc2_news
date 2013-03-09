@@ -30,6 +30,7 @@ describe "Ability" do
     it { should be_able_to :read, Tag }
     it { should_not be_able_to :manage, Comment }
     it { should_not be_able_to :manage, create(:profile) }
+    it { should_not be_able_to :manage, Tag }
   end
 
   describe "as admin" do
