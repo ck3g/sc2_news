@@ -28,7 +28,8 @@ class Ability
       can :read, Tag
     else
       # Guest possibilities
-      can :read, [Article, Tag]
+      can :read, Article, published: true
+      can :read, [Tag]
       cannot :manage, [Comment]
     end
 

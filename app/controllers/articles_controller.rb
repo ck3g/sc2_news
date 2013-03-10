@@ -6,7 +6,8 @@ class ArticlesController < ApplicationController
   has_scope :tagged_with
 
   def index
-    @articles = apply_scopes(Article.includes(:user)).order("created_at DESC").page(params[:page])
+    relation = apply_scopes(Article.accessible_by(current_ability))
+    @articles = ArticleQuery.new(relation).list.page(params[:page])
     set_meta_tags title: I18n.t(:articles)
   end
 
@@ -47,6 +48,6 @@ class ArticlesController < ApplicationController
 
   private
   def find_article
-    @article = Article.find params[:id]
+    @article = Article.accessible_by(current_ability).find params[:id]
   end
 end

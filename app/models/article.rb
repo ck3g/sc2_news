@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   CUTTER = "&lt;cut&gt;"
 
-  attr_accessible :title, :body, :views_count, :tag_list
+  attr_accessible :title, :body, :views_count, :tag_list, :published, :published_on
 
   acts_as_commentable
   acts_as_taggable
@@ -13,7 +13,14 @@ class Article < ActiveRecord::Base
   delegate :email, to: :user, prefix: true
   delegate :name, to: :user, prefix: true, allow_nil: true
 
+  after_initialize :init_defaults
+
   def self.top_tags(count)
     Article.tag_counts_on(:tags).sort_by(&:count).reverse.first(count)
+  end
+
+  private
+  def init_defaults
+    self.published_on ||= created_at.presence.try(:to_date) || Date.current
   end
 end

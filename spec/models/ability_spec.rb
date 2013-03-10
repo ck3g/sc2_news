@@ -27,7 +27,8 @@ describe "Ability" do
   describe "as guest" do
     subject { Ability.new nil }
     it { should be_able_to :index, Article }
-    it { should be_able_to :show, Article }
+    it { should be_able_to :show, create(:article) }
+    it { should_not be_able_to :show, create(:unpublished_article) }
     it { should be_able_to :read, Tag }
     it { should_not be_able_to :manage, Comment }
     it { should_not be_able_to :manage, create(:profile) }

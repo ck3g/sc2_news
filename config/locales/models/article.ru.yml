@@ -7,3 +7,5 @@ ru:
       article:
         title: Заголовок
         body: Содержимое новости
+        published_on: Дата публикации
+        published: Опубликована

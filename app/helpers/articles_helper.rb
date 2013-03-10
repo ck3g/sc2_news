@@ -35,4 +35,8 @@ module ArticlesHelper
     text = cut(text) if cut_text
     replace_tags text
   end
+
+  def unpublished_prefix(article)
+    content_tag :span, "[#{t(:unpublished)}]", :class => "unpublished" unless article.published?
+  end
 end

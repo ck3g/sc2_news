@@ -18,4 +18,11 @@ describe Article do
       it { should validate_presence_of :user_id }
     end
   end
+
+  describe "initialize" do
+    it "sets the default values" do
+      Article.any_instance.should_receive(:init_defaults)
+      build :article
+    end
+  end
 end

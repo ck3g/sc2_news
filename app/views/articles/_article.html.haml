@@ -8,6 +8,7 @@
   .row-fluid.article-title.clearfix
     .pull-left
       %h3
+        = unpublished_prefix(article)
         = link_to article.title, article
     .pull-right
       = succeed ":" do
@@ -15,7 +16,7 @@
       = link_to user_path(article.user) do
         = article.user_name || article.user_email
       = " @"
-      = l article.created_at, format: :long
+      = l article.published_on, format: :long
 
   .article-body
     = raw formatted(article.body, params[:action] == "index")
