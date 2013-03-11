@@ -16,7 +16,7 @@ class Legacy::News < Legacy::Base
     article.user_id       = user.id
     article.views_count   = legacy.hits or 0
     article.created_at    = legacy.created_at or DateTime.current
-    article.published_on  = legacy.created_at or DateTime.current
+    article.published_at  = legacy.created_at or DateTime.current
     article.updated_at    = legacy.modified_at or DateTime.current
     article.ip_address    = legacy.ip_address
 

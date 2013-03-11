@@ -17,11 +17,11 @@ FactoryGirl.define do
     end
 
     factory :old_article do
-      published_on { 10.days.ago }
+      published_at { 10.days.ago }
     end
 
     factory :very_old_article do
-      published_on { 20.days.ago }
+      published_at { 20.days.ago }
     end
 
     factory :unpublished_article, traits: [:unpublished]

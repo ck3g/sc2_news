@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20130310104710) do
     t.string   "ip_address"
     t.integer  "legacy_id"
     t.boolean  "published",    :default => true
-    t.date     "published_on"
+    t.datetime "published_at"
   end
 
   add_index "articles", ["ip_address"], :name => "index_articles_on_ip_address"

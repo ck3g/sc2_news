@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   CUTTER = "&lt;cut&gt;"
 
-  attr_accessible :title, :body, :views_count, :tag_list, :published, :published_on
+  attr_accessible :title, :body, :views_count, :tag_list, :published, :published_at
 
   acts_as_commentable
   acts_as_taggable
@@ -21,6 +21,6 @@ class Article < ActiveRecord::Base
 
   private
   def init_defaults
-    self.published_on ||= created_at.presence.try(:to_date) || Date.current
+    self.published_at ||= created_at.presence || DateTime.current
   end
 end
