@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   def index
     relation = apply_scopes(Article.accessible_by(current_ability))
     @articles = ArticleQuery.new(relation).list.page(params[:page])
-    set_meta_tags title: I18n.t(:articles)
+    set_meta_tags title: I18n.t(:articles_title)
   end
 
   def new
