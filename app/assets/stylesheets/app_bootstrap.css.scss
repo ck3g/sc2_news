@@ -37,5 +37,11 @@ $baseLineHeight: 18px;
   width: 70px;
 }
 
+form.top-login {
+  input[type=email], input[type=password] {
+    margin-top: 5px;
+  }
+}
+
 @import "twitter/bootstrap";
 @import "twitter/bootstrap-responsive";

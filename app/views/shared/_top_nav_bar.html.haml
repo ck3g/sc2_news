@@ -29,6 +29,9 @@
               %li= link_to t("users.logout"), :destroy_user_session, method: :delete
         - else
           = form_for "user", url: user_session_path, html: {action: user_session, class: "form-inline pull-right top-login"} do |f|
-            = f.email_field :email, placeholder: "email", class: "input-small"
-            = f.password_field :password, placeholder: "Пароль", class: "input-small"
-            = f.submit "Войти", class: "btn"
+            = f.email_field :email, placeholder: User.human_attribute_name(:email), class: "input-small"
+            = f.password_field :password, placeholder: User.human_attribute_name(:password), class: "input-small"
+            = f.submit t(:do_sign_in), class: "btn"
+          %ul.nav.pull-right
+            = link_to_nav t(:sign_up), new_user_registration_path
+            %li.divider-vertical
