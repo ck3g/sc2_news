@@ -1,0 +1,10 @@
+- html = { method: :post, class: "form-signin" }
+- defaults = { label: false, input_html: { class: "input-xlarge" } }
+= simple_form_for resource, as: resource_name, url: password_path(resource_name), html: html, defaults: defaults do |f|
+  %h2.form-signin-heading= t(:forgot_password)
+  = f.error_notification
+  .form-inputs
+    = f.input :email, required: true
+    = f.button :submit, t(:send_me_reset_password_instructions), class: "btn btn-primary"
+    .shared-links
+      = render "devise/shared/links"

@@ -38,10 +38,45 @@ $baseLineHeight: 18px;
 }
 
 form.top-login {
-  input[type=email], input[type=password] {
-    margin-top: 5px;
+  input {
+    &[type="email"], &[type="password"] {
+      margin-top: 5px;
+    }
+  }
+}
+
+$form-signin-border-radius: 5px;
+.form-signin {
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: $form-signin-border-radius;
+  -moz-border-radius: $form-signin-border-radius;
+  border-radius: $form-signin-border-radius;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  .form-signin-heading, .checkbox {
+    margin-bottom: 10px;
+  }
+  input {
+    &[type="text"], &[type="password"], &[type="email"] {
+      font-size: 16px;
+      height: auto;
+      margin-bottom: 15px;
+      padding: 7px 9px;
+    }
+  }
+
+  .shared-links {
+    padding-top: 5px;
   }
 }
 
 @import "twitter/bootstrap";
+.main-container {
+  padding-top: 20px;
+}
 @import "twitter/bootstrap-responsive";

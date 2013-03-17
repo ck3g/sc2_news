@@ -1,0 +1,12 @@
+- html = { class: "form-signin" }
+- defaults = { label: false, required: true, input_html: { class: "input-xlarge" } }
+= simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: html, defaults: defaults do |f|
+  %h2.form-sighin-heading= t(:sign_up)
+  = f.error_notification
+  .form-inputs
+    = f.input :email, autofocus: true
+    = f.input :password
+    = f.input :password_confirmation
+    = f.button :submit, t(:do_sign_up), class: "btn btn-primary"
+    .shared-links
+      = render "devise/shared/links"

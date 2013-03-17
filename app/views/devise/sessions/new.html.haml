@@ -1,0 +1,11 @@
+- html = { class: "form-signin" }
+- defaults = { label: false, required: false, input_html: { class: "input-xlarge" } }
+= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: html, defaults: defaults do |f|
+  %h2.form-signin-heading= t(:sign_in)
+  .form-inputs
+    = f.input :email, autofocus: true
+    = f.input :password
+    = f.input :remember_me, as: :boolean, inline_label: User.human_attribute_name(:remember_me) if devise_mapping.rememberable?
+    = f.button :submit, t(:do_sign_in), class: "btn btn-primary"
+    .shared-links
+      = render "devise/shared/links"

@@ -6,3 +6,4 @@ ru:
         email: Email
         password: Пароль
         password_confirmation: Подтверждение пароля
+        remember_me: Не выходить из системы

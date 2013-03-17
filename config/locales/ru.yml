@@ -99,4 +99,6 @@ ru:
   sign_in: Вход
   do_sign_up: Зарегистрироваться
   do_sign_in: Войти
+  forgot_password: Забыли пароль?
+  send_me_reset_password_instructions: Выслать мне инструкции по сбросу пароля
 
