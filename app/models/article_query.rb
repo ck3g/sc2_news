@@ -4,6 +4,6 @@ class ArticleQuery
   end
 
   def list
-    @relation.order("published_at DESC").scoped
+    @relation.order("COALESCE(articles.published_at, articles.created_at) DESC").scoped
   end
 end
