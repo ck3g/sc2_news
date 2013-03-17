@@ -8,6 +8,8 @@ ru:
       page:
         create: Создать страницу
         update: Обновить страницу
+      user:
+        update: Обновить
 
   simple_form:
     "yes": 'Да'
@@ -45,7 +47,9 @@ ru:
         title: Заголовок
         body: Содержимое новости
       user:
+        username: Никнейм
         email: Email
         password: Пароль
         password_confirmation: Подтверждение пароля
+        current_password: Текущий пароль
 
