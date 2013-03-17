@@ -13,6 +13,7 @@ describe User do
     it { should have_many(:articles).dependent(:nullify) }
     it { should have_many(:comments).dependent(:nullify) }
     it { should have_one(:profile).dependent(:destroy) }
+    it { should have_many(:deleted_articles).dependent(:nullify) }
   end
 
   User::ROLES.each do |role|

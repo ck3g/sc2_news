@@ -17,18 +17,24 @@ class Ability
 
     if user.admin?
       can :manage, :all
+
     elsif user.editor?
       can :manage, [Article, Tag, Comment, Page]
       can :manage, [Profile], user_id: user.id
-    elsif user.writer?
-      can :manage, [Article, Profile], user_id: user.id
+
+    elsif user.writer? || user.streamer?
+      can :create, Article
+      can :manage, Article, Article.not_deleted_or_mine(user.id) do |article|
+        article.deleted_and_owned_by?(user) || article.owned_by?(user)
+      end
+      can :manage, [Profile], user_id: user.id
       can :read, Tag
-    elsif user.streamer?
-      can :manage, [Article, Profile], user_id: user.id
-      can :read, Tag
+
     else
       # Guest possibilities
-      can :read, Article, published: true
+      can :read, Article, Article.not_deleted do |article|
+        !article.deleted? && article.published?
+      end
       can :read, [Tag]
       cannot :manage, [Comment]
     end

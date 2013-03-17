@@ -1,15 +1,20 @@
 .article.well{id: dom_id(article)}
   - if can? :manage, article
     .row-fluid
-      .manage-button-wrapper
-        = link_to t(:delete), article, method: :delete, confirm: t(:are_you_sure_delete_article), class: "manage-button"
+      - if article.deleted?
+        - if can? :restore, article
+          .manage-button-wrapper
+            = link_to t(:restore), restore_article_path(article), method: :put, confirm: t(:are_you_sure_restore_article), class: "manage-button"
+      - else
+        .manage-button-wrapper
+          = link_to t(:delete), article, method: :delete, confirm: t(:are_you_sure_delete_article), class: "manage-button"
       .manage-button-wrapper
         = link_to t(:edit), edit_article_path(article), class: "manage-button"
   .row-fluid.article-title.clearfix
     .pull-left
       %h3
         = unpublished_prefix(article)
-        = link_to article.title, article
+        = link_to article.title, article, class: deleted_class(article), title: deleted_title(article)
     .pull-right
       = succeed ":" do
         = t(:published_by)

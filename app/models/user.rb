@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :articles, dependent: :nullify
   has_many :comments, dependent: :nullify
   has_one :profile, dependent: :destroy
+  has_many :deleted_articles, dependent: :nullify, class_name: "Article", foreign_key: :deleter_id
 
   alias_attribute :name, :username
 

@@ -8,6 +8,7 @@ describe ArticlesController do
   describe "GET #index" do
     let!(:old) { create :old_article, tag_list: "sc2, tournament" }
     let!(:very_old) { create :very_old_article, tag_list: "tournament, stream" }
+
     before { get :index }
     it { should respond_with :success }
     it { should render_template :index }
@@ -100,19 +101,35 @@ describe ArticlesController do
   end
 
   describe "DELETE #destroy" do
+    def delete_article
+      delete :destroy, id: article
+    end
     before do
+      DateTime.stub(:current).and_return DateTime.current
       article
-      unless example.metadata[:skip_destroy]
-        delete :destroy, id: article
-      end
+      delete_article unless example.metadata[:skip_destroy]
     end
 
     it { should redirect_to articles_path }
     it { should assign_to(:article).with article }
-    it "removes the article", skip_destroy: true do
-      expect {
-        delete :destroy, id: article
-      }
+    it "don't actually removes the article", skip_destroy: true do
+      expect { delete_article }.to_not change { Article.count }
     end
+    it "receives mark_as_deleted_by call", skip_destroy: true do
+      Article.any_instance.should_receive(:mark_as_deleted_by)
+      delete_article
+    end
+  end
+
+  describe "PUT #restore" do
+    let!(:deleted_article) { create :deleted_article }
+
+    before do
+      Article.any_instance.should_receive(:restore)
+      put :restore, id: deleted_article
+    end
+
+    it { should redirect_to articles_path }
+    it { should assign_to(:article).with deleted_article }
   end
 end

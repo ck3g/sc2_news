@@ -1,0 +1,3 @@
+
+jQuery ->
+  $("a.deleted").tooltip()

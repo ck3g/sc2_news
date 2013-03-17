@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130310104710) do
+ActiveRecord::Schema.define(:version => 20130317102716) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -24,8 +24,12 @@ ActiveRecord::Schema.define(:version => 20130310104710) do
     t.integer  "legacy_id"
     t.boolean  "published",    :default => true
     t.datetime "published_at"
+    t.datetime "deleted_at"
+    t.integer  "deleter_id"
   end
 
+  add_index "articles", ["deleted_at"], :name => "index_articles_on_deleted_at"
+  add_index "articles", ["deleter_id"], :name => "index_articles_on_deleter_id"
   add_index "articles", ["ip_address"], :name => "index_articles_on_ip_address"
   add_index "articles", ["legacy_id"], :name => "index_articles_on_legacy_id"
   add_index "articles", ["published"], :name => "index_articles_on_published"

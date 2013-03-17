@@ -24,6 +24,11 @@ FactoryGirl.define do
       published_at { 20.days.ago }
     end
 
+    factory :deleted_article do
+      deleted_at { 5.days.ago }
+      association :deleter, factory: :user
+    end
+
     factory :unpublished_article, traits: [:unpublished]
   end
 end

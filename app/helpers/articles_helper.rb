@@ -39,4 +39,12 @@ module ArticlesHelper
   def unpublished_prefix(article)
     content_tag :span, "[#{t(:unpublished)}]", :class => "unpublished" unless article.published?
   end
+
+  def deleted_class(article)
+    "deleted" if article.deleted?
+  end
+
+  def deleted_title(article)
+    t(:deleted) if article.deleted?
+  end
 end

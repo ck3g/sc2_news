@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource
 
-  before_filter :find_article, only: [:show, :update, :destroy]
+  before_filter :find_article, only: [:show, :update, :destroy, :restore]
 
   has_scope :tagged_with
 
@@ -42,7 +42,12 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
+    @article.mark_as_deleted_by current_user
+    redirect_to articles_path
+  end
+
+  def restore
+    @article.restore
     redirect_to articles_path
   end
 

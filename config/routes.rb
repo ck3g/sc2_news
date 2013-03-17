@@ -4,6 +4,7 @@ Sc2News::Application.routes.draw do
   devise_for :users
 
   resources :articles do
+    put :restore, on: :member
     resources :comments, only: [:create, :update, :destroy]
   end
 
