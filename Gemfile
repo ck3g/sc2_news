@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.11'
+gem 'rails', '~> 3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,7 +15,7 @@ gem 'activerecord-sqlserver-adapter', '~> 3.2.10'
 gem 'haml'
 gem 'meta-tags', '~> 1.2.6', :require => 'meta_tags'
 gem 'kaminari' , "~> 0.13.0"
-gem 'devise', "~> 2.1.2"
+gem 'devise', "~> 2.2.3"
 gem 'acts_as_commentable', "~> 3.0.1"
 gem "acts-as-taggable-on", "~> 2.3.3"
 
