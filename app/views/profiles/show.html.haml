@@ -1,0 +1,9 @@
+.well
+  - if can? :manage, @profile
+    .row-fluid
+      .manage-button-wrapper
+        = link_to t(:edit), edit_profile_path(@profile), class: "manage-button"
+
+  .row-fluid
+    .pull-left
+      %h3= t(:user_profile, user: @profile.user_email)

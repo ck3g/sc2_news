@@ -1,0 +1,11 @@
+
+ru:
+  activerecord:
+    attributes:
+      profile:
+        first_name: Имя
+        last_name: Фамилия
+        country: Страна проживания
+        country_id: Страна проживания
+        profile_url: Сслыка на Battle.Net провайл
+        details: Дополнительная информация

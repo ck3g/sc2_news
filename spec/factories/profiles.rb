@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :profile do
     user
+    country
   end
 end

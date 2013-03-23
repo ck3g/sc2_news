@@ -1,0 +1,12 @@
+.well
+  %h2= t("users.edit_profile")
+
+  = simple_form_for @profile, html: { class: "form-horizontal" }, defaults: { input_html: { class: "input-xxlarge" } } do |f|
+    = f.input :first_name
+    = f.input :last_name
+    = f.association :country, as: :select
+    = f.input :profile_url
+    = f.input :details, input_html: { rows: 6 }
+    .form-actions
+      = f.button :submit, class: "btn btn-primary", :"disable-with" => t(:wait)
+      = link_to t(:view_profile), profile_path(@profile), class: "btn"

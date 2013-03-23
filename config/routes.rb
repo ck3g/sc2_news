@@ -19,5 +19,7 @@ Sc2News::Application.routes.draw do
   resources :pages, except: [:show]
   get "pages/:permalink" => "pages#show", as: :page
 
+  resources :profiles, except: [:index, :new, :create, :destroy]
+
   root :to => 'articles#index'
 end

@@ -10,6 +10,8 @@ ru:
         update: Обновить страницу
       user:
         update: Обновить
+      profile:
+        update: Обновить
 
   simple_form:
     "yes": 'Да'
@@ -35,6 +37,9 @@ ru:
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
+    hints:
+      profile:
+        profile_url: Поможет получить информацию из вашего профиля. Количество игр, достижений и т.п.
     placeholders:
       page:
         permalink: Прямая ссылка
@@ -52,4 +57,6 @@ ru:
         password: Пароль
         password_confirmation: Подтверждение пароля
         current_password: Текущий пароль
+      profile:
+        profile_url: "Пример: http://kr.battle.net/sc2/ko/profile/106432/1/SoundWeRRa/"
 

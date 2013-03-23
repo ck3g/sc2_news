@@ -42,6 +42,7 @@ ru:
     account: "Учетная запись"
     edit_account: "Редактирование учетной записи"
     must_sign_in: "Залогинтесь для чата"
+    edit_profile: Редактирование профайла
 
   hints:
     user:
@@ -108,4 +109,5 @@ ru:
   do_sign_in: Войти
   forgot_password: Забыли пароль?
   send_me_reset_password_instructions: Выслать мне инструкции по сбросу пароля
+  view_profile: Просмотр профайла
 
