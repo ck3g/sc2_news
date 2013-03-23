@@ -32,7 +32,7 @@ gem "carrierwave", "~> 0.8.0"
 gem "mini_magick", "~> 3.5.0"
 gem "ckeditor", "~> 4.0.2"
 gem "twitter_cldr", "~> 2.2.0"
-gem "battlenet_info", path: "../battlenet_info"
+gem "battlenet_info", "0.2.1"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
