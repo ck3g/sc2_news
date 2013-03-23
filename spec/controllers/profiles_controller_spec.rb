@@ -21,7 +21,7 @@ describe ProfilesController do
 
   describe "PUT #update" do
     context "with valid attributes" do
-      let(:profile_url) { "http://battle.net/profiles/fake/73" }
+      let(:profile_url) { "http://eu.battle.net/sc2/en/profile/267901/1/Zakk/" }
 
       def update_profile_url
         put :update, id: profile, profile: attributes_for(:profile, profile_url: profile_url)
@@ -37,5 +37,15 @@ describe ProfilesController do
         expect { update_profile_url }.to change { profile.profile_url }.to profile_url
       end
     end
+  end
+
+  describe "PUT #sync" do
+    before do
+      Profile.any_instance.should_receive(:sync!)
+      put :sync, id: profile
+    end
+
+    it { should assign_to(:profile).with profile }
+    it { should redirect_to profile }
   end
 end

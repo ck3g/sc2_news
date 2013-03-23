@@ -1,6 +1,10 @@
 
 ru:
   activerecord:
+    errors:
+      profile:
+        profile_url:
+          invalid: Неверный URL
     attributes:
       profile:
         first_name: Имя

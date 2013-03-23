@@ -20,6 +20,11 @@ class ProfilesController < ApplicationController
     respond_with @profile
   end
 
+  def sync
+    @profile.sync!
+    redirect_to @profile
+  end
+
   private
   def find_profile
     @profile = Profile.find params[:id]

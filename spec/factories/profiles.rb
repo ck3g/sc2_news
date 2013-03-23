@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :profile do
     user
     country
+    sequence(:profile_url) { |n| "http://eu.battle.net/sc2/en/profile/#{n}/1/name/" }
   end
 end

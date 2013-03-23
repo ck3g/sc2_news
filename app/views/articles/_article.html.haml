@@ -18,7 +18,7 @@
     .pull-right
       = succeed ":" do
         = t(:published_by)
-      = link_to user_path(article.user) do
+      = link_to profile_path(article.user.profile) do
         = article.user_name || article.user_email
       = " @"
       = l article.published_at, format: :long

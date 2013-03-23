@@ -27,7 +27,7 @@
               .span2
                 = avatar_html @profile
                 - if can? :manage, @profile
-                  = link_to t(:reload), "#", class: "btn"
+                  = link_to t(:reload), sync_profile_path(@profile), class: "btn", method: :put
               .span10
                 %p
                   %strong= "#{Profile.human_attribute_name(:bnet_name)}:"

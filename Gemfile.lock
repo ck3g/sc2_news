@@ -1,3 +1,9 @@
+PATH
+  remote: ../battlenet_info
+  specs:
+    battlenet_info (0.2.0)
+      nokogiri (~> 1.5.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -303,6 +309,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 2.3.3)
   acts_as_commentable (~> 3.0.1)
   anjlab-bootstrap-rails (>= 2.3)
+  battlenet_info!
   bitmask_attributes (~> 0.4.0)
   cancan (~> 1.6.8)
   capistrano
