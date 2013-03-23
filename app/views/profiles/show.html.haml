@@ -6,4 +6,61 @@
 
   .row-fluid
     .pull-left
-      %h3= t(:user_profile, user: @profile.user_email)
+      %h3= t(:user_profile, user: @profile.username)
+  .row-fluid
+    .span12
+      %fieldset
+        %legend= t(:common_info)
+        = profile_attribute_block Profile.human_attribute_name(:username), @profile.username
+        = profile_attribute_block Profile.human_attribute_name(:fullname), @profile.fullname
+        = profile_attribute_block Profile.human_attribute_name(:country), @profile.country_name
+        = profile_attribute_block Profile.human_attribute_name(:created_at), l(@profile.created_at, format: :long)
+        = profile_attribute_block Profile.human_attribute_name(:user_current_sign_in_at), l(@profile.user_current_sign_in_at, format: :long)
+
+  - if @profile.profile_url?
+    .row-fluid
+      .span12
+        .span8
+          %fieldset
+            %legend= t(:battlenet_info)
+            .span12
+              .span2
+                = avatar_html @profile
+                - if can? :manage, @profile
+                  = link_to t(:reload), "#", class: "btn"
+              .span10
+                %p
+                  %strong= "#{Profile.human_attribute_name(:bnet_name)}:"
+                  = link_to @profile.bnet_name, @profile.profile_url, rel: "nofollow"
+                %p
+                  %strong= "#{Profile.human_attribute_name(:server)}:"
+                  = image_tag "flags/#{@profile.bnet_server}.png", alt: t("bnet_servers.#{@profile.bnet_server}")
+                  = t("bnet_servers.#{@profile.bnet_server}")
+
+                %p
+                  %strong= "#{Profile.human_attribute_name(:achievements)}:"
+                  %span.achievements= @profile.achievements
+                =# TODO: race
+                = profile_attribute_block Profile.human_attribute_name(:synchronized_at), l(@profile.synchronized_at, format: :long)
+
+        .span4
+          %fieldset
+            %legend= t(:game_stats)
+            - if @profile.has_played_games?
+              - badge, badge_medium = @profile.league_parts
+              - if badge && badge_medium
+                %span.badge{class: "badge-#{badge} badge-medium-#{badge_medium}"}
+              = profile_attribute_block Profile.human_attribute_name(:game_type), "1x1"
+              = profile_attribute_block Profile.human_attribute_name(:rank), @profile.rank
+              = profile_attribute_block Profile.human_attribute_name(:points), @profile.points
+              = profile_attribute_block Profile.human_attribute_name(:wins), @profile.wins
+            - else
+              = t(:no_played_games_yet)
+
+  - if @profile.details?
+    .row-fluid
+      .span12
+        %fieldset
+          %legend= Profile.human_attribute_name(:details)
+          = simple_format @profile.details
+

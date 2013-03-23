@@ -9,3 +9,15 @@ ru:
         country_id: Страна проживания
         profile_url: Сслыка на Battle.Net провайл
         details: Дополнительная информация
+        username: Никнейм на сайте
+        fullname: Реальное имя
+        created_at: Дата регистрации
+        user_current_sign_in_at: Последний раз заходил
+        game_type: Тип игры
+        rank: Место
+        points: Очки
+        wins: Побед
+        bnet_name: Никнейм в сети Battle.Net
+        bnet_server: Сервер
+        achievements: Очки достижений
+        synchronized_at: Последнее обновление

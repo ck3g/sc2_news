@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   before_filter :find_profile
 
   def show
+    respond_with @profile
   end
 
   def edit

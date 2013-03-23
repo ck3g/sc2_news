@@ -110,4 +110,16 @@ ru:
   forgot_password: Забыли пароль?
   send_me_reset_password_instructions: Выслать мне инструкции по сбросу пароля
   view_profile: Просмотр профайла
+  user_profile: "Профаил прользователя - %{user}"
+  common_info: Общая информация
+  battlenet_info: Battle.Net информация
+  game_stats: Статистика матчей
+  no_played_games_yet: Нет сыгранных матчей
+  bnet_servers:
+    eu: Европа
+    kr: "Корея"
+    us: "США"
+    tw: "Тайвань"
+    sea: "Южно-Центральная Азия"
+  reload: Обновить
 
