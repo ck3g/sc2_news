@@ -10,7 +10,7 @@ Sc2News::Application.routes.draw do
 
   get "articles/tag/:tagged_with" => "articles#index", :as => :tagged_articles
 
-  resources :chat_messages, :only => [:index, :create]
+  resources :chat_messages, :only => [:index, :create, :destroy]
 
   resources :users
 

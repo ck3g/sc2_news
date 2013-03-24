@@ -1,8 +1,8 @@
-.chat-wrapper.well
+.chat-wrapper.well.well-small
   .chat-messages
   .chat-form
     - if user_signed_in?
-      %input.chat-form-input(type="text")
+      = text_field_tag :chat_message, "", class: "chat-form-input"
     - else
       .chat-not-signed-in
         = t("users.must_sign_in")

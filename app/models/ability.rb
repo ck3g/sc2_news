@@ -21,6 +21,7 @@ class Ability
     elsif user.editor?
       can :manage, [Article, Tag, Comment, Page]
       can :manage, [Profile], user_id: user.id
+      can :all, [ChatMessage]
 
     elsif user.writer? || user.streamer?
       can :create, Article

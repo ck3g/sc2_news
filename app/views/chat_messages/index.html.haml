@@ -1,5 +1,9 @@
 - @messages.each do |message|
-  %span.chat-user
-    = link_to "#{message.user.name}: ", message.user
-  %span.chat-message
-    = message.body
+  %div
+    - if can? :destroy, message
+      = link_to message, method: :delete, data: { confirm: t(:are_you_sure) } do
+        %i.icon-trash
+    %span.chat-user
+      = succeed ":" do
+        = link_to message.user.name, message.user, title: l(message.created_at, format: :long), rel: "tooltip"
+    %span.chat-message= message.body

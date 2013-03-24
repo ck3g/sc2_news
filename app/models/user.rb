@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :nullify
   has_one :profile, dependent: :destroy
   has_many :deleted_articles, dependent: :nullify, class_name: "Article", foreign_key: :deleter_id
+  has_many :chat_messages, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true
 
