@@ -124,4 +124,5 @@ ru:
   reload: Обновить
   manage_users: Управление пользователями
   edit_user: "Редактировать пользователя - %{user}"
-
+  change_password: Смена пароля
+  change_my_password: Сменить мой пароль

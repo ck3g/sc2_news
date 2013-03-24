@@ -1,11 +1,13 @@
-%h2 Change your password
-= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+- html = { method: :put, class: "form-signin" }
+- defaults = { label: false, input_html: { class: "input-xlarge" } }
+= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: html, defaults: defaults) do |f|
+  %h2.form-signin-heading= t(:change_password)
   = f.error_notification
-  = f.input :reset_password_token, :as => :hidden
+  = f.input :reset_password_token, as: :hidden
   = f.full_error :reset_password_token
   .form-inputs
-    = f.input :password, :label => "New password", :required => true
-    = f.input :password_confirmation, :label => "Confirm your new password", :required => true
-  .form-actions
-    = f.button :submit, "Change my password"
-= render "devise/shared/links"
+    = f.input :password, required: true
+    = f.input :password_confirmation, required: true
+    = f.button :submit, t(:change_my_password), class: "btn btn-primary"
+    .shared_links
+      = render "devise/shared/links"
