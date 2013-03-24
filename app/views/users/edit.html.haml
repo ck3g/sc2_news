@@ -1,0 +1,8 @@
+.well
+  %h2= t(:edit_user, user: @user.username)
+
+  %fieldset
+    = simple_form_for @user, html: { class: "form-horizontal" } do |f|
+      = f.input :roles, as: :check_boxes, collection: collection_of_roles, input_html: { class: "inline-checkbox" }
+      .form-actions
+        = f.button :submit, class: "btn btn-primary", :"disable-with" => t(:wait)

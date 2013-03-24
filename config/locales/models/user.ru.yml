@@ -7,3 +7,12 @@ ru:
         password: Пароль
         password_confirmation: Подтверждение пароля
         remember_me: Не выходить из системы
+        username: Имя пользователя
+        roles: Роли
+    values:
+      user:
+        roles:
+          admin: Админ
+          writer: Newsmaker
+          editor: Редактор
+          streamer: Стример

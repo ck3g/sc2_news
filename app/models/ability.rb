@@ -12,7 +12,7 @@ class Ability
     #   end
 
     user ||= User.new
-    cannot :all, [Article, Comment, Tag, Profile, Page]
+    cannot :all, [Article, Comment, Tag, Profile, Page, User]
     can :manage, [Comment], user_id: user.id
 
     if user.admin?

@@ -1,0 +1,26 @@
+.well
+  %h2= t(:manage_users)
+
+  %p= raw page_entries_info @users
+
+  %table.table.table-striped.table-condensed
+    %thead
+      %tr
+        %th= "#"
+        %th= User.human_attribute_name(:email)
+        %th= User.human_attribute_name(:username)
+        %th= User.human_attribute_name(:roles)
+        %th
+    %tbody
+      - @users.each do |user|
+        %tr{id: dom_id(user)}
+          %td= user.id
+          %td= user.email
+          %td= user.username
+          %td= roles_list user
+          %td
+            .pull-right
+              = link_to t(:edit), edit_user_path(user), class: "btn btn-mini"
+
+
+  = paginate @users

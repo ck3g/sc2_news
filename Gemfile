@@ -49,7 +49,6 @@ group :development do
   gem "capistrano", :require => false
   gem 'capistrano-recipes', :require => false
   gem 'capistrano_colors', :require => false
-  gem 'pry-rails'
   gem "rails_best_practices"
   gem "thin"
   gem "zeus"
@@ -58,6 +57,7 @@ end
 group :test, :development do
   gem 'rspec-rails',        '~> 2.11.0'
   gem 'factory_girl_rails', '~> 3.5.0'
+  gem 'pry-rails'
 end
 
 group :test do

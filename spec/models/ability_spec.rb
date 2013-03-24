@@ -21,6 +21,7 @@ shared_examples "as writer" do
   it { should_not be_able_to :manage, ally_article }
   it { should be_able_to [:manage, :restore], own_deleted_article }
   it { should_not be_able_to [:manage, :restore], ally_deleted_article }
+  it { should_not be_able_to [:all], User }
 end
 
 shared_examples "manage Profiles" do
@@ -44,6 +45,7 @@ describe "Ability" do
     it { should_not be_able_to :manage, Tag }
     it { should_not be_able_to :manage, Page }
     it { should_not be_able_to :restore, Article }
+    it { should_not be_able_to :all, User }
   end
 
   describe "as admin" do
@@ -53,6 +55,7 @@ describe "Ability" do
     it { should be_able_to :all, User }
     it { should be_able_to :all, Tag }
     it { should be_able_to :all, Profile }
+    it { should be_able_to :all, User }
   end
 
   describe "as editor" do
