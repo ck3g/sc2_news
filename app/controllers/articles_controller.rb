@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource
 
+  respond_to :html
+
   before_filter :find_article, only: [:show, :update, :destroy, :restore]
 
   has_scope :tagged_with
@@ -8,7 +10,6 @@ class ArticlesController < ApplicationController
   def index
     relation = apply_scopes(Article.accessible_by(current_ability))
     @articles = ArticleQuery.new(relation).list.page(params[:page])
-    set_meta_tags title: I18n.t(:articles_title)
   end
 
   def new
@@ -35,10 +36,9 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update_attributes params[:article]
-      redirect_to @article, notice: t(:updated_successfully)
-    else
-      render :edit
+      flash[:notice] = t(:updated_successfully)
     end
+    respond_with @article
   end
 
   def destroy
