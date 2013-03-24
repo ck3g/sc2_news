@@ -45,8 +45,7 @@ class Profile < ActiveRecord::Base
 
   private
   def profile_url_cannot_be_invalid_battlenet_url
-    if profile_url.present? && !BattleNetInfo.new(profile_url).valid_url?
-      errors.add(:profile_url, I18n.t("activerecord.errors.profile.profile_url.invalid"))
-    end
+    return if profile_url.blank? || BattleNetInfo.new(profile_url).valid_url?
+    errors.add(:profile_url, I18n.t("activerecord.errors.profile.profile_url.invalid"))
   end
 end
