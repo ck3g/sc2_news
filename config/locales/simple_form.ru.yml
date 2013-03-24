@@ -54,6 +54,7 @@ ru:
       user:
         username: Никнейм
         email: Email
+        login: Логин
         password: Пароль
         password_confirmation: Подтверждение пароля
         current_password: Текущий пароль

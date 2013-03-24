@@ -8,6 +8,7 @@ ru:
         password_confirmation: Подтверждение пароля
         remember_me: Не выходить из системы
         username: Имя пользователя
+        login: Логин
         roles: Роли
     values:
       user:

@@ -39,7 +39,7 @@ $baseLineHeight: 18px;
 
 form.top-login {
   input {
-    &[type="email"], &[type="password"] {
+    &[type="text"], &[type="password"] {
       margin-top: 5px;
     }
   }

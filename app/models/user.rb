@@ -11,16 +11,31 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-    :created_at, :legacy_id, :username, :roles
+    :created_at, :legacy_id, :username, :roles, :username, :login
+
+  attr_accessor :login
 
   has_many :articles, dependent: :nullify
   has_many :comments, dependent: :nullify
   has_one :profile, dependent: :destroy
   has_many :deleted_articles, dependent: :nullify, class_name: "Article", foreign_key: :deleter_id
 
+  validates :username, presence: true, uniqueness: true
+
   alias_attribute :name, :username
 
   after_create :create_profile
+
+  scope :by_login, ->(login) { where(["lower(username) = :value OR lower(email) = :value", value: login.downcase]) }
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).by_login(login).first
+    else
+      where(conditions).first
+    end
+  end
 
   def self.admin?(user)
     user && user.admin?

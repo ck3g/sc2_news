@@ -16,6 +16,15 @@ describe User do
     it { should have_many(:deleted_articles).dependent(:nullify) }
   end
 
+  describe ".validations" do
+    context "when valid" do
+      subject { create :user }
+      it { should validate_presence_of :email }
+      it { should validate_presence_of :username }
+      it { should validate_uniqueness_of :username }
+    end
+  end
+
   User::ROLES.each do |role|
     describe "##{role}?" do
       let(:user) { create role }
