@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   authorize_resource
 
+  respond_to :html
+
   before_filter :find_page, only: [:edit, :update, :destroy]
 
   def index
@@ -18,11 +20,8 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new params[:page]
-    if @page.save
-      redirect_to pages_path, notice: t(:created_successfully)
-    else
-      render :new
-    end
+    flash[:notice] = t(:created_successfully) if @page.save
+    respond_with @page, location: pages_path
   end
 
   def edit
@@ -30,11 +29,9 @@ class PagesController < ApplicationController
 
   def update
     if @page.update_attributes params[:page]
-      @page.reload
-      redirect_to pages_path, notice: t(:updated_successfully)
-    else
-      render :edit
+      flash[:notice] = t(:updated_successfully)
     end
+    respond_with @page, location: pages_path
   end
 
   def destroy
