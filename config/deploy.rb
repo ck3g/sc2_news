@@ -66,5 +66,4 @@ end
 require 'capistrano_colors'
 require 'bundler/capistrano'
 require "capistrano-unicorn"
-require "capistrano-rbenv"
 
