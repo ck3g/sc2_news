@@ -1,11 +1,18 @@
 server "194.165.39.126", :app, :web, :db, :primary => true
 
+set :user, "kalastiuz"
+
+# rbenv
+set :default_environment, {
+  "PATH" => "/home/#{user}/.rbenv/shims:/home/#{user}/.rbenv/bin:$PATH",
+}
+
 set :shared_host, "194.165.39.126"
 set :application, "starcraft"
-set :deploy_to,   "/home/kalastiuz/rails/#{application}/"
-set :user, "devmen"
+set :deploy_to,   "/home/#{user}/rails/#{application}/"
+set :rbenv_ruby_version, "2.0.0-p0"
+set :rbenv_branch, "master"
 set :branch, "master"
-set :rvm_ruby_string, "2.0.0@sc2_news"
 set :unicorn_env, "production"
 set :rails_env, "production"
 
@@ -64,7 +71,7 @@ task :tail_logs, :roles => :app do
 end
 
 require 'capistrano_colors'
-require "rvm/capistrano" # Rvm bootstrap
 require 'bundler/capistrano'
 require "capistrano-unicorn"
+require "capistrano-rbenv"
 

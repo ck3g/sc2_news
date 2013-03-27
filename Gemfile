@@ -50,7 +50,7 @@ group :development do
   gem 'capistrano-recipes', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-unicorn', '~> 0.1.6', require: false
-  gem "rvm-capistrano"
+  gem "capistrano-rbenv"
   gem "rails_best_practices"
   gem "thin"
   gem "zeus"
