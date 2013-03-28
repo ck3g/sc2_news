@@ -15,7 +15,6 @@
 //= require jquery-ui
 //= require twitter/bootstrap
 //= require ckeditor/init
-//= require rails.validations
 //= require_tree .
 
 $(function() {
