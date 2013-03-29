@@ -1,8 +1,12 @@
-server "194.165.39.125", :app, :web, :db, :primary => true
+server "194.165.39.126", :app, :web, :db, :primary => true
+
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
 set :user, "kalastiuz"
 set :rake, "#{rake} --trace"
-set :shared_host, "194.165.39.125"
+set :shared_host, "194.165.39.126"
 set :application, "sc2_news"
 set :deploy_to,   "/home/#{user}/apps/#{application}/"
 set :branch, "master"
