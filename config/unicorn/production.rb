@@ -1,5 +1,5 @@
 # Set your full path to application.
-deploy_to = "/home/kalastiuz/rails/starcraft"
+deploy_to = "/home/kalastiuz/apps/sc2_news"
 app_path = "#{deploy_to}/current"
 shared_path = "#{deploy_to}/shared"
 

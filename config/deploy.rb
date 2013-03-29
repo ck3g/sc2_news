@@ -1,10 +1,10 @@
-server "194.165.39.126", :app, :web, :db, :primary => true
+server "194.165.39.125", :app, :web, :db, :primary => true
 
 set :user, "kalastiuz"
-
-set :shared_host, "194.165.39.126"
-set :application, "starcraft"
-set :deploy_to,   "/home/#{user}/rails/#{application}/"
+set :rake, "#{rake} --trace"
+set :shared_host, "194.165.39.125"
+set :application, "sc2_news"
+set :deploy_to,   "/home/#{user}/apps/#{application}/"
 set :branch, "master"
 set :unicorn_env, "production"
 set :rails_env, "production"
