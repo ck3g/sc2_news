@@ -14,7 +14,7 @@ namespace :import do
 
       if legacy_user.present? && legacy_profile.present?
         user = legacy_user.import(membership)
-        legacy_profile.import(user.profile)
+        legacy_profile.import(user.profile) if user.persisted?
       end
       print "\r#{index + 1} of #{total_users} imported"
     end
