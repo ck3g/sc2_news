@@ -4,7 +4,7 @@ class ChatMessagesController  < ApplicationController
 
 
   def index
-    @messages = ChatMessage.recent
+    @messages = ChatMessage.includes(:user).recent
     respond_with @messages
   end
 
