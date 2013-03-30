@@ -27,6 +27,11 @@ class ProfilesController < ApplicationController
 
   private
   def find_profile
-    @profile = Profile.find params[:id]
+    if params[:username].present?
+      profile_id = User.where(username: params[:username]).first.try(:profile).try(:id)
+      @profile = Profile.find profile_id
+    else
+      @profile = Profile.find params[:id]
+    end
   end
 end

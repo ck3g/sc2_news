@@ -14,7 +14,6 @@ describe Comment do
     context "when valid" do
       subject { create :comment }
       it { should validate_presence_of :comment }
-      it { should validate_presence_of :user_id }
     end
   end
 

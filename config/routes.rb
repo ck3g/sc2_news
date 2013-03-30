@@ -22,6 +22,7 @@ Sc2News::Application.routes.draw do
   resources :profiles, only: [:show, :edit, :update] do
     put :sync, on: :member
   end
+  get "profile/:username" => "profiles#show", as: :user_profile
 
   root :to => 'articles#index'
 end

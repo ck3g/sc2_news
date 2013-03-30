@@ -2,7 +2,7 @@
   .span12.well.js-comment-content
     .span2
       %p= avatar_tag(comment.user)
-      %p= link_to comment.username, "#"
+      %p= link_to_commenter comment
     .span10.clearfix
       - if can? :manage, comment
         .manage-button-wrapper

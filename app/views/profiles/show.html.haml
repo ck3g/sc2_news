@@ -15,7 +15,8 @@
         = profile_attribute_block Profile.human_attribute_name(:fullname), @profile.fullname
         = profile_attribute_block Profile.human_attribute_name(:country), @profile.country_name
         = profile_attribute_block Profile.human_attribute_name(:created_at), l(@profile.created_at, format: :long)
-        = profile_attribute_block Profile.human_attribute_name(:user_current_sign_in_at), l(@profile.user_current_sign_in_at, format: :long)
+        - current_sign_in_at = l(@profile.user_current_sign_in_at, format: :long) if @profile.user_current_sign_in_at.present?
+        = profile_attribute_block Profile.human_attribute_name(:user_current_sign_in_at), current_sign_in_at
 
   - if @profile.profile_url?
     .row-fluid
