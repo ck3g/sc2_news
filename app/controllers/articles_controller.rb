@@ -53,6 +53,11 @@ class ArticlesController < ApplicationController
 
   private
   def find_article
+    if params[:legacy_id]
+      article = Article.find_by_legacy_id(params[:legacy_id])
+      redirect_to article, :status => :moved_permanently
+      return
+    end
     @article = Article.accessible_by(current_ability).find params[:id]
   end
 end
