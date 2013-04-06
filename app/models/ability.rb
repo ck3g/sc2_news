@@ -20,6 +20,8 @@ class Ability
 
     elsif user.editor?
       can :manage, [Article, Tag, Comment, Page]
+      can :access, :ckeditor
+      can :manage, [Ckeditor::Picture, Ckeditor::AttachmentFile]
       can :manage, [Profile], user_id: user.id
       can :all, [ChatMessage]
 
@@ -30,6 +32,9 @@ class Ability
       end
       can :manage, [Profile], user_id: user.id
       can :read, Tag
+      can :access, :ckeditor
+      can :manage, [Ckeditor::Picture, Ckeditor::AttachmentFile]
+      cannot :destroy, [Ckeditor::Picture, Ckeditor::AttachmentFile]
 
     else
       # Guest possibilities

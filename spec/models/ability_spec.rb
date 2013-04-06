@@ -23,6 +23,10 @@ shared_examples "as writer" do
   it { should_not be_able_to [:manage, :restore], ally_deleted_article }
   it { should_not be_able_to [:all], User }
   it { should_not be_able_to :destroy, ChatMessage }
+  it { should be_able_to [:read, :create], Ckeditor::Picture }
+  it { should be_able_to [:read, :create], Ckeditor::AttachmentFile }
+  it { should_not be_able_to :destroy, Ckeditor::Picture }
+  it { should_not be_able_to :destroy, Ckeditor::AttachmentFile }
 end
 
 shared_examples "manage Profiles" do
@@ -48,6 +52,8 @@ describe "Ability" do
     it { should_not be_able_to :restore, Article }
     it { should_not be_able_to :all, User }
     it { should_not be_able_to :all, ChatMessage }
+    it { should_not be_able_to :all, Ckeditor::Picture }
+    it { should_not be_able_to :all, Ckeditor::AttachmentFile }
   end
 
   describe "as admin" do
@@ -71,6 +77,8 @@ describe "Ability" do
     it { should be_able_to :manage, Page }
     it_behaves_like "manage Profiles"
     it { should be_able_to :all, ChatMessage }
+    it { should be_able_to :manage, Ckeditor::Picture }
+    it { should be_able_to :manage, Ckeditor::AttachmentFile }
   end
 
   describe "as writer" do
