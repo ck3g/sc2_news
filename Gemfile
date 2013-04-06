@@ -49,7 +49,6 @@ group :development do
   gem "capistrano", "~> 2.14.2", :require => false
   gem 'capistrano-recipes', :require => false
   gem 'capistrano_colors', :require => false
-  gem 'capistrano-unicorn', '~> 0.1.6', require: false
   gem "rails_best_practices"
   gem "thin"
   gem "zeus"
@@ -70,4 +69,6 @@ group :test do
   gem "email_spec",       "~> 1.2.1"
 end
 
-gem "unicorn",     "~> 4.6.0", group: [:development, :production]
+group :production do
+  gem "puma"
+end
