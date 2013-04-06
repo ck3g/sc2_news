@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   after_create :create_profile
 
   scope :by_login, ->(login) { where(["lower(username) = :value OR lower(email) = :value", value: login.downcase]) }
+  scope :term, ->(term) { where(["username ILIKE :value OR email ILIKE :value", value: "%#{term}%"]) }
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

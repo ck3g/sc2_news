@@ -1,0 +1,6 @@
+= form_tag url_for(model), class: "form-search pull-right", method: :get do
+  .input-append
+    = text_field_tag :term, params[:term], placeholder: placeholder, class: "search-query input-xlarge"
+    %button.btn
+      %i.icon-search
+      = t(:search)

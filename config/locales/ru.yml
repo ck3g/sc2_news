@@ -127,3 +127,5 @@ ru:
   change_password: Смена пароля
   change_my_password: Сменить мой пароль
   unknown_user: Неизвестный
+  search_users_by_username_or_email: Искать по имени пользователя или имейлу
+  search: Поиск

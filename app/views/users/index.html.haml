@@ -1,6 +1,8 @@
 .well
   %h2= t(:manage_users)
 
+  = render 'shared/search', model: User, placeholder: t(:search_users_by_username_or_email)
+
   %p= raw page_entries_info @users
 
   %table.table.table-striped.table-condensed

@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   respond_to :html
 
+  has_scope :term
+
   def index
     @users = apply_scopes(User).order(:username).page(params[:page])
   end
