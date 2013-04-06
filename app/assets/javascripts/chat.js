@@ -7,7 +7,9 @@ $(function(){
         $(this).prop({ scrollTop: $(this).prop("scrollHeight") });
         firstTime = false;
       }
-      setTimeout(loadChatMessages, 2000);
+      if($("body").data("development") !== "") {
+        setTimeout(loadChatMessages, 2000);
+      }
     });
   })();
 

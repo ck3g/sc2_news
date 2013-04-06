@@ -5,7 +5,7 @@
     = favicon_link_tag "favicon.ico"
     = display_meta_tags site: t(:site_name)
     = csrf_meta_tags
-  %body
+  %body{:"data-development" => Rails.env.development?}
     .row-fluid
       .span6
         = link_to root_path do
