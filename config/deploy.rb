@@ -28,7 +28,7 @@ set :rvm_type, :user
 set :normalize_asset_timestamps, false
 
 after "deploy",                 "deploy:cleanup"
-after "deploy:finalize_update", "deploy:config"
+after "deploy:finalize_update", "deploy:config", "deploy:update_uploads"
 after "deploy:create_symlink", "deploy:migrate"
 
 CONFIG_FILES = %w(database)
@@ -54,6 +54,13 @@ namespace :deploy do
     CONFIG_FILES.each do |file|
       run "cd #{release_path}/config && ln -nfs #{shared_path}/config/#{file}.yml #{release_path}/config/#{file}.yml"
     end
+  end
+
+  task :update_uploads, :roles => [:app] do
+    run "ln -nfs #{deploy_to}#{shared_dir}/uploads #{release_path}/public/uploads"
+    run "ln -nfs #{deploy_to}#{shared_dir}/system #{release_path}/public/system"
+    run "mkdir -p #{release_path}/public/Content"
+    run "ln -nfs #{deploy_to}#{shared_dir}/Gallery #{release_path}/public/Content/Gallery"
   end
 end
 

@@ -46,7 +46,7 @@ group :production do
 end
 
 group :development do
-  gem "capistrano", :require => false
+  gem "capistrano", "~> 2.14.2", :require => false
   gem 'capistrano-recipes', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-unicorn', '~> 0.1.6', require: false
