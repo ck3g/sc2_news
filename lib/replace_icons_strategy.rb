@@ -1,7 +1,7 @@
 class ReplaceIconsStrategy
   def self.rules
     {
-      ["zerg", "зерг", "z"] => "icons/zerg.png",
+      ["zerg", "зерг", "z2"] => "icons/zerg.png",
       ["protoss", "протосс", "p2"] => "icons/protoss.png",
       ["terran", "терран", "t2"] => "icons/terran.png",
       ["random", "случайная", "r"] => "icons/random.png",
