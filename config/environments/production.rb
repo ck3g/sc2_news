@@ -52,16 +52,9 @@ Sc2News::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: "starcraft.md" }
   config.action_mailer.delivery_method = :smtp
-  # mail_user = Psych.load(File.open("#{Rails.root}/config/mail.yml"))
-  # config.action_mailer.smtp_settings = {
-  #   ssl: false,
-  #   address: "mail.starcraft.md",
-  #   port: 587,
-  #   domain: "starcraft.md",
-  #   authentication: "plain",
-  #   user_name: mail_user["user_name"],
-  #   password: mail_user["password"]
-  # }
+  config.action_mailer.smtp_settings = {
+    enable_starttls_auto: false
+  }
 
   # Enable threaded mode
   # config.threadsafe!
