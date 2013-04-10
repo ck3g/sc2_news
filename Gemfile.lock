@@ -56,6 +56,7 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
+    capistrano-puma (0.0.1)
     capistrano-recipes (0.8.0)
       capistrano (>= 2.5.9)
       capistrano-ext (>= 1.2.1)
@@ -311,6 +312,7 @@ DEPENDENCIES
   bitmask_attributes (~> 0.4.0)
   cancan (~> 1.6.8)
   capistrano (~> 2.14.2)
+  capistrano-puma
   capistrano-recipes
   capistrano_colors
   capybara (~> 1.1.2)

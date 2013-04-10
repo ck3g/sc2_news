@@ -2,7 +2,7 @@ rails_env = ENV["RAILS_ENV"] || "development"
 
 threads 4,4
 
-deploy_to = "/home/kalastiuz/apps/sc2_news"
+deploy_to = "/home/deploy/apps/sc2_news"
 app_path = "#{deploy_to}/current"
 shared_path = "#{deploy_to}/shared"
 
