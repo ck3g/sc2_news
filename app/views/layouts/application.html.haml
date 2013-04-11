@@ -11,7 +11,7 @@
         = link_to root_path do
           = image_tag 'logo.gif', alt: t(:site_name)
       .span6
-        = link_to "#", class: "pull-right top-right-banner" do
+        = link_to "http://sc2.wow.md/selectGame.jsp", class: "pull-right top-right-banner", target: "_blank" do
           = image_tag "banners/sc2.wow.md.gif"
     .row-fluid
       = render 'shared/top_nav_bar'
