@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   respond_to :html
 
   before_filter :find_article, only: [:show, :update, :destroy, :restore]
+  before_filter :increment_views_count, only: :show
 
   has_scope :tagged_with
 
@@ -59,5 +60,9 @@ class ArticlesController < ApplicationController
       return
     end
     @article = Article.accessible_by(current_ability).find params[:id]
+  end
+
+  def increment_views_count
+    @article.add_hit!
   end
 end

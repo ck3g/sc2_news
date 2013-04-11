@@ -51,6 +51,10 @@ class Article < ActiveRecord::Base
     self.user_id == user.id
   end
 
+  def add_hit!
+    increment! :views_count
+  end
+
   private
   def init_defaults
     self.published_at ||= created_at.presence || DateTime.current

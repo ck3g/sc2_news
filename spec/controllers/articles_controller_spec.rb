@@ -21,12 +21,19 @@ describe ArticlesController do
   end
 
   describe "GET #show" do
-    before { get :show, id: article }
+    def show_article
+      get :show, id: article
+      article.reload
+    end
+    before { show_article }
     it { should respond_with :success }
     it { should render_template :show }
     it { should assign_to(:article).with article }
     it { should assign_to(:comment).with_kind_of Comment }
     it { should assign_to(:comments).with article.comments }
+    it "increment articles view count" do
+      expect { show_article }.to change { article.views_count }.by(1)
+    end
   end
 
   describe "GET #new" do
