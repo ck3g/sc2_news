@@ -37,23 +37,29 @@ shared_examples "manage Profiles" do
   it { should_not be_able_to :manage, ally_profile }
 end
 
+shared_examples "as common user" do
+  subject { Ability.new user }
+  it { should be_able_to :index, Article }
+  it { should be_able_to :show, create(:article) }
+  it { should_not be_able_to :show, create(:unpublished_article) }
+  it { should_not be_able_to :show, create(:deleted_article) }
+  it { should be_able_to :read, Tag }
+  it { should_not be_able_to :manage, Tag }
+  it { should_not be_able_to :manage, Page }
+  it { should_not be_able_to :restore, Article }
+  it { should_not be_able_to :all, User }
+  it { should_not be_able_to :all, ChatMessage }
+  it { should_not be_able_to :all, Ckeditor::Picture }
+  it { should_not be_able_to :all, Ckeditor::AttachmentFile }
+end
+
 describe "Ability" do
   describe "as guest" do
+    let(:user) { nil }
     subject { Ability.new nil }
-    it { should be_able_to :index, Article }
-    it { should be_able_to :show, create(:article) }
-    it { should_not be_able_to :show, create(:unpublished_article) }
-    it { should_not be_able_to :show, create(:deleted_article) }
-    it { should be_able_to :read, Tag }
-    it { should_not be_able_to :manage, Comment }
+    it_behaves_like "as common user"
+    it { should_not be_able_to :create, Comment }
     it { should_not be_able_to :manage, create(:profile) }
-    it { should_not be_able_to :manage, Tag }
-    it { should_not be_able_to :manage, Page }
-    it { should_not be_able_to :restore, Article }
-    it { should_not be_able_to :all, User }
-    it { should_not be_able_to :all, ChatMessage }
-    it { should_not be_able_to :all, Ckeditor::Picture }
-    it { should_not be_able_to :all, Ckeditor::AttachmentFile }
   end
 
   describe "as admin" do
@@ -91,5 +97,13 @@ describe "Ability" do
     let!(:user) { create :streamer }
     it_behaves_like "as writer"
     it_behaves_like "manage Profiles"
+  end
+
+  describe "as registered user" do
+    let!(:user) { create :user }
+    subject { Ability.new user }
+    it_behaves_like "as common user"
+    it_behaves_like "manage Profiles"
+    it { should be_able_to :create, Comment }
   end
 end

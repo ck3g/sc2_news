@@ -12,7 +12,7 @@ class Ability
     #   end
 
     user ||= User.new
-    cannot :all, [Article, Comment, Tag, Profile, Page, User]
+    cannot :all, :all
     can :manage, [Comment], user_id: user.id
 
     if user.admin?
@@ -36,13 +36,19 @@ class Ability
       can :manage, [Ckeditor::Picture, Ckeditor::AttachmentFile]
       cannot :destroy, [Ckeditor::Picture, Ckeditor::AttachmentFile]
 
-    else
-      # Guest possibilities
+    elsif user.persisted? # registered user
+      can :manage, [Profile], user_id: user.id
+      can :read, Tag
       can :read, Article, Article.not_deleted do |article|
         !article.deleted? && article.published?
       end
-      can :read, [Tag]
-      cannot :manage, [Comment]
+    else
+      # Guest possibilities
+      cannot :create, Comment
+      can :read, Article, Article.not_deleted do |article|
+        !article.deleted? && article.published?
+      end
+      can :read, Tag
     end
 
     #
