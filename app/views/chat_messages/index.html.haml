@@ -5,5 +5,5 @@
         %i.icon-trash
     %span.chat-user
       = succeed ":" do
-        = link_to message.user.name, message.user, title: l(message.created_at, format: :long), rel: "tooltip"
+        = link_to message.user.name, user_profile_path(message.user_username), title: l(message.created_at, format: :long), rel: "tooltip"
     %span.chat-message= message.body
