@@ -33,6 +33,7 @@ gem "mini_magick", "~> 3.5.0"
 gem "ckeditor", "~> 4.0.2"
 gem "twitter_cldr", "~> 2.2.0"
 gem "battlenet_info", "0.2.1"
+gem "newrelic_rpm"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
