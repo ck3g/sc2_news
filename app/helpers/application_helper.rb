@@ -28,4 +28,8 @@ module ApplicationHelper
       link_to page.title, page_path(permalink)
     end
   end
+
+  def index?
+    params[:action] == "index"
+  end
 end
