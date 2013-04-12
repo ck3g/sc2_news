@@ -39,16 +39,16 @@ class Ability
     elsif user.persisted? # registered user
       can :manage, [Profile], user_id: user.id
       can :read, Tag
-      can :read, Article, Article.not_deleted do |article|
+      can :read, Article, Article.visible do |article|
         !article.deleted? && article.published?
       end
     else
       # Guest possibilities
       cannot :create, Comment
-      can :read, Article, Article.not_deleted do |article|
+      can :read, Tag
+      can :read, Article, Article.visible do |article|
         !article.deleted? && article.published?
       end
-      can :read, Tag
     end
 
     #

@@ -20,6 +20,8 @@ class Article < ActiveRecord::Base
   after_initialize :init_defaults
 
   scope :deleted, -> { where("deleted_at IS NOT NULL") }
+  scope :published, -> { where(published: true) }
+  scope :visible, -> { not_deleted.published }
   scope :not_deleted, -> { where("deleted_at IS NULL") }
   scope :not_deleted_or_mine, ->(user_id) {
     where("(deleted_at IS NULL) OR (deleted_at IS NOT NULL AND deleter_id = ?)", user_id)

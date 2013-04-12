@@ -41,8 +41,8 @@ shared_examples "as common user" do
   subject { Ability.new user }
   it { should be_able_to :index, Article }
   it { should be_able_to :show, create(:article) }
-  it { should_not be_able_to :show, create(:unpublished_article) }
-  it { should_not be_able_to :show, create(:deleted_article) }
+  it { should_not be_able_to :read, create(:unpublished_article) }
+  it { should_not be_able_to :read, create(:deleted_article) }
   it { should be_able_to :read, Tag }
   it { should_not be_able_to :manage, Tag }
   it { should_not be_able_to :manage, Page }
