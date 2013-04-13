@@ -25,7 +25,8 @@
 
   .article-body
     = raw formatted(article.body, index?)
-    = link_to t(:read_more), article if index?
+    - if index?
+      %p.read-more= link_to t(:read_more), article
   .article-tags.pull-left
     - article.tags.each do |tag|
       = link_to tagged_articles_path(tag.name) do

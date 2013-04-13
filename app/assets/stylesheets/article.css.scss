@@ -10,3 +10,10 @@ span.unpublished {
 a.deleted {
   text-decoration: line-through;
 }
+
+.read-more {
+  a {
+    font-weight: bold;
+  }
+  margin-bottom: 15px;
+}
