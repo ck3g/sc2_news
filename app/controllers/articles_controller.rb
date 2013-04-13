@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   respond_to :html
 
-  before_filter :find_article, only: [:show, :update, :destroy, :restore]
+  before_filter :find_article, only: [:show, :edit, :update, :destroy, :restore]
   before_filter :increment_views_count, only: :show
 
   has_scope :tagged_with
