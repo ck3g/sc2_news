@@ -75,8 +75,18 @@ $form-border-radius: 5px;
   }
 }
 
+.banner472x71 {
+  width: 472px;
+  height: 71px;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
 @import "twitter/bootstrap";
 .main-container {
   padding-top: 20px;
 }
 @import "twitter/bootstrap-responsive";
+@import "font-awesome";

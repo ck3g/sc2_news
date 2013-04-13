@@ -11,21 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130324114928) do
+ActiveRecord::Schema.define(:version => 20130413064521) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
     t.integer  "views_count",  :default => 0
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.string   "ip_address"
     t.integer  "legacy_id"
     t.boolean  "published",    :default => true
     t.datetime "published_at"
     t.datetime "deleted_at"
     t.integer  "deleter_id"
+    t.boolean  "sticky",       :default => false
   end
 
   add_index "articles", ["deleted_at"], :name => "index_articles_on_deleted_at"
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130324114928) do
   add_index "articles", ["ip_address"], :name => "index_articles_on_ip_address"
   add_index "articles", ["legacy_id"], :name => "index_articles_on_legacy_id"
   add_index "articles", ["published"], :name => "index_articles_on_published"
+  add_index "articles", ["sticky"], :name => "index_articles_on_sticky"
   add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
 
   create_table "chat_messages", :force => true do |t|

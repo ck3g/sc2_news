@@ -12,6 +12,10 @@ FactoryGirl.define do
       published false
     end
 
+    trait :sticky do
+      sticky true
+    end
+
     factory :invalid_article do
       body nil
     end
@@ -30,5 +34,6 @@ FactoryGirl.define do
     end
 
     factory :unpublished_article, traits: [:unpublished]
+    factory :sticky_article, traits: [:sticky]
   end
 end

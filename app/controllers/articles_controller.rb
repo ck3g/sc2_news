@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
   has_scope :tagged_with
 
   def index
-    relation = apply_scopes(Article.accessible_by(current_ability))
+    @sticky_articles = ArticleQuery.new(Article.sticky.accessible_by(current_ability)).list
+    relation = apply_scopes(Article.regular.accessible_by(current_ability))
     @articles = ArticleQuery.new(relation).list.page(params[:page])
   end
 

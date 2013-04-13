@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   CUTTER = "&lt;cut&gt;"
 
   attr_accessible :title, :body, :views_count, :tag_list,
-    :published, :published_at
+    :published, :published_at, :sticky
 
   alias_attribute :deleted?, :deleted_at?
 
@@ -26,6 +26,8 @@ class Article < ActiveRecord::Base
   scope :not_deleted_or_mine, ->(user_id) {
     where("(deleted_at IS NULL) OR (deleted_at IS NOT NULL AND deleter_id = ?)", user_id)
   }
+  scope :sticky, -> { where(sticky: true) }
+  scope :regular, -> { where(sticky: false) }
 
   def self.top_tags(count)
     Article.tag_counts_on(:tags).sort_by(&:count).reverse.first(count)

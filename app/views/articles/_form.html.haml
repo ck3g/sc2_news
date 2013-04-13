@@ -5,6 +5,7 @@
     = f.input :tag_list, hint: t(:tags_hint)
     = f.input :published_at, input_html: { class: "select-datetime" }, label: Article.human_attribute_name(:published_at)
     = f.input :published, inline_label: true
+    = f.input :sticky, inline_label: true
 
     = render 'hint'
 

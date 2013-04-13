@@ -13,6 +13,8 @@
   .row-fluid.article-title.clearfix
     .pull-left
       %h3
+        - if article.sticky?
+          %i.icon-pushpin
         = unpublished_prefix(article)
         = link_to article.title, article, class: deleted_class(article), title: deleted_title(article)
     .pull-right
