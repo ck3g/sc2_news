@@ -19,11 +19,11 @@
     .container-fluid.background.main-container
       = render partial: "shared/flash_messages", locals: {flash: flash}
       .row-fluid
-        .span1
-        .span8
-          = yield
-        .span2
-          = render 'shared/side_right'
+        .span12
+          .span8.content-bar
+            = yield
+          .span3.sidebar
+            = render 'shared/side_right'
       %hr/
 
     = render 'shared/tags'

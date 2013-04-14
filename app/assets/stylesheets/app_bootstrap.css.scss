@@ -80,8 +80,21 @@ $form-border-radius: 5px;
   height: 71px;
 }
 
+.banner254x63 {
+  width: 254px;
+  height: 63px;
+}
+
 .centered {
   margin: 0 auto;
+}
+
+.content-bar {
+  margin-left: 3%;
+}
+
+.sidebar {
+  width: 320px;
 }
 
 @import "twitter/bootstrap";
