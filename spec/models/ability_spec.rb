@@ -9,6 +9,11 @@ shared_examples "as writer" do
   let(:own_deleted_article) { create :deleted_article, user: user, deleter: user }
   let(:ally_deleted_article) { create :deleted_article, user: create(:user), deleter: create(:user) }
   subject { Ability.new user }
+  it { should be_able_to :crate, Article }
+  it { should be_able_to :manage, own_article }
+  it { should be_able_to :destroy, own_article }
+  it { should_not be_able_to :manage, ally_article }
+  it { should_not be_able_to :destroy, ally_article }
   it { should be_able_to :all, Comment }
   it { should_not be_able_to :index, User }
   it { should_not be_able_to :manage, User }
