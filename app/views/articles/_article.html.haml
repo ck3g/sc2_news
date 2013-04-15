@@ -29,6 +29,7 @@
     = raw formatted(article.body, index?)
     - if index?
       %p.read-more= link_to t(:read_more), article
+  %hr
   .article-tags.pull-left
     - article.tags.each do |tag|
       = link_to tagged_articles_path(tag.name) do
@@ -42,4 +43,3 @@
     = "|"
     = t("articles.meta.views_count", :views_count => article.views_count)
   .spacer
-  %hr
