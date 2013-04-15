@@ -56,6 +56,7 @@ shared_examples "as common user" do
   it { should_not be_able_to :all, ChatMessage }
   it { should_not be_able_to :all, Ckeditor::Picture }
   it { should_not be_able_to :all, Ckeditor::AttachmentFile }
+  it { should be_able_to :read, Page }
 end
 
 describe "Ability" do

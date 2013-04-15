@@ -14,6 +14,7 @@ class Ability
     user ||= User.new
     cannot :all, :all
     can :manage, [Comment], user_id: user.id
+    can :read, Page
 
     if user.admin?
       can :manage, :all
