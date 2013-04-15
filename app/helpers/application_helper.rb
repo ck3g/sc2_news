@@ -1,17 +1,18 @@
 module ApplicationHelper
 
-  def twitterized_type(type)
-    case type
-      when :alert
-        "warning"
-      when :error
-        "error"
-      when :notice
-        "info"
-      when :success
-        "success"
-      else
-        type.to_s
+  def flash_class(type)
+    if type == :alert
+      "error"
+    else
+      "success"
+    end
+  end
+
+  def flash_icon(type)
+    if type == :alert
+      content_tag "i", "", :class => "icon-warning-sign"
+    else
+      content_tag "i", "", :class => "icon-info-sign"
     end
   end
 
