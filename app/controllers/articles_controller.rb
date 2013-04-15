@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
 
   def show
     @comment = @article.comments.new
-    @comments = @article.comments.order("created_at ASC")
+    @comments = CommentQuery.new(@article.comments).list
   end
 
   def edit
