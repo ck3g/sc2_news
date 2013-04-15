@@ -55,6 +55,7 @@ group :development do
   gem "rails_best_practices"
   gem "thin"
   gem "zeus"
+  gem "bullet"
 end
 
 group :test, :development do
