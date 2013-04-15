@@ -20,6 +20,9 @@ Sc2News::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Expiry time used by turbo-sprockets-rails3 gem
+  config.assets.expire_after 2.weeks
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
