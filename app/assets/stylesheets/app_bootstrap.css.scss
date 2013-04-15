@@ -1,6 +1,12 @@
 $baseFontSize: 13px;
 $baseLineHeight: 18px;
 
+$navbarSpace: 20px;
+
+.navbar-top {
+  margin: 0 $navbarSpace 0 $navbarSpace;
+}
+
 .input-fullwidth {
   width: 98%;
 }
