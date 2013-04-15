@@ -30,7 +30,6 @@ ru:
     index:
       h2: "Новости"
     meta:
-      views_count: "Просмотров: %{views_count}"
       comments_count:
         zero: "Нет комментариев"
         one: "Один комментарий"
@@ -68,6 +67,7 @@ ru:
   unpublished: Неопубликована
   deleted: Удалена
   comments: Комментариев
+  views_count: Просмотров
   create_article: Добавить новость!
   new_article: Новая новость
   edit_article: Редактирование новости

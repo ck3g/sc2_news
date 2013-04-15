@@ -103,6 +103,12 @@ $form-border-radius: 5px;
   width: 320px;
 }
 
+.non-decorated {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 @import "twitter/bootstrap";
 .main-container {
   padding-top: 20px;

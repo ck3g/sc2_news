@@ -37,9 +37,9 @@
         = tag.name
       &nbsp;&nbsp;
   .article-meta.pull-right
-    = succeed ":" do
-      = t(:comments)
+    %i.icon-comments-alt{title: t(:comments), rel: "tooltip"}
     = link_to article.comments.count, article_path(article, anchor: "comments")
-    = "|"
-    = t("articles.meta.views_count", :views_count => article.views_count)
+    &nbsp;&nbsp;
+    %i.icon-eye-open{title: t(:views_count), rel: "tooltip"}
+    = article.views_count
   .spacer

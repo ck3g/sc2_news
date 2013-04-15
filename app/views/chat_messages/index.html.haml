@@ -1,7 +1,7 @@
 - @messages.each do |message|
   %div
     - if can? :destroy, message
-      = link_to message, method: :delete, data: { confirm: t(:are_you_sure) } do
+      = link_to message, method: :delete, data: { confirm: t(:are_you_sure) }, :class => "non-decorated" do
         %i.icon-trash
     %span.chat-user
       = succeed ":" do

@@ -28,7 +28,10 @@
               %li= link_to t("users.account"), edit_user_registration_path
               - if can? :manage, User
                 %li.divider
-                %li= link_to t(:manage_users), users_path
+                %li
+                  = link_to users_path do
+                    %i.icon-group
+                    = t(:manage_users)
               %li.divider
               %li= link_to t("users.logout"), :destroy_user_session, method: :delete
         - else
