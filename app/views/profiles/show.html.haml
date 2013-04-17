@@ -34,9 +34,7 @@
                   = link_to @profile.bnet_name, @profile.profile_url, rel: "nofollow"
                 %p
                   %strong= "#{Profile.human_attribute_name(:server)}:"
-                  - if @profile.bnet_server
-                    = image_tag "flags/#{@profile.bnet_server}.png", alt: t("bnet_servers.#{@profile.bnet_server}")
-                    = t("bnet_servers.#{@profile.bnet_server}")
+                  = @profile.battlenet_server
 
                 %p
                   %strong= "#{Profile.human_attribute_name(:achievements)}:"
@@ -48,9 +46,7 @@
           %fieldset
             %legend= t(:game_stats)
             - if @profile.has_played_games?
-              - badge, badge_medium = @profile.league_parts
-              - if badge && badge_medium
-                %span.badge{class: "badge-#{badge} badge-medium-#{badge_medium}"}
+              = @profile.badge
               = profile_attribute_block Profile.human_attribute_name(:game_type), "1x1"
               = profile_attribute_block Profile.human_attribute_name(:rank), @profile.rank
               = profile_attribute_block Profile.human_attribute_name(:points), @profile.points

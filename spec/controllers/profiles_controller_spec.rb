@@ -7,7 +7,8 @@ describe ProfilesController do
 
   describe "GET #show" do
     before { get :show, id: profile }
-    it { should assign_to(:profile).with profile }
+    it { expect(assigns :profile).to eq profile }
+    it { expect(assigns :profile).to be_decorated }
     it { should respond_with :success }
     it { should render_template :show }
   end

@@ -35,6 +35,7 @@ gem "ckeditor", "~> 4.0.2"
 gem "twitter_cldr", "~> 2.2.0"
 gem "battlenet_info", "0.2.1"
 gem "newrelic_rpm"
+gem "draper", "~> 1.0"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
