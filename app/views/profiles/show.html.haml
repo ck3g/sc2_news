@@ -14,9 +14,8 @@
         = profile_attribute_block Profile.human_attribute_name(:username), @profile.username
         = profile_attribute_block Profile.human_attribute_name(:fullname), @profile.fullname
         = profile_attribute_block Profile.human_attribute_name(:country), @profile.country_name
-        = profile_attribute_block Profile.human_attribute_name(:created_at), l(@profile.created_at, format: :long)
-        - current_sign_in_at = l(@profile.user_current_sign_in_at, format: :long) if @profile.user_current_sign_in_at.present?
-        = profile_attribute_block Profile.human_attribute_name(:user_current_sign_in_at), current_sign_in_at
+        = profile_attribute_block Profile.human_attribute_name(:created_at), @profile.created_at
+        = profile_attribute_block Profile.human_attribute_name(:user_current_sign_in_at), @profile.user_current_sign_in_at
 
   - if @profile.profile_url?
     .row-fluid
@@ -35,14 +34,15 @@
                   = link_to @profile.bnet_name, @profile.profile_url, rel: "nofollow"
                 %p
                   %strong= "#{Profile.human_attribute_name(:server)}:"
-                  = image_tag "flags/#{@profile.bnet_server}.png", alt: t("bnet_servers.#{@profile.bnet_server}")
-                  = t("bnet_servers.#{@profile.bnet_server}")
+                  - if @profile.bnet_server
+                    = image_tag "flags/#{@profile.bnet_server}.png", alt: t("bnet_servers.#{@profile.bnet_server}")
+                    = t("bnet_servers.#{@profile.bnet_server}")
 
                 %p
                   %strong= "#{Profile.human_attribute_name(:achievements)}:"
                   %span.achievements= @profile.achievements
                 =# TODO: race
-                = profile_attribute_block Profile.human_attribute_name(:synchronized_at), l(@profile.synchronized_at, format: :long)
+                = profile_attribute_block Profile.human_attribute_name(:synchronized_at), @profile.synchronized_at
 
         .span4
           %fieldset

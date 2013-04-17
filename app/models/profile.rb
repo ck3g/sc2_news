@@ -17,7 +17,7 @@ class Profile < ActiveRecord::Base
   end
 
   def has_played_games?
-    wins > 0
+    wins.to_i > 0
   end
 
   def has_league?

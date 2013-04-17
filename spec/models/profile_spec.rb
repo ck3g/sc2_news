@@ -74,4 +74,14 @@ describe Profile do
       expect { zakk.sync! }.to change { zakk.synchronized_at }
     end
   end
+
+  describe "#has_played_games?" do
+    context "when has played games" do
+      it { expect(build(:profile, wins: 5).has_played_games?).to be_true }
+    end
+
+    context "when has no played games" do
+      it { expect(build(:profile).has_played_games?).to be_false }
+    end
+  end
 end
