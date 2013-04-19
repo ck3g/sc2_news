@@ -18,6 +18,7 @@
 
     .container-fluid.background.main-container
       = render "shared/flash_messages"
+      = render 'shared/guest_instructions' if show_guest_instructions?
       .row-fluid
         .span12
           .span8.content-bar

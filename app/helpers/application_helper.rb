@@ -33,4 +33,8 @@ module ApplicationHelper
   def index?
     params[:action] == "index"
   end
+
+  def show_guest_instructions?
+    current_user.nil? && cookies[:hide_guest_instructions].blank?
+  end
 end

@@ -35,5 +35,7 @@ Sc2News::Application.routes.draw do
   get "profile/:username" => "profiles#show", as: :user_profile
   get "Profile/:username" => "profiles#show"
 
+  post "/hide-guest-instructions" => "welcome#hide_guest_instructions", as: :hide_guest_instructions
+
   root :to => 'articles#index'
 end

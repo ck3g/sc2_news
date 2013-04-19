@@ -105,6 +105,7 @@ ru:
   articles_title: Новости
   sign_up: Регистрация
   sign_in: Вход
+  reset_password: Восстановить пароль
   do_sign_up: Зарегистрироваться
   do_sign_in: Войти
   forgot_password: Забыли пароль?
