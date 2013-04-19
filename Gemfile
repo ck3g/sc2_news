@@ -58,6 +58,7 @@ group :development do
   gem "thin"
   gem "zeus"
   gem "bullet"
+  gem "rubocop"
 end
 
 group :test, :development do
