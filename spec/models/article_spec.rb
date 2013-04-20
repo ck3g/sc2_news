@@ -27,6 +27,34 @@ describe Article do
     end
   end
 
+  describe "meta tags" do
+    let!(:article) do
+        create(:article, tag_list: "terran, zerg")
+    end
+
+    describe "#keywords" do
+      it "collect keywords" do
+        expect(article.keywords).to eq "zerg, terran"
+      end
+    end
+
+    describe "#description" do
+      context "when has body" do
+        it "collect description" do
+          article.body = "<p>#{ "huge article's body" * 200 }</p>"
+          expect(article.description).to eq article.body[3..152]
+        end
+      end
+
+      context "when empty body" do
+        it "collect description" do
+          article.body = ""
+          expect(article.description).to eq ""
+        end
+      end
+    end
+  end
+
   describe "#mark_as_deleted_by" do
     let!(:article) { create :article }
     let!(:admin) { create :admin }

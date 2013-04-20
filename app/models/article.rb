@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
   CUTTER = "&lt;cut&gt;"
+  DESC_LEN = 150
 
   attr_accessible :title, :body, :views_count, :tag_list,
     :published, :published_at, :sticky
@@ -57,6 +58,14 @@ class Article < ActiveRecord::Base
 
   def add_hit!
     increment! :views_count
+  end
+
+  def keywords
+    self.tags.map { |t| t.name }.join(", ")
+  end
+
+  def description
+    Sanitize.clean(self.body).strip.first(DESC_LEN)
   end
 
   private

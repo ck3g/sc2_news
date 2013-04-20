@@ -31,6 +31,9 @@ class ArticlesController < ApplicationController
   def show
     @comment = @article.comments.new
     @comments = CommentQuery.new(@article.comments).list
+    set_meta_tags title: @article.title,
+      description: @article.description,
+      keywords: @article.keywords
   end
 
   def edit
