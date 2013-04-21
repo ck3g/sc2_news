@@ -42,7 +42,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'therubyracer'
-  gem 'uglifier',     '>= 1.0.3'
+  gem 'uglifier',     '~> 2.0.1'
   gem "turbo-sprockets-rails3"
 end
 
