@@ -103,4 +103,57 @@ describe Article do
       end
     end
   end
+
+  describe "#tweet" do
+    let(:article) { build :article }
+    context "when can tweet" do
+      before do
+        article.should_receive(:can_tweet?).and_return true
+        Twitter.should_receive(:update).with "Tweet text"
+        article.should_receive(:update_column).with(:tweeted, true)
+      end
+
+      it "updates twitter" do
+        article.tweet "Tweet text"
+      end
+    end
+
+    context "when cannot tweet" do
+      before do
+        article.should_receive(:can_tweet?).and_return false
+        Twitter.should_not_receive(:update)
+        article.should_not_receive(:update_column).with(:tweeted, true)
+      end
+
+      it "dont updates twitter" do
+        article.tweet "Tweet text"
+      end
+    end
+  end
+
+  describe "#can_tweet?" do
+    let(:article) { create :article }
+
+    context "when article isn't published" do
+      let(:article) { create :unpublished_article }
+      it { expect(article.can_tweet?).to be_false }
+    end
+
+    context "when already tweeted" do
+      before { article.stub(:tweeted?).and_return true }
+      it { expect(article.can_tweet?).to be_false }
+    end
+
+    context "when rails env isn't production" do
+      before { article.stub(:tweeted?).and_return false }
+      it { expect(article.can_tweet?).to be_false }
+    end
+
+    context "when not tweeted, published and production" do
+      before do
+        Rails.stub_chain(:env, :production?).and_return true
+      end
+      it { expect(article.can_tweet?).to be_true }
+    end
+  end
 end

@@ -16,6 +16,7 @@
 
 config/database.yml
 config/mail.yml
+config/social.yml
 *.swp
 
 public/Content/Gallery/*

@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new params[:article]
     @article.ip_address = request.remote_ip
     if @article.save
+      @article.tweet tweet_text
       redirect_to @article, notice: t(:created_successfully)
     else
       render :new
@@ -41,6 +42,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update_attributes params[:article]
+      @article.tweet tweet_text
       flash[:notice] = t(:updated_successfully)
     end
     respond_with @article
@@ -68,5 +70,9 @@ class ArticlesController < ApplicationController
 
   def increment_views_count
     @article.add_hit!
+  end
+
+  def tweet_text
+    "#{ @article.title } #{ article_url(@article) }"
   end
 end

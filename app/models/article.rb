@@ -68,6 +68,17 @@ class Article < ActiveRecord::Base
     Sanitize.clean(self.body).strip.first(DESC_LEN)
   end
 
+  def tweet(message)
+    if can_tweet?
+      Twitter.update(message)
+      update_column :tweeted, true
+    end
+  end
+
+  def can_tweet?
+    published? && !tweeted? && Rails.env.production?
+  end
+
   private
   def init_defaults
     self.published_at ||= created_at.presence || DateTime.current

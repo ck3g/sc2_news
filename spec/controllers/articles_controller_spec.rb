@@ -50,11 +50,16 @@ describe ArticlesController do
       ActionDispatch::Request.any_instance.stub(:remote_ip).and_return("192.168.0.1")
     end
     context "when valid attributes" do
-      before { post :create, article: attributes_for(:article) }
+      before do
+        Article.any_instance.should_receive(:tweet)
+        unless example.metadata[:skip_before]
+          post :create, article: attributes_for(:article)
+        end
+      end
       it { should assign_to(:article).with_kind_of Article }
       it { should redirect_to Article.last }
       it { should set_the_flash[:notice].to I18n.t(:created_successfully) }
-      it "creates new article" do
+      it "creates new article", skip_before: true do
         expect {
           post :create, article: attributes_for(:article)
         }.to change(Article, :count).by(1)
@@ -65,10 +70,15 @@ describe ArticlesController do
     end
 
     context "when invalid attributes" do
-      before { post :create, article: attributes_for(:invalid_article) }
+      before do
+        Article.any_instance.should_not_receive(:tweet)
+        unless example.metadata[:skip_before]
+          post :create, article: attributes_for(:invalid_article)
+        end
+      end
       it { should render_template :new }
       it { should assign_to(:article).with_kind_of Article }
-      it "don't creates new article" do
+      it "don't creates new article", skip_before: true do
         expect {
           post :create, article: attributes_for(:invalid_article)
         }.to_not change(Article, :count)
@@ -85,10 +95,15 @@ describe ArticlesController do
 
   describe "PUT #update" do
     context "when valid attributes" do
-      before { put :update, id: article, article: attributes_for(:article) }
+      before do
+        Article.any_instance.should_receive(:tweet)
+        unless example.metadata[:skip_before]
+          put :update, id: article, article: attributes_for(:article)
+        end
+      end
       it { should redirect_to article }
       it { should set_the_flash[:notice].to I18n.t(:updated_successfully) }
-      it "changes the title" do
+      it "changes the title", skip_before: true do
         expect {
           put :update, id: article, article: attributes_for(:article, title: "New Title")
           article.reload
@@ -97,10 +112,15 @@ describe ArticlesController do
     end
 
     context "when invalid attributes" do
-      before { put :update, id: article, article: attributes_for(:invalid_article) }
+      before do
+        Article.any_instance.should_not_receive(:tweet)
+        unless example.metadata[:skip_before]
+          put :update, id: article, article: attributes_for(:invalid_article)
+        end
+      end
       it { should assign_to(:article).with article }
       it { should render_template :edit }
-      it "dont changes the title" do
+      it "dont changes the title", skip_before: true do
         expect {
           put :update, id: article, article: attributes_for(:invalid_article, title: "Changed Title")
           article.reload

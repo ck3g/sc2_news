@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413064521) do
+ActiveRecord::Schema.define(:version => 20130421091308) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20130413064521) do
     t.datetime "deleted_at"
     t.integer  "deleter_id"
     t.boolean  "sticky",       :default => false
+    t.boolean  "tweeted",      :default => false
   end
 
   add_index "articles", ["deleted_at"], :name => "index_articles_on_deleted_at"
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130413064521) do
   add_index "articles", ["legacy_id"], :name => "index_articles_on_legacy_id"
   add_index "articles", ["published"], :name => "index_articles_on_published"
   add_index "articles", ["sticky"], :name => "index_articles_on_sticky"
+  add_index "articles", ["tweeted"], :name => "index_articles_on_tweeted"
   add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
 
   create_table "chat_messages", :force => true do |t|
