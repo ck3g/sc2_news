@@ -1,6 +1,6 @@
 class CommentQuery
   def initialize(relation = Comment)
-    @relation = relation.includes(:user, :commentable)
+    @relation = relation.includes(:user, :commentable).includes(:user => :profile)
   end
 
   def list
