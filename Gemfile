@@ -45,6 +45,7 @@ group :assets do
   gem 'therubyracer'
   gem 'uglifier',     '~> 2.0.1'
   gem "turbo-sprockets-rails3"
+  gem "compass-rails"
 end
 
 group :production do

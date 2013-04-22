@@ -1,3 +1,18 @@
+@import "compass";
+@import "social/*.png";
+/* closing comment: trick to fix syntax highlighting */
+@include all-social-sprites;
+
+.social-twitter, .social-vkontakte, .social-youtube {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+ul.social {
+  @include horizontal-list;
+}
+
 $baseFontSize: 13px;
 $baseLineHeight: 18px;
 
