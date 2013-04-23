@@ -3,16 +3,17 @@ module ArticlesHelper
     tags = [tags] unless tags.is_a? Array
 
     hint_tags = tags.map do |tag_name|
-      content_tag :span, "<#{tag_name}>", class: "label label-info"
+      content_tag :span, "<#{ tag_name }>", class: 'label label-info'
     end.localize(I18n.locale).to_sentence.html_safe
 
     content_tag :p do
-      "#{hint_tags} - #{description}".html_safe
+      "#{ hint_tags } - #{ description }".html_safe
     end
   end
 
   def article_hint_by_rule(rule)
-    article_hint rule.first, I18n.t("hint.#{rule.first.first}_desc", icon: image_tag(rule.last))
+    article_hint rule.first, t("hint.#{ rule.first.first }_desc",
+                               icon: image_tag(rule.last))
   end
 
   def cut(text)
@@ -20,11 +21,11 @@ module ArticlesHelper
   end
 
   def replace_tags(text)
-    str = text.gsub Article::CUTTER, ""
+    str = text.gsub Article::CUTTER, ''
 
     ReplaceIconsStrategy.rules.each do |tags, icon|
       tags.each do |tag_name|
-        str.gsub! "&lt;#{tag_name}&gt;", image_tag(icon)
+        str.gsub! "&lt;#{ tag_name }&gt;", image_tag(icon)
       end
     end
 
@@ -37,11 +38,13 @@ module ArticlesHelper
   end
 
   def unpublished_prefix(article)
-    content_tag :span, "[#{t(:unpublished)}]", :class => "unpublished" unless article.published?
+    unless article.published?
+      content_tag :span, "[#{ t(:unpublished) }]", class: 'unpublished'
+    end
   end
 
   def deleted_class(article)
-    "deleted" if article.deleted?
+    'deleted' if article.deleted?
   end
 
   def deleted_title(article)

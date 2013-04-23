@@ -1,9 +1,13 @@
 module UsersHelper
   def roles_list(user)
-    user.roles.map { |role| t("activerecord.values.user.roles.#{role}") }.join(", ")
+    user.roles.map do |role|
+      t("activerecord.values.user.roles.#{ role }")
+    end.join(", ")
   end
 
   def collection_of_roles
-    User::ROLES.map { |role| I18n.t("activerecord.values.user.roles.#{role}") }.zip(User::ROLES)
+    User::ROLES.map do |role|
+      t("activerecord.values.user.roles.#{ role }")
+    end.zip(User::ROLES)
   end
 end

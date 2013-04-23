@@ -3,7 +3,7 @@ module CommentsHelper
     if user
       avatar_html user.profile
     else
-      image_tag "avatars/default.gif"
+      image_tag 'avatars/default.gif'
     end
   end
 
@@ -11,7 +11,7 @@ module CommentsHelper
     if comment.user
       link_to comment.username, user_profile_path(comment.username)
     else
-      "#{t(:unknown_user)}"
+      "#{ t(:unknown_user) }"
     end
   end
 
