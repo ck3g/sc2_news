@@ -3,9 +3,8 @@ require 'spec_helper'
 describe ArticlesController do
   login_admin
 
-  let(:article) { create :article }
-
   describe "GET #index" do
+    let(:article) { create :article }
     let!(:old) { create :old_article, tag_list: "sc2, tournament" }
     let!(:very_old) { create :very_old_article, tag_list: "tournament, stream" }
     let!(:sticky) { create :sticky_article }
@@ -23,26 +22,46 @@ describe ArticlesController do
   end
 
   describe "GET #show" do
-    def show_article
-      get :show, id: article
-      article.reload
+    let(:article) do
+      mock_model Article, comments: Comment, description: "", keywords: ""
     end
-    before { show_article }
+    let(:comment) { mock_model Comment }
+
+    before do
+      Article.stub(:accessible_by).and_return Article
+      Article.stub(:find).with(article.id.to_s).and_return article
+      article.comments.stub(:new).and_return(comment)
+      mock CommentQuery
+      CommentQuery.stub_chain(:new, :list).and_return Comment
+
+      article.should_receive(:add_hit!)
+      get :show, id: article
+    end
+
     it { should respond_with :success }
     it { should render_template :show }
     it { should assign_to(:article).with article }
     it { should assign_to(:comment).with_kind_of Comment }
     it { should assign_to(:comments).with article.comments }
-    it "increment articles view count" do
-      expect { show_article }.to change { article.views_count }.by(1)
-    end
   end
 
   describe "GET #new" do
-    before { get :new }
-    it { should respond_with :success }
-    it { should render_template :new }
-    it { should assign_to(:article).with_kind_of Article }
+    let(:article) { mock_model Article }
+
+    it 'creates article instance' do
+      Article.should_receive(:new).and_return article
+      get :new
+    end
+
+    it do
+      get :new
+      should respond_with :success
+    end
+
+    it do
+      get :new
+      should render_template :new
+    end
   end
 
   describe "POST #create" do
@@ -87,13 +106,19 @@ describe ArticlesController do
   end
 
   describe "GET #edit" do
-    before { get :edit, id: article }
+    let(:article) { mock_model Article }
+    before do
+      Article.stub(:accessible_by).and_return Article
+      Article.stub(:find).with(article.id.to_s).and_return article
+      get :edit, id: article
+    end
     it { should respond_with :success }
     it { should render_template :edit }
     it { should assign_to(:article).with article }
   end
 
   describe "PUT #update" do
+    let(:article) { create :article }
     context "when valid attributes" do
       before do
         Article.any_instance.should_receive(:tweet)
@@ -130,35 +155,43 @@ describe ArticlesController do
   end
 
   describe "DELETE #destroy" do
-    def delete_article
-      delete :destroy, id: article
-    end
+    let(:article) { mock_model Article }
+
     before do
       DateTime.stub(:current).and_return DateTime.current
-      article
-      delete_article unless example.metadata[:skip_destroy]
+      Article.stub(:accessible_by).and_return Article
+      Article.stub(:find).with(article.id.to_s).and_return article
     end
 
-    it { should redirect_to articles_path }
-    it { should assign_to(:article).with article }
-    it "don't actually removes the article", skip_destroy: true do
-      expect { delete_article }.to_not change { Article.count }
+    it do
+      article.stub(:mark_as_deleted_by)
+      delete :destroy, id: article
+      should redirect_to articles_path
     end
+
     it "receives mark_as_deleted_by call", skip_destroy: true do
-      Article.any_instance.should_receive(:mark_as_deleted_by)
-      delete_article
+      article.should_receive(:mark_as_deleted_by)
+      delete :destroy, id: article
     end
   end
 
   describe "PUT #restore" do
-    let!(:deleted_article) { create :deleted_article }
+    let(:article) { mock_model Article, deleted: true }
 
     before do
-      Article.any_instance.should_receive(:restore)
-      put :restore, id: deleted_article
+      Article.stub(:accessible_by).and_return Article
+      Article.stub(:find).with(article.id.to_s).and_return article
     end
 
-    it { should redirect_to articles_path }
-    it { should assign_to(:article).with deleted_article }
+    it 'restores the Article' do
+      article.should_receive(:restore)
+      put :restore, id: article.id
+    end
+
+    it 'redirects to Article index' do
+      article.stub(:restore)
+      put :restore, id: article.id
+      should redirect_to articles_path
+    end
   end
 end
