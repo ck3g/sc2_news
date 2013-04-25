@@ -75,19 +75,24 @@ describe CommentsController do
   end
 
   describe "DELETE #destroy" do
+    let(:article) { mock_model Article, id: 73 }
+    let(:comment) { mock_model Comment, id: 42 }
+
     before do
-      comment
-      unless example.metadata[:skip_destroy]
-        xhr :delete, :destroy, article_id: article, id: comment
-      end
+      Article.stub(:find).with(article.id.to_s).and_return article
+      article.stub(:comments).and_return Comment
+      Comment.stub(:find).with(comment.id.to_s).and_return comment
     end
-    it { should render_template :destroy }
-    it { should assign_to(:article).with article }
-    it { should assign_to(:comment).with comment }
-    it "deletes the comment", skip_destroy: true do
-      expect {
-        xhr :delete, :destroy, article_id: article, id: comment
-      }.to change(Comment, :count).by(-1)
+
+    it 'calls destroy comment' do
+      comment.should_receive(:destroy)
+      xhr :delete, :destroy, article_id: article, id: comment
+    end
+
+    it 'renders destroy view' do
+      comment.stub(:destroy)
+      xhr :delete, :destroy, article_id: article, id: comment
+      should render_template :destroy
     end
   end
 end
