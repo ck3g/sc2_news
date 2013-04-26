@@ -75,6 +75,7 @@ GEM
       activesupport (>= 3.2.0)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
+    chronic (0.9.1)
     chunky_png (1.2.8)
     ckeditor (4.0.2)
       mime-types
@@ -329,6 +330,9 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     websocket (1.0.6)
+    whenever (0.8.2)
+      activesupport (>= 2.3.4)
+      chronic (>= 0.6.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
     zeus (0.13.2)
@@ -393,4 +397,5 @@ DEPENDENCIES
   twitter
   twitter_cldr (~> 2.2.0)
   uglifier (~> 2.0.1)
+  whenever (~> 0.8.2)
   zeus
