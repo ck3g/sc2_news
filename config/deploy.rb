@@ -27,9 +27,9 @@ set :use_sudo, false
 set :rvm_type, :user
 set :normalize_asset_timestamps, false
 
-after "deploy",                 "deploy:cleanup"
-after "deploy:finalize_update", "deploy:config", "deploy:update_uploads"
-after "deploy:create_symlink", "deploy:migrate"
+after "deploy",                 "deploy:cleanup", "refresh_sitemaps"
+after "deploy:finalize_update", "deploy:config",  "deploy:update_uploads"
+after "deploy:create_symlink",  "deploy:migrate"
 
 CONFIG_FILES = %w(database mail social)
 
@@ -99,6 +99,11 @@ namespace :puma do
   task :restart, :roles => lambda { fetch(:puma_role) }, :on_no_matching_servers => :continue do
     run "cd #{current_path} && #{fetch(:pumactl_cmd)} -S #{fetch(:puma_state)} restart"
   end
+end
+
+set :sitemaps_path, 'shared/'
+task :refresh_sitemaps do
+  run "cd #{latest_release} && RAILS_ENV=#{rails_env} rake sitemap:refresh"
 end
 
 set :whenever_command, "bundle exec whenever"
