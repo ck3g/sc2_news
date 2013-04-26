@@ -1,8 +1,8 @@
 server "198.211.96.190", :app, :web, :db, :primary => true
 
-set :default_environment, {
-  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-}
+# set :default_environment, {
+#   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+# }
 
 set :user, "deploy"
 set :rake, "#{rake} --trace"
@@ -12,6 +12,7 @@ set :deploy_to,   "/home/#{user}/apps/#{application}/"
 set :branch, "master"
 set :puma_env, "production"
 set :rails_env, "production"
+set :rbenv_ruby_version, "2.0.0-p0"
 
 #default_run_options[:shell] = '/bin/bash'
 default_run_options[:pty] = true
@@ -76,6 +77,7 @@ end
 
 after 'deploy:stop', 'puma:stop'
 after 'deploy:start', 'puma:start'
+after 'deploy:restart', 'puma:start'
 # after 'deploy:restart', 'puma:restart'
 
 _cset(:puma_cmd) { "#{fetch(:bundle_cmd, 'bundle')} exec puma" }
@@ -103,11 +105,12 @@ end
 
 set :sitemaps_path, 'shared/'
 task :refresh_sitemaps do
-  run "cd #{latest_release} && RAILS_ENV=#{rails_env} rake sitemap:refresh"
+  run "cd #{latest_release} && RAILS_ENV=#{rails_env} bundle exec rake sitemap:refresh"
 end
 
 set :whenever_command, "bundle exec whenever"
+require 'bundler/capistrano'
 require "whenever/capistrano"
 require 'capistrano_colors'
-require 'bundler/capistrano'
+require 'capistrano-rbenv'
 

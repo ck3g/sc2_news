@@ -59,6 +59,7 @@ group :development do
   gem 'capistrano-recipes', :require => false
   gem 'capistrano_colors', :require => false
   gem "capistrano-puma", :require => false
+  gem 'capistrano-rbenv', :require => false
   gem "rails_best_practices"
   gem "thin"
   gem "zeus"
