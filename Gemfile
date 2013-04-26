@@ -38,6 +38,7 @@ gem "newrelic_rpm"
 gem "draper", "~> 1.0"
 gem "sanitize", "~> 2.0.3"
 gem "twitter"
+gem 'sitemap_generator', '~> 3.4'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
