@@ -1,3 +1,5 @@
 == SC2 News
+{<img src="https://travis-ci.org/ck3g/sc2_news.png?branch=master" alt="Build Status" />}[https://travis-ci.org/ck3g/sc2_news]
+{<img src="https://codeclimate.com/github/ck3g/sc2_news.png" />}[https://codeclimate.com/github/ck3g/sc2_news]
 
 Port starcraft.md to Ruby on Rails
