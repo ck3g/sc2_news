@@ -17,6 +17,7 @@ class Article < ActiveRecord::Base
 
   delegate :email, to: :user, prefix: true
   delegate :name, to: :user, prefix: true, allow_nil: true
+  delegate :username, to: :user, prefix: false
 
   after_initialize :init_defaults
 
