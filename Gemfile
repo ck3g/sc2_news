@@ -65,6 +65,7 @@ group :development do
   gem "zeus"
   gem "bullet"
   gem "rubocop"
+  gem 'brakeman', :require => false
 end
 
 group :test, :development do
