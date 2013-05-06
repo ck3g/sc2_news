@@ -22,8 +22,6 @@ GEM
       activesupport (= 3.2.13)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activerecord-sqlserver-adapter (3.2.10)
-      activerecord (~> 3.2.0)
     activeresource (3.2.13)
       activemodel (= 3.2.13)
       activesupport (= 3.2.13)
@@ -332,7 +330,6 @@ GEM
       mime-types (~> 1.19)
       multi_json (~> 1.5)
       twitter-stream (~> 0.1)
-    tiny_tds (0.5.1)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
@@ -369,7 +366,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-sqlserver-adapter (~> 3.2.10)
   acts-as-taggable-on (~> 2.3.3)
   acts_as_commentable (~> 3.0.1)
   anjlab-bootstrap-rails (>= 2.3)
@@ -421,7 +417,6 @@ DEPENDENCIES
   squeel (~> 1.0.17)
   therubyracer
   thin
-  tiny_tds (~> 0.5.1)
   turbo-sprockets-rails3
   twitter
   twitter_cldr (~> 2.2.0)

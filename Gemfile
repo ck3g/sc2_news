@@ -9,9 +9,6 @@ gem "pg"
 
 gem 'jquery-rails'
 
-gem 'tiny_tds', "~> 0.5.1"
-gem 'activerecord-sqlserver-adapter', '~> 3.2.10'
-
 gem 'haml'
 gem 'meta-tags', '~> 1.2.6', :require => 'meta_tags'
 gem 'kaminari' , "~> 0.13.0"

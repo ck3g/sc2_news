@@ -9,6 +9,3 @@ test:
   <<: *common
   database: sc2_test
 
-sc2_md:
-  <<: *common
-  database: sc2_test_stub
