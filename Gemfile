@@ -11,7 +11,7 @@ gem 'jquery-rails'
 
 gem 'haml'
 gem 'meta-tags', '~> 1.2.6', :require => 'meta_tags'
-gem 'kaminari' , "~> 0.13.0"
+gem 'kaminari' , "~> 0.14.1"
 gem 'devise', "~> 2.2.3"
 gem 'acts_as_commentable', "~> 3.0.1"
 gem "acts-as-taggable-on", "~> 2.3.3"
@@ -19,10 +19,10 @@ gem "acts-as-taggable-on", "~> 2.3.3"
 gem 'anjlab-bootstrap-rails', ">= 2.3", :require => 'bootstrap-rails'
 gem "font-awesome-rails", "~> 3.0.2.0"
 gem 'has_scope', "~> 0.5.1"
-gem "squeel", "~> 1.0.17"
+gem "squeel", "~> 1.0.18"
 gem "bitmask_attributes", "~> 0.4.0"
 gem "russian", "~> 0.6.0"
-gem "cancan", "~> 1.6.8"
+gem "cancan", "~> 1.6.9"
 gem "simple_form", "~> 2.1.0"
 gem "client_side_validations", "~> 3.2.1"
 
@@ -52,7 +52,7 @@ group :production do
 end
 
 group :development do
-  gem "capistrano", "~> 2.14.2", :require => false
+  gem "capistrano", "~> 2.15.4", :require => false
   gem 'capistrano-recipes', :require => false
   gem 'capistrano_colors', :require => false
   gem "capistrano-puma", :require => false
@@ -66,18 +66,18 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails',        '~> 2.11.0'
+  gem 'rspec-rails',        '~> 2.13.1'
   gem 'factory_girl_rails', '~> 3.5.0'
   gem 'pry-rails'
 end
 
 group :test do
-  gem "ffaker",           "~> 1.15.0"
-  gem 'capybara',         "~> 1.1.2"
+  gem "ffaker",           "~> 1.16.1"
+  gem 'capybara',         "~> 2.1.0"
   gem "database_cleaner", "~> 0.8.0"
   gem "launchy",          "~> 2.1.0"
   gem "shoulda",          "~> 3.1.1"
-  gem "email_spec",       "~> 1.2.1"
+  gem "email_spec",       "~> 1.4.0"
 end
 
 group :production do
