@@ -58,7 +58,7 @@ GEM
     builder (3.0.4)
     bullet (4.6.0)
       uniform_notifier
-    cancan (1.6.9)
+    cancan (1.6.10)
     capistrano (2.15.4)
       highline
       net-scp (>= 1.0.0)
@@ -88,7 +88,7 @@ GEM
       activesupport (>= 3.2.0)
     chronic (0.9.1)
     chunky_png (1.2.8)
-    ckeditor (4.0.2)
+    ckeditor (4.0.4)
       mime-types
       orm_adapter
     client_side_validations (3.2.1)
@@ -110,8 +110,8 @@ GEM
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
-    database_cleaner (0.8.0)
-    devise (2.2.3)
+    database_cleaner (0.9.1)
+    devise (2.2.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (~> 3.1)
@@ -126,9 +126,8 @@ GEM
       mail (~> 2.2)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    exception_notification (3.0.0)
+    exception_notification (3.0.1)
       actionmailer (>= 3.0.4)
-      tinder (~> 1.8)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (3.5.0)
@@ -136,10 +135,8 @@ GEM
     factory_girl_rails (3.5.0)
       factory_girl (~> 3.5.0)
       railties (>= 3.0.0)
-    faraday (0.8.4)
+    faraday (0.8.7)
       multipart-post (~> 1.1)
-    faraday_middleware (0.9.0)
-      faraday (>= 0.7.4, < 0.9)
     fastercsv (1.5.5)
     ffaker (1.16.1)
     font-awesome-rails (3.0.2.0)
@@ -148,10 +145,8 @@ GEM
     haml (4.0.2)
       tilt
     has_scope (0.5.1)
-    hashie (1.2.0)
     highline (1.6.18)
     hike (1.2.2)
-    http_parser.rb (0.5.3)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.4)
@@ -168,7 +163,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta-tags (1.2.6)
+    meta-tags (1.5.0)
       actionpack
     metaclass (0.0.1)
     method_source (0.8.1)
@@ -178,7 +173,7 @@ GEM
     mocha (0.10.5)
       metaclass (~> 0.0.1)
     multi_json (1.7.3)
-    multipart-post (1.1.5)
+    multipart-post (1.2.0)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.1)
@@ -197,7 +192,7 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
-    pry-rails (0.2.2)
+    pry-rails (0.3.0)
       pry (>= 0.9.10)
     puma (1.6.3)
       rack (~> 1.2)
@@ -277,7 +272,7 @@ GEM
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
-    simple_oauth (0.1.9)
+    simple_oauth (0.2.0)
     sitemap_generator (3.4)
       builder
     slim (1.3.8)
@@ -305,31 +300,19 @@ GEM
       rack (>= 1.0.0)
     thor (0.18.1)
     tilt (1.3.7)
-    tinder (1.9.2)
-      eventmachine (~> 1.0)
-      faraday (~> 0.8)
-      faraday_middleware (~> 0.9)
-      hashie (~> 1.0)
-      json (~> 1.7.5)
-      mime-types (~> 1.19)
-      multi_json (~> 1.5)
-      twitter-stream (~> 0.1)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
     turbo-sprockets-rails3 (0.3.6)
       railties (> 3.2.8, < 4.0.0)
       sprockets (>= 2.0.0)
-    twitter (4.4.0)
-      faraday (~> 0.8)
-      multi_json (~> 1.3)
-      simple_oauth (~> 0.1.6)
-    twitter-stream (0.1.16)
-      eventmachine (>= 0.12.8)
-      http_parser.rb (~> 0.5.1)
-      simple_oauth (~> 0.1.4)
-    twitter_cldr (2.2.0)
+    twitter (4.6.2)
+      faraday (~> 0.8, < 0.10)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.2)
+    twitter_cldr (2.4.0)
       json
+      tzinfo
     tzinfo (0.3.37)
     uglifier (2.0.1)
       execjs (>= 0.3.0)
@@ -356,7 +339,7 @@ DEPENDENCIES
   bitmask_attributes (~> 0.4.0)
   brakeman
   bullet
-  cancan (~> 1.6.9)
+  cancan (~> 1.6.10)
   capistrano (~> 2.15.4)
   capistrano-puma
   capistrano-rbenv
@@ -364,12 +347,12 @@ DEPENDENCIES
   capistrano_colors
   capybara (~> 2.1.0)
   carrierwave (~> 0.8.0)
-  ckeditor (~> 4.0.2)
+  ckeditor (~> 4.0.4)
   client_side_validations (~> 3.2.1)
   coffee-rails (~> 3.2.2)
   compass-rails
-  database_cleaner (~> 0.8.0)
-  devise (~> 2.2.3)
+  database_cleaner (~> 0.9.1)
+  devise (~> 2.2.4)
   draper (~> 1.0)
   email_spec (~> 1.4.0)
   exception_notification
@@ -381,7 +364,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.14.1)
   launchy (~> 2.1.0)
-  meta-tags (~> 1.2.6)
+  meta-tags (~> 1.5.0)
   mini_magick (~> 3.5.0)
   newrelic_rpm
   pg
@@ -402,7 +385,7 @@ DEPENDENCIES
   thin
   turbo-sprockets-rails3
   twitter
-  twitter_cldr (~> 2.2.0)
+  twitter_cldr (~> 2.4.0)
   uglifier (~> 2.0.1)
   whenever (~> 0.8.2)
   zeus

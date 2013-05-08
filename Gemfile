@@ -10,9 +10,9 @@ gem "pg"
 gem 'jquery-rails'
 
 gem 'haml'
-gem 'meta-tags', '~> 1.2.6', :require => 'meta_tags'
+gem 'meta-tags', '~> 1.5.0', :require => 'meta_tags'
 gem 'kaminari' , "~> 0.14.1"
-gem 'devise', "~> 2.2.3"
+gem 'devise', "~> 2.2.4"
 gem 'acts_as_commentable', "~> 3.0.1"
 gem "acts-as-taggable-on", "~> 2.3.3"
 
@@ -22,14 +22,14 @@ gem 'has_scope', "~> 0.5.1"
 gem "squeel", "~> 1.0.18"
 gem "bitmask_attributes", "~> 0.4.0"
 gem "russian", "~> 0.6.0"
-gem "cancan", "~> 1.6.9"
+gem "cancan", "~> 1.6.10"
 gem "simple_form", "~> 2.1.0"
 gem "client_side_validations", "~> 3.2.1"
 
 gem "carrierwave", "~> 0.8.0"
 gem "mini_magick", "~> 3.5.0"
-gem "ckeditor", "~> 4.0.2"
-gem "twitter_cldr", "~> 2.2.0"
+gem "ckeditor", "~> 4.0.4"
+gem "twitter_cldr", "~> 2.4.0"
 gem "battlenet_info", "0.2.1"
 gem "newrelic_rpm"
 gem "draper", "~> 1.0"
@@ -74,7 +74,7 @@ end
 group :test do
   gem "ffaker",           "~> 1.16.1"
   gem 'capybara',         "~> 2.1.0"
-  gem "database_cleaner", "~> 0.8.0"
+  gem "database_cleaner", "~> 0.9.1"
   gem "launchy",          "~> 2.1.0"
   gem "shoulda",          "~> 3.1.1"
   gem "email_spec",       "~> 1.4.0"
