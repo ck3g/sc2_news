@@ -67,7 +67,7 @@ end
 
 group :test, :development do
   gem 'rspec-rails',        '~> 2.13.1'
-  gem 'factory_girl_rails', '~> 3.5.0'
+  gem 'factory_girl_rails', '~> 4.2.1'
   gem 'pry-rails'
 end
 
