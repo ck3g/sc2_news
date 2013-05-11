@@ -1,0 +1,13 @@
+- defaults = { input_html: { class: 'input-xxlarge' } }
+- html = { class: 'form-horizontal' }
+= simple_form_for friend, html: html, defaults: defaults do |f|
+  = f.input :title
+  = f.input :url
+  = f.input :image
+  .control-group
+    .controls
+      = t(:or)
+  = f.input :remote_image_url
+  = f.input :visible, label: false, inline_label: true
+  .form-actions
+    = f.button :submit, class: "btn btn-primary", :"disable-with" => t(:wait)

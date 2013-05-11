@@ -29,6 +29,17 @@
 
     = render 'shared/tags'
 
+    - friends = OurFriend.visible
+    - if friends.present?
+      .container-fluid.background.main-container
+        .our-friends
+          - friends.each do |friend|
+            = link_to friend.url, target: '_blank' do
+              - if friend.image.present?
+                = image_tag friend.image, alt: friend.title
+              - else
+                = friend.title
+
     = render 'shared/footer'
 
     =# render 'shared/social_widgets'

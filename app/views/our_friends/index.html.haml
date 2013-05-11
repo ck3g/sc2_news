@@ -1,0 +1,33 @@
+.well
+  %h2= t(:manage_our_friends)
+
+  %p= link_to t(:create_our_friend), new_our_friend_path, class: 'btn btn-success'
+
+  %p= raw page_entries_info @friends
+
+  %table.table.table-striped.table-condensed
+    %thead
+      %tr
+        %th= "#"
+        %th= OurFriend.human_attribute_name(:title)
+        %th= OurFriend.human_attribute_name(:url)
+        %th= OurFriend.human_attribute_name(:image)
+        %th= OurFriend.human_attribute_name(:visible)
+        %th
+    %tbody
+      - @friends.each do |friend|
+        %tr{id: dom_id(friend)}
+          %td= friend.id
+          %td= friend.title
+          %td= link_to friend.url, friend.url
+          %td
+            - if friend.image.present?
+              = image_tag friend.image, alt: friend.title
+          %td= t(friend.visible.to_s)
+          %td
+            .pull-right
+              = link_to t(:edit), edit_our_friend_path(friend), class: "btn btn-mini"
+              = link_to t(:delete), friend, class: 'btn btn-mini btn-danger', method: :delete, data: { confirm: t(:are_you_sure) }
+
+
+  = paginate @friends

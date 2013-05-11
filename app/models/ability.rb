@@ -20,7 +20,7 @@ class Ability
       can :manage, :all
 
     elsif user.editor?
-      can :manage, [Article, Tag, Comment, Page]
+      can :manage, [Article, Tag, Comment, Page, OurFriend]
       can :access, :ckeditor
       can :manage, [Ckeditor::Picture, Ckeditor::AttachmentFile]
       can :manage, [Profile], user_id: user.id

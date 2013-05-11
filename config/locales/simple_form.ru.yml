@@ -12,6 +12,9 @@ ru:
         update: Обновить
       profile:
         update: Обновить
+      our_friend:
+        create: Завести друга
+        update: Подправить
 
   simple_form:
     "yes": 'Да'
@@ -60,4 +63,6 @@ ru:
         current_password: Текущий пароль
       profile:
         profile_url: "Пример: http://kr.battle.net/sc2/ko/profile/106432/1/SoundWeRRa/"
+      our_friend:
+        remote_image_url: "Сыылка на баннер в интернете"
 

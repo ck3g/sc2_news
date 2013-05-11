@@ -1,0 +1,13 @@
+
+ru:
+  activerecord:
+    models:
+      our_friend: Наши друзья
+    attributes:
+      our_friend:
+        title: Имя/Название
+        url: Ссылка
+        created_at: Начали дружить
+        visible: Отображать?
+        image: Баннер
+        remote_image_url: Ссылка на баннер

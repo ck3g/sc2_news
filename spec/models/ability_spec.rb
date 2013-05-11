@@ -32,6 +32,7 @@ shared_examples "as writer" do
   it { should be_able_to [:read, :create], Ckeditor::AttachmentFile }
   it { should_not be_able_to :destroy, Ckeditor::Picture }
   it { should_not be_able_to :destroy, Ckeditor::AttachmentFile }
+  it { should_not be_able_to :manage, OurFriend }
 end
 
 shared_examples "manage Profiles" do
@@ -57,6 +58,7 @@ shared_examples "as common user" do
   it { should_not be_able_to :all, Ckeditor::Picture }
   it { should_not be_able_to :all, Ckeditor::AttachmentFile }
   it { should be_able_to :read, Page }
+  it { should_not be_able_to :manage, OurFriend }
 end
 
 describe "Ability" do
@@ -77,6 +79,7 @@ describe "Ability" do
     it { should be_able_to :all, Profile }
     it { should be_able_to :all, User }
     it { should be_able_to :all, ChatMessage }
+    it { should be_able_to :manage, OurFriend }
   end
 
   describe "as editor" do
@@ -91,6 +94,7 @@ describe "Ability" do
     it { should be_able_to :all, ChatMessage }
     it { should be_able_to :manage, Ckeditor::Picture }
     it { should be_able_to :manage, Ckeditor::AttachmentFile }
+    it { should be_able_to :manage, OurFriend }
   end
 
   describe "as writer" do

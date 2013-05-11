@@ -125,9 +125,13 @@ ru:
   reload: Обновить
   manage_users: Управление пользователями
   edit_user: "Редактировать пользователя - %{user}"
+  manage_our_friends: Наши друзья
   change_password: Смена пароля
   change_my_password: Сменить мой пароль
   unknown_user: Неизвестный
   search_users_by_username_or_email: Искать по имени пользователя или имейлу
   search: Поиск
   read_more: "Далее..."
+  create_our_friend: Завести друга
+  new_our_friend: Новый друг
+  or: или
