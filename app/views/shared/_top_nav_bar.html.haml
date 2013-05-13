@@ -32,6 +32,7 @@
                   = link_to users_path do
                     %i.icon-group
                     = t(:manage_users)
+              - if can? :manage, OurFriend
                 %li= link_to t(:manage_our_friends), our_friends_path
               %li.divider
               %li= link_to t("users.logout"), :destroy_user_session, method: :delete
