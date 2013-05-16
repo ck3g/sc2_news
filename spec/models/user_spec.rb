@@ -15,6 +15,8 @@ describe User do
     it { should have_one(:profile).dependent(:destroy) }
     it { should have_many(:deleted_articles).dependent(:nullify) }
     it { should have_many(:chat_messages).dependent(:destroy) }
+    it { should belong_to :team }
+    it { should have_many(:teams) }
   end
 
   describe ".validations" do

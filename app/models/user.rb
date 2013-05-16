@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_many :deleted_articles, dependent: :nullify, class_name: "Article", foreign_key: :deleter_id
   has_many :chat_messages, dependent: :destroy
+  belongs_to :team
+  has_many :teams, foreign_key: 'leader_id'
 
   validates :username, presence: true, uniqueness: true
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130511103110) do
+ActiveRecord::Schema.define(:version => 20130516190108) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -159,6 +159,19 @@ ActiveRecord::Schema.define(:version => 20130511103110) do
     t.string "name"
   end
 
+  create_table "teams", :force => true do |t|
+    t.integer  "leader_id"
+    t.string   "name",        :null => false
+    t.string   "slug",        :null => false
+    t.string   "logo"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "teams", ["leader_id"], :name => "index_teams_on_leader_id", :unique => true
+  add_index "teams", ["slug"], :name => "index_teams_on_slug", :unique => true
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -175,11 +188,13 @@ ActiveRecord::Schema.define(:version => 20130511103110) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.integer  "roles"
+    t.integer  "team_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["roles"], :name => "index_users_on_roles"
+  add_index "users", ["team_id"], :name => "index_users_on_team_id"
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end
