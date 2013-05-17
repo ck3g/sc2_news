@@ -14,6 +14,7 @@ class Ability
     user ||= User.new
     cannot :all, :all
     can :manage, [Comment], user_id: user.id
+    can :manage, Team, leader_id: user.id
     can :read, Page
 
     if user.admin?
@@ -50,6 +51,8 @@ class Ability
       can :read, Article, Article.visible do |article|
         !article.deleted? && article.published?
       end
+
+      cannot :manage, Team
     end
 
     #

@@ -43,6 +43,14 @@ shared_examples "manage Profiles" do
   it { should_not be_able_to :manage, ally_profile }
 end
 
+shared_examples "manage Teams" do
+  let(:own_team) { create :team, leader: user }
+  let(:ally_team) { create :team }
+  subject { Ability.new user }
+  it { should be_able_to :manage, own_team }
+  it { should_not be_able_to :manage, ally_team }
+end
+
 shared_examples "as common user" do
   subject { Ability.new user }
   it { should be_able_to :index, Article }
@@ -68,6 +76,7 @@ describe "Ability" do
     it_behaves_like "as common user"
     it { should_not be_able_to :create, Comment }
     it { should_not be_able_to :manage, create(:profile) }
+    it { should_not be_able_to :manage, Team }
   end
 
   describe "as admin" do
@@ -95,18 +104,21 @@ describe "Ability" do
     it { should be_able_to :manage, Ckeditor::Picture }
     it { should be_able_to :manage, Ckeditor::AttachmentFile }
     it { should be_able_to :manage, OurFriend }
+    it_behaves_like "manage Teams"
   end
 
   describe "as writer" do
     let!(:user) { create :writer }
     it_behaves_like "as writer"
     it_behaves_like "manage Profiles"
+    it_behaves_like "manage Teams"
   end
 
   describe "as streamer" do
     let!(:user) { create :streamer }
     it_behaves_like "as writer"
     it_behaves_like "manage Profiles"
+    it_behaves_like "manage Teams"
   end
 
   describe "as registered user" do
@@ -114,6 +126,7 @@ describe "Ability" do
     subject { Ability.new user }
     it_behaves_like "as common user"
     it_behaves_like "manage Profiles"
+    it_behaves_like "manage Teams"
     it { should be_able_to :create, Comment }
   end
 end
