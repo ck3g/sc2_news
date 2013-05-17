@@ -34,4 +34,42 @@ describe User do
       it { expect(user.send("#{role}?")).to be_true }
     end
   end
+
+  describe '#in_team?' do
+    let(:user) { create :user }
+    let(:team) { mock_model Team }
+
+    subject { user.in_team? }
+
+    context 'when has team' do
+      before { user.should_receive(:current_team).and_return team }
+      it { should be_true }
+    end
+
+    context 'when has not team' do
+      before { user.should_receive(:current_team).and_return nil }
+      it { should be_false }
+    end
+  end
+
+  describe '#current_team' do
+    let(:user) { create :user }
+
+    subject { user.current_team }
+
+    context 'when leader of the team' do
+      let!(:team) { create :team, leader: user }
+      it { should eq team }
+    end
+
+    context 'when team member' do
+      let!(:team) { create :team }
+      before { team.members << user }
+      it { should eq team }
+    end
+
+    context 'otherwise' do
+      it { should be_nil }
+    end
+  end
 end

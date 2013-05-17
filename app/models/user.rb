@@ -51,4 +51,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def in_team?
+    current_team.present?
+  end
+
+  def current_team
+    team || teams.first
+  end
 end

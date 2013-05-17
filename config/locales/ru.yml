@@ -136,3 +136,5 @@ ru:
   create_our_friend: Завести друга
   new_our_friend: Новый друг
   or: или
+  teams:
+    cannot_create_while_in_team: Вы не можете создать новую команду, так как уже стостоите в другой

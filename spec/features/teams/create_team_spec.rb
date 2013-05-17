@@ -18,6 +18,19 @@ feature 'Create team' do
     end
   end
 
+  context 'when user already belongs to the team' do
+    given!(:team) { create :team, leader: user }
+
+    background { quick_login 'leader@team.com', 'secret' }
+
+    scenario 'cannot create the second team' do
+      visit '/teams/new'
+      page.current_path.should eq team_path(team)
+      page.should have_content I18n.t('teams.cannot_create_while_in_team')
+      page.should have_content team.name
+    end
+  end
+
   scenario 'Guest cannot see create team page' do
     visit '/teams/new'
     page.should have_content I18n.t('unauthorized.manage.team')
