@@ -37,6 +37,8 @@ Sc2News::Application.routes.draw do
 
   resources :our_friends
 
+  resources :teams
+
   post "/hide-guest-instructions" => "welcome#hide_guest_instructions", as: :hide_guest_instructions
 
   root :to => 'articles#index'

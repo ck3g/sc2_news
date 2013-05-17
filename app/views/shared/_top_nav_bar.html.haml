@@ -37,7 +37,7 @@
               %li.divider
               %li= link_to t("users.logout"), :destroy_user_session, method: :delete
         - else
-          = form_for User.new, url: user_session_path, html: {action: user_session, class: "form-inline pull-right top-login"} do |f|
+          = form_for User.new, url: user_session_path, html: {action: user_session, class: "form-inline pull-right top-login", id: :quick_sign_in} do |f|
             = f.text_field :login, placeholder: User.human_attribute_name(:login), class: "input-small"
             = f.password_field :password, placeholder: User.human_attribute_name(:password), class: "input-small"
             = f.submit t(:do_sign_in), class: "btn"
