@@ -20,6 +20,7 @@ RSpec.configure do |config|
   config.include EmailSpec::Matchers
   config.include Devise::TestHelpers, type: :controller
   config.extend LoginMacros, type: :controller
+  config.include FeatureLoginMacros
 
   config.before(:each) do
     GC.disable
