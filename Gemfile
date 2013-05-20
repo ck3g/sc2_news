@@ -74,7 +74,7 @@ end
 group :test do
   gem "ffaker",           "~> 1.16.1"
   gem 'capybara',         "~> 2.1.0"
-  gem "database_cleaner", "~> 0.9.1"
+  gem "database_cleaner", "~> 1.0.1"
   gem "launchy",          "~> 2.1.0"
   gem "shoulda",          "~> 3.1.1"
   gem "email_spec",       "~> 1.4.0"
