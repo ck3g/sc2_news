@@ -141,6 +141,7 @@ GEM
     ffaker (1.16.1)
     font-awesome-rails (3.1.1.1)
       railties (>= 3.2, < 5.0)
+    friendly_id (4.0.9)
     fssm (0.2.10)
     haml (4.0.2)
       tilt
@@ -359,6 +360,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.2.1)
   ffaker (~> 1.16.1)
   font-awesome-rails (~> 3.1.1)
+  friendly_id (~> 4.0.0)
   haml
   has_scope (~> 0.5.1)
   jquery-rails

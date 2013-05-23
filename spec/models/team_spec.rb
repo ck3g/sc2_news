@@ -19,6 +19,12 @@ describe Team do
       it { should validate_uniqueness_of :name }
       it { should validate_presence_of :slug }
       it { should validate_uniqueness_of :slug }
+      it { should allow_value('valid-slug').for :slug }
+    end
+
+    context 'when invalid' do
+      subject { build :team }
+      it { should_not allow_value('Invalid slug').for :slug }
     end
   end
 end
