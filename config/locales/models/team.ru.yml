@@ -1,0 +1,7 @@
+
+ru:
+  activerecord:
+    attributes:
+      team:
+        name: Название
+        slug: Жетон

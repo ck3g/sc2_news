@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   authorize_resource
 
-  before_filter :check_team_presence, only: [:new, :create]
+  before_filter :check_team_presence, only: [:new]
 
   def show
     @team = Team.find params[:id]

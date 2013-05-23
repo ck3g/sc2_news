@@ -56,6 +56,9 @@ class User < ActiveRecord::Base
   end
 
   def current_team
-    team || teams.first
+    team = self.team || self.teams.first
+    return if team.present? && team.new_record?
+
+    team
   end
 end

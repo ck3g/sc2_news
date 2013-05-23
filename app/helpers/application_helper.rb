@@ -24,6 +24,14 @@ module ApplicationHelper
     link_to_nav page.title, page_path(permalink)
   end
 
+  def link_to_team(user)
+    if user.in_team?
+      link_to_nav t('teams.my_team'), team_path(user.current_team)
+    else
+      link_to_nav t('teams.create'), new_team_path
+    end
+  end
+
   def index?
     params[:action] == 'index'
   end
