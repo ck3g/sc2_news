@@ -1,5 +1,5 @@
 module FeatureLoginMacros
-  def quick_login(email, password)
+  def sign_in_as(email, password)
     visit '/'
     within("#quick_sign_in") do
       fill_in 'user_login', with: email

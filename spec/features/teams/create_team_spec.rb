@@ -4,7 +4,7 @@ feature 'Create team' do
   given!(:user) { create :user, email: "leader@team.com" }
 
   scenario 'User creates team with valid credentials' do
-    quick_login 'leader@team.com', 'secret'
+    sign_in_as 'leader@team.com', 'secret'
     visit '/teams/new'
     within("#new_team") do
       fill_in 'team_name', with: 'Justice League'
@@ -21,9 +21,9 @@ feature 'Create team' do
   context 'when user already belongs to the team' do
     given!(:team) { create :team, leader: user }
 
-    background { quick_login 'leader@team.com', 'secret' }
 
     scenario 'cannot create the second team' do
+      sign_in_as 'leader@team.com', 'secret'
       visit '/teams/new'
       page.current_path.should eq team_path(team)
       page.should have_content I18n.t('teams.cannot_create_while_in_team')

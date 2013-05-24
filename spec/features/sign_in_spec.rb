@@ -6,7 +6,7 @@ feature 'Sign in' do
   end
 
   scenario 'signing in thru quick form' do
-    quick_login 'green@arrow.com', 'secret'
+    sign_in_as 'green@arrow.com', 'secret'
     page.should have_content 'Oliver'
   end
 end
