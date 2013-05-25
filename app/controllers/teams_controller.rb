@@ -5,6 +5,10 @@ class TeamsController < ApplicationController
   before_filter :find_team, only: [:show, :edit, :update, :destroy]
   before_filter :check_access, only: [:edit, :update, :destroy]
 
+  def index
+    @teams = Team.order(:name)
+  end
+
   def show
   end
 

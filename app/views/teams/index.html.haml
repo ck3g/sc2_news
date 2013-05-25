@@ -1,0 +1,12 @@
+#teams
+  %h2= title t('teams.list')
+  .fluid-row
+    - @teams.in_groups_of(3, false).each do |group|
+      .span12
+        - group.each do |team|
+          .span4.well.small-team
+            - if team.logo.present?
+              .pull-right
+                = image_tag team.logo.url(:tiny_thumb), alt: team.name, class: 'img-polaroid'
+            .team-link
+              = link_to truncate(team.name, length: 24), team_path(team)

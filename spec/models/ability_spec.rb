@@ -67,6 +67,8 @@ shared_examples "as common user" do
   it { should_not be_able_to :all, Ckeditor::AttachmentFile }
   it { should be_able_to :read, Page }
   it { should_not be_able_to :manage, OurFriend }
+  it { should be_able_to :index, Team }
+  it { should be_able_to :show, Team }
 end
 
 describe "Ability" do
@@ -77,6 +79,8 @@ describe "Ability" do
     it { should_not be_able_to :create, Comment }
     it { should_not be_able_to :manage, create(:profile) }
     it { should_not be_able_to :manage, Team }
+    it { should be_able_to :index, Team }
+    it { should be_able_to :show, Team }
   end
 
   describe "as admin" do

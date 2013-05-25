@@ -44,6 +44,7 @@ class Ability
       can :read, Article, Article.visible do |article|
         !article.deleted? && article.published?
       end
+      can [:index, :show], Team
     else
       # Guest possibilities
       cannot :create, Comment
@@ -53,6 +54,7 @@ class Ability
       end
 
       cannot :manage, Team
+      can [:index, :show], Team
     end
 
     #
