@@ -17,6 +17,7 @@ ru:
         update: Подправить
       team:
         create: Создать команду
+        update: Обновить
 
   simple_form:
     "yes": 'Да'

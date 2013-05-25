@@ -7,7 +7,7 @@ describe Team do
 
   describe '.associations' do
     it { should belong_to :leader }
-    it { should have_many :members }
+    it { should have_many(:members).dependent(:nullify) }
   end
 
   describe '.validations' do

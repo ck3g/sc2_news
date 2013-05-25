@@ -33,6 +33,6 @@ feature 'Create team' do
 
   scenario 'Guest cannot see create team page' do
     visit '/teams/new'
-    page.should have_content I18n.t('unauthorized.manage.team')
+    page.should have_content I18n.t('unauthorized.create.team')
   end
 end

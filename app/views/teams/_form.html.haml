@@ -1,0 +1,7 @@
+- html = { class: 'form-horizontal' }
+- defaults = { input_html: { class: 'input-xlarge' } }
+= simple_form_for team, html: html, defaults: defaults do |f|
+  = f.input :name
+  = f.input :slug
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
