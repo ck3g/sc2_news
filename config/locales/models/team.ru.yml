@@ -5,3 +5,7 @@ ru:
       team:
         name: Название
         slug: Жетон
+        logo: Логотип
+        remote_logo_url: Ссылка на логотип
+        remove_logo: Удалить логотип
+        description: О команде

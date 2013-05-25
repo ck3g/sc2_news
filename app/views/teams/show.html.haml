@@ -5,4 +5,12 @@
         = link_to t('teams.edit'), edit_team_path(@team), class: 'manage-button'
         = link_to t('teams.disband'), @team, method: :delete, data: { confirm: t('teams.disband_confirmation') }, class: 'manage-button'
 
-  %h2= title @team.name
+  .row-fluid
+    .span12
+      %h2= title @team.name
+      .span9
+        = simple_format @team.description
+      .span2
+        - if @team.logo.present?
+          = image_tag @team.logo.url(:thumb), alt: @team.name, class: 'img-polaroid'
+

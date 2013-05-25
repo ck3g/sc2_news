@@ -3,5 +3,17 @@
 = simple_form_for team, html: html, defaults: defaults do |f|
   = f.input :name
   = f.input :slug
+
+  - if team.logo.present?
+    .control-group
+      .controls= image_tag team.logo.url(:thumb), alt: @team.name
+  = f.input :logo
+  .control-group
+    .controls= t(:or)
+
+  = f.input :remote_logo_url, input_html: { class: 'input-xxlarge' }
+  = f.input :remove_logo, as: :boolean, label: false, inline_label: true
+  = f.input :description, input_html: { class: 'input-xxlarge', rows: 8 }
+
   .form-actions
     = f.button :submit, class: 'btn btn-primary'

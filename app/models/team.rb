@@ -5,7 +5,10 @@ class Team < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
-  attr_accessible :description, :logo, :name, :slug
+  mount_uploader :logo, TeamLogoUploader
+
+  attr_accessible :description, :name, :slug, :logo, :remote_logo_url,
+    :logo_cache, :remove_logo
 
   belongs_to :leader, class_name: 'User'
   has_many :members, class_name: 'User', foreign_key: 'team_id',
