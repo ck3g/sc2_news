@@ -38,6 +38,7 @@ gem "twitter"
 gem 'sitemap_generator', '~> 3.4'
 gem 'whenever', '~> 0.8.2', require: false
 gem 'friendly_id', '~> 4.0.0'
+gem 'state_machine'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'

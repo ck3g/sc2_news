@@ -22,6 +22,9 @@ class User < ActiveRecord::Base
   has_many :chat_messages, dependent: :destroy
   belongs_to :team
   has_many :teams, foreign_key: 'leader_id'
+  has_many :invites, dependent: :destroy
+  has_many :invitees, class_name: 'Invite', foreign_key: 'leader_id',
+    dependent: :destroy
 
   validates :username, presence: true, uniqueness: true
 
@@ -30,7 +33,9 @@ class User < ActiveRecord::Base
   after_create :create_profile
 
   scope :by_login, ->(login) { where(["lower(username) = :value OR lower(email) = :value", value: login.downcase]) }
-  scope :term, ->(term) { where(["username ILIKE :value OR email ILIKE :value", value: "%#{term}%"]) }
+  scope :term, ->(term) {
+    where(["username ILIKE :value OR email ILIKE :value", value: "%#{term}%"])
+  }
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
@@ -39,6 +44,10 @@ class User < ActiveRecord::Base
     else
       where(conditions).first
     end
+  end
+
+  def self.find_by_username_or_email(term)
+    where(["username ILIKE :value OR email ILIKE :value", value: term]).first
   end
 
   def self.admin?(user)
@@ -60,5 +69,18 @@ class User < ActiveRecord::Base
     return if team.present? && team.new_record?
 
     team
+  end
+
+  def invite_status(team)
+    invite_for_team(team).try(:status)
+  end
+
+  def invited_at(team)
+    invite_for_team(team).try(:created_at)
+  end
+
+  private
+  def invite_for_team(team)
+    invites.where(team_id: team.id).first
   end
 end

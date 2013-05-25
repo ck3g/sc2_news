@@ -146,3 +146,13 @@ ru:
     disband_confirmation: Вы уверены, что хотите распустить команду?
     has_been_disbanded: Ваша команда была распущена
     list: Команды
+    member_has_been_invited: 'Пользователь был приглашен в Вашу команду. Ему необходимо принять приглашение'
+    members_management: Состав
+    new_member: Член команды
+  invite:
+    user:
+      not_found: Пользователь не найден
+    statuses:
+      pending: В ожидании
+      accepted: Принял
+      rejected: Отказал

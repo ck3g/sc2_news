@@ -18,6 +18,8 @@ ru:
       team:
         create: Создать команду
         update: Обновить
+      invite:
+        create: Пригласить
 
   simple_form:
     "yes": 'Да'

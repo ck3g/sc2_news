@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516190108) do
+ActiveRecord::Schema.define(:version => 20130525145743) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -87,6 +87,19 @@ ActiveRecord::Schema.define(:version => 20130516190108) do
   end
 
   add_index "countries", ["name"], :name => "index_countries_on_name", :unique => true
+
+  create_table "invites", :force => true do |t|
+    t.integer  "team_id",                           :null => false
+    t.integer  "user_id",                           :null => false
+    t.integer  "leader_id",                         :null => false
+    t.string   "status",     :default => "pending", :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
+
+  add_index "invites", ["leader_id"], :name => "index_invites_on_leader_id"
+  add_index "invites", ["team_id"], :name => "index_invites_on_team_id"
+  add_index "invites", ["user_id"], :name => "index_invites_on_user_id"
 
   create_table "our_friends", :force => true do |t|
     t.string   "title",                        :null => false

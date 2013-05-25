@@ -17,6 +17,8 @@ describe User do
     it { should have_many(:chat_messages).dependent(:destroy) }
     it { should belong_to :team }
     it { should have_many(:teams) }
+    it { should have_many(:invites).dependent(:destroy) }
+    it { should have_many(:invitees).dependent(:destroy) }
   end
 
   describe ".validations" do
@@ -69,6 +71,42 @@ describe User do
     end
 
     context 'otherwise' do
+      it { should be_nil }
+    end
+  end
+
+  describe '#invite_status' do
+    let!(:user) { create :user }
+    let!(:team) { create :team }
+
+    subject { user.invite_status(team) }
+
+    context 'when user has been invited' do
+      before { create :invite, team: team, user: user }
+      it { should eq 'pending' }
+    end
+
+    context 'when user wasnt invited' do
+      it { should be_nil }
+    end
+  end
+
+  describe '#invited_at' do
+    let!(:user) { create :user }
+    let!(:team) { create :team }
+
+    subject { user.invited_at(team) }
+
+    context 'when user has been invited' do
+      let(:created_at) { Time.current }
+      before do
+        user.should_receive(:invite_for_team).and_return Invite.new
+        Invite.any_instance.should_receive(:created_at).and_return created_at
+      end
+      it { should eq created_at }
+    end
+
+    context 'when user wasnt invited' do
       it { should be_nil }
     end
   end

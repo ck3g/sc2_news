@@ -1,9 +1,10 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :team do
+  factory :invite do
+    team
+    user
     association :leader, factory: :user
-    sequence(:name) { |n| "Team-#{ n }" }
-    description "Team description"
+    status 'pending'
   end
 end

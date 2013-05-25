@@ -1,0 +1,21 @@
+= simple_form_for @invite, html: { class: 'form-inline well' } do |f|
+  = f.input :name, label: t('teams.new_member')
+  = f.button :submit
+
+.well
+  %table.table
+    %thead
+      %tr
+        %th= User.human_attribute_name(:username)
+        %th= Invite.human_attribute_name(:status)
+        %th= Invite.human_attribute_name(:created_at)
+        %th
+    %tbody
+      - @members.each do |member|
+        %tr
+          %td= member.username
+          %td= t("invite.statuses.#{ member.invite_status(@team) }")
+          %td
+            - if invited_at = member.invited_at(@team)
+              = l invited_at, format: :long
+          %td

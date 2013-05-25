@@ -2,6 +2,7 @@
   - if can? :manage, @team
     .row-fluid
       .manage-button-wrapper
+        = link_to t('teams.members_management'), team_members_path(@team), class: 'manage-button'
         = link_to t('teams.edit'), edit_team_path(@team), class: 'manage-button'
         = link_to t('teams.disband'), @team, method: :delete, data: { confirm: t('teams.disband_confirmation') }, class: 'manage-button'
 
