@@ -23,12 +23,12 @@ feature 'Manage team members' do
     expect(page).to_not have_content 'unknown'
   end
 
-  scenario 'leader cannot invite unregistered users' do
-    sign_in_as 'leader@example.com', 'secret'
+  scenario 'only leader can view manage members page' do
+    sign_in_as 'bob@example.com', 'secret'
     visit '/teams/pirates/members'
-    submit_invite_form_with_name ''
 
-    expect(page).to have_content I18n.t('invite.user.not_found')
+    expect(current_path).to eq '/teams/pirates'
+    expect(page).to have_content I18n.t('unauthorized.manage.all')
   end
 end
 

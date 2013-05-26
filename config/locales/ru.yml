@@ -148,7 +148,7 @@ ru:
     list: Команды
     member_has_been_invited: 'Пользователь был приглашен в Вашу команду. Ему необходимо принять приглашение'
     members_management: Состав
-    new_member: Член команды
+    member_username_or_email: Username или Email
   invite:
     user:
       not_found: Пользователь не найден

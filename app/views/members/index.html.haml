@@ -1,5 +1,7 @@
 = simple_form_for @invite, html: { class: 'form-inline well' } do |f|
-  = f.input :name, label: t('teams.new_member')
+  = f.input :name, label: false,
+    placeholder: t('teams.member_username_or_email'),
+    input_html: { class: 'input-xlarge' }
   = f.button :submit
 
 .well
