@@ -23,4 +23,8 @@ class Team < ActiveRecord::Base
   def should_generate_new_friendly_id?
     new_record? && self.slug.blank?
   end
+
+  def current_members
+    User.where('team_id = ? OR id = ?', self.id, self.leader_id)
+  end
 end

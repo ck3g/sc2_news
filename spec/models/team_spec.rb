@@ -28,4 +28,23 @@ describe Team do
       it { should_not allow_value('Invalid slug').for :slug }
     end
   end
+
+  describe '#current_members' do
+    let!(:superman) { create :user, username: 'Superman' }
+    let!(:batman) { create :user, username: 'Batman' }
+    let!(:ironman) { create :user, username: 'Iroman' }
+    let!(:justice_league) { create :team, leader: superman, members: [batman] }
+
+    it 'includes leader of the team' do
+      expect(justice_league.current_members).to include superman
+    end
+
+    it 'includes member of the team' do
+      expect(justice_league.current_members).to include batman
+    end
+
+    it 'doesn include usual user' do
+      expect(justice_league.current_members).to_not include ironman
+    end
+  end
 end
