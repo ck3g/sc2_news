@@ -22,7 +22,10 @@ describe Invite do
         should ensure_inclusion_of(:status).
           in_array %w[pending accepted rejected]
       end
-      it { should validate_uniqueness_of(:user_id).scoped_to(:team_id) }
+      it do
+        should validate_uniqueness_of(:user_id).scoped_to(:team_id).
+          with_message(I18n.t('invite.user.already_invited'))
+      end
     end
   end
 
@@ -43,6 +46,34 @@ describe Invite do
       subject { Invite.build_from_params(leader, name: '') }
 
       its(:user) { should be_nil }
+    end
+  end
+
+  describe '#accept' do
+    let!(:user) { create :user }
+    let!(:team) { create :team }
+    let!(:invite) { create :invite, user: user, team: team }
+    context 'when user isnt in team' do
+      it 'joins the team' do
+        expect { invite.accept }.to change { user.team }
+      end
+    end
+
+    context 'when user already in team' do
+      context 'as leader' do
+        let!(:team2) { create :team, leader: user }
+
+        it 'cant joins the another team' do
+          expect { invite.accept }.to_not change { user.team }
+        end
+      end
+
+      context 'as member' do
+        let!(:team2) { create :team, members: [user] }
+        it 'joins the another team' do
+          expect { invite.accept }.to change { user.team }
+        end
+      end
     end
   end
 end

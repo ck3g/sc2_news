@@ -41,7 +41,10 @@ Sc2News::Application.routes.draw do
     resources :members, only: [:index]
   end
 
-  resources :invites, only: [:create]
+  resources :invites, only: [:index, :create] do
+    put :accept, on: :member
+    put :reject, on: :member
+  end
 
   post "/hide-guest-instructions" => "welcome#hide_guest_instructions", as: :hide_guest_instructions
 

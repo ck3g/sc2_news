@@ -1,0 +1,25 @@
+
+.well
+  %h1= title t(:my_invites)
+
+  - if @invites.present?
+    %table.table
+      %tbody
+        - @invites.each do |invite|
+          %tr
+            %td
+              = link_to invite.leader_username, user_profile_path(invite.leader_username)
+              = t('invites.you_got_invited_in')
+              = link_to invite.team_name, team_path(invite.team)
+            %td= t("invite.statuses.#{ invite.status }")
+            %td= l invite.created_at, format: :long
+            %td
+              - if invite.pending?
+                - if invite.user_team_leader?
+                  %span.btn.btn-success.disabled{data: { content: t('invite.cannot_accept_hint'), :"original-title" => t('invite.cannot_accept_header') }, rel: 'popover'}
+                    = t('invite.accept')
+                - else
+                  = link_to t('invite.accept'), accept_invite_path(invite), method: :put, data: { confirm: t('invite.accept_confirmation') }
+                = link_to t('invite.reject'), reject_invite_path(invite), method: :put, data: { confirm: t('invite.reject_confirmation') }, class: 'btn btn-danger'
+  - else
+    %p= t('invites.you_aint_invited_yet')

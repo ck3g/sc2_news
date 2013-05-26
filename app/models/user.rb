@@ -71,6 +71,10 @@ class User < ActiveRecord::Base
     team
   end
 
+  def team_leader?
+    teams.present?
+  end
+
   def invite_status(team)
     invite_for_team(team).try(:status)
   end
