@@ -49,6 +49,9 @@ shared_examples "manage Teams" do
   subject { Ability.new user }
   it { should be_able_to :manage, own_team }
   it { should_not be_able_to :manage, ally_team }
+  it { should be_able_to :manage, Invite }
+  it { should be_able_to :accept, Invite }
+  it { should be_able_to :reject, Invite }
 end
 
 shared_examples "as common user" do
@@ -81,6 +84,7 @@ describe "Ability" do
     it { should_not be_able_to :manage, Team }
     it { should be_able_to :index, Team }
     it { should be_able_to :show, Team }
+    it { should_not be_able_to [:manage, :accept, :reject], Invite }
   end
 
   describe "as admin" do

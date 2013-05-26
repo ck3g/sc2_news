@@ -1,4 +1,6 @@
 class InvitesController < ApplicationController
+  authorize_resource
+
   before_filter :find_invite, only: [:accept, :reject]
 
   def index

@@ -70,6 +70,12 @@ feature 'Invites' do
 
     expect(page).to have_content I18n.t('invites.you_aint_invited_yet')
   end
+
+  scenario 'guests cannot visit invites page' do
+    visit '/invites'
+    expect(current_path).to eq '/'
+    expect(page).to have_content I18n.t('unauthorized.manage.all')
+  end
 end
 
 def expect_to_see_invites_page_title

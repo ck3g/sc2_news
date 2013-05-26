@@ -15,6 +15,7 @@ class Ability
     cannot :all, :all
     can :manage, [Comment], user_id: user.id
     can :manage, Team, leader_id: user.id
+    can [:manage, :accept, :reject], Invite
     can :read, Page
 
     if user.admin?
@@ -55,6 +56,7 @@ class Ability
 
       cannot :manage, Team
       can [:index, :show], Team
+      cannot [:manage, :accept, :reject], Invite
     end
 
     #

@@ -45,7 +45,7 @@ feature 'Manage team members' do
     sign_in_as 'bob@example.com', 'secret'
     visit '/teams/pirates/members'
 
-    expect(current_path).to eq '/teams/pirates'
+    expect(current_path).to eq '/'
     expect(page).to have_content I18n.t('unauthorized.manage.all')
   end
 end
