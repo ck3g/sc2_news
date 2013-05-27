@@ -38,6 +38,8 @@ Sc2News::Application.routes.draw do
   resources :our_friends
 
   resources :teams do
+    put :leave, on: :member
+
     resources :members, only: [:index]
   end
 

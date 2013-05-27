@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   authorize_resource
 
   before_filter :check_team_presence, only: [:new]
-  before_filter :find_team, only: [:show, :edit, :update, :destroy]
+  before_filter :find_team, only: [:show, :edit, :update, :destroy, :leave]
   before_filter :check_access, only: [:edit, :update, :destroy]
 
   def index
@@ -35,6 +35,11 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     redirect_to root_url, notice: t('teams.has_been_disbanded')
+  end
+
+  def leave
+    current_user.leave_team if current_user.member_of? @team
+    redirect_to @team, notice: t('teams.you_left_the_team')
   end
 
   private

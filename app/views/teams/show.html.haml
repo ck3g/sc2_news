@@ -1,4 +1,8 @@
 .well
+  - if current_user && current_user.member_of?(@team)
+    .row-fluid
+      .manage-button-wrapper
+        = link_to t('teams.leave'), leave_team_path(@team), method: :put, data: { confirm: t('teams.leave_confirm') }, class: 'manage-button'
   - if can? :manage, @team
     .row-fluid
       .manage-button-wrapper

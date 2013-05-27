@@ -150,6 +150,8 @@ ru:
     members_management: Состав
     member_username_or_email: Username или Email
     members: Состав
+    leave: Покинуть команду
+    leave_confirm: Вы действительно хотите покинуть команду?
   invite:
     user:
       not_found: Пользователь не найден

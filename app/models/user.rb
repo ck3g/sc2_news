@@ -75,6 +75,14 @@ class User < ActiveRecord::Base
     teams.present?
   end
 
+  def member_of?(team)
+    team_id == team.id
+  end
+
+  def leave_team
+    update_column :team_id, nil
+  end
+
   def invite_status(team)
     invite_for_team(team).try(:status)
   end
