@@ -110,4 +110,22 @@ describe User do
       it { should be_nil }
     end
   end
+
+  describe '#leave_team' do
+    let!(:user) { create :user }
+    let!(:team) { create :team, members: [user] }
+    let!(:invite) { create :accepted_invite, team: team, user: user }
+
+    it 'removes invite record for current team' do
+      expect {
+        user.leave_team
+      }.to change { user.invites.count }.by(-1)
+    end
+
+    it 'nullify team id' do
+      expect {
+        user.leave_team
+      }.to change { user.team_id }.to nil
+    end
+  end
 end

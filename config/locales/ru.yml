@@ -152,6 +152,9 @@ ru:
     members: Состав
     leave: Покинуть команду
     leave_confirm: Вы действительно хотите покинуть команду?
+    kick_member: Выгнать
+    kick_member_confirm: Вы действительно хотите выгнать члена команды?
+    you_have_kicked: "%{user} был выгнан из комманды"
   invite:
     user:
       not_found: Пользователь не найден

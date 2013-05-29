@@ -6,5 +6,11 @@ FactoryGirl.define do
     user
     association :leader, factory: :user
     status 'pending'
+
+    trait :accepted do
+      status 'accepted'
+    end
+
+    factory :accepted_invite, traits: [:accepted]
   end
 end

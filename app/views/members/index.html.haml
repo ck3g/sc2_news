@@ -21,3 +21,6 @@
             - if invited_at = member.invited_at(@team)
               = l invited_at, format: :long
           %td
+            .pull-right
+              - if member.accepted_invite?(@team)
+                = link_to t('teams.kick_member'), team_member_path(@team, member), method: :delete, data: { confirm: t('teams.kick_member_confirm') }, class: 'manage-button'

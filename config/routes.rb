@@ -40,7 +40,7 @@ Sc2News::Application.routes.draw do
   resources :teams do
     put :leave, on: :member
 
-    resources :members, only: [:index]
+    resources :members, only: [:index, :destroy]
   end
 
   resources :invites, only: [:index, :create] do

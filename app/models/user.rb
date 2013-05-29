@@ -79,7 +79,8 @@ class User < ActiveRecord::Base
     team_id == team.id
   end
 
-  def leave_team
+  def leave_team(team = current_team)
+    invites.where(team_id: team.id).first.destroy
     update_column :team_id, nil
   end
 
@@ -89,6 +90,10 @@ class User < ActiveRecord::Base
 
   def invited_at(team)
     invite_for_team(team).try(:created_at)
+  end
+
+  def accepted_invite?(team)
+    invite_status(team) == 'accepted'
   end
 
   private
