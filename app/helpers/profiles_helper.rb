@@ -1,7 +1,7 @@
 module ProfilesHelper
   def profile_attribute_block(title, value)
     content_tag :p do
-      "<strong>#{title}:</strong>".html_safe + " #{value_to_text(value)}"
+      "<strong>#{title}:</strong>".html_safe + " #{value_to_text(value)}".html_safe
     end
   end
 

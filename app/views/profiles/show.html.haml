@@ -13,6 +13,8 @@
         %legend= t(:common_info)
         = profile_attribute_block Profile.human_attribute_name(:username), @profile.username
         = profile_attribute_block Profile.human_attribute_name(:fullname), @profile.fullname
+        - if @profile.user.in_team?
+          = profile_attribute_block Profile.human_attribute_name(:team_name), link_to(@profile.user.current_team.name, team_path(@profile.user.current_team))
         = profile_attribute_block Profile.human_attribute_name(:country), @profile.country_name
         = profile_attribute_block Profile.human_attribute_name(:created_at), @profile.created_at
         = profile_attribute_block Profile.human_attribute_name(:user_current_sign_in_at), @profile.user_current_sign_in_at
