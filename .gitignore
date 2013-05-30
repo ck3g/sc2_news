@@ -21,3 +21,5 @@ config/social.yml
 
 public/Content/Gallery/*
 public/uploads/*
+
+coverage/
