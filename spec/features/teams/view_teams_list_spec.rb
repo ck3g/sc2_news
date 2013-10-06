@@ -4,6 +4,7 @@ feature 'View list of the teams' do
   given!(:team) { create :team, name: 'Pirates', slug: 'pirates' }
 
   scenario 'user can see teams list' do
+    pending 'The teams temporary disabled'
     visit '/'
     follow_teams_link_in_navbar
     should_come_to_teams_list_page
