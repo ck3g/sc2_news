@@ -8,17 +8,15 @@
       .nav-collapse
         %ul.nav
           = link_to_nav t(:home), root_path
+          %li.dropdown
+            = link_to '#', id: 'categories', role: 'button', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
+              = t(:categories)
+              %b.caret
+            %ul.dropdown-menu{role: 'menu', :'aria-labelledby' => 'categories'}
+              - tag_categories.each do |title, name|
+                %li= link_to title, tagged_articles_path(tagged_with: name)
           = link_to_page_nav "about"
           = link_to_page_nav "jobs"
-          = link_to_nav t(:tag_cloud), tags_path
-          =# link_to_nav t('teams.list'), teams_path
-          %li.dropdown
-            = link_to '#', id: 'popular-tags', role: 'button', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
-              = t(:popular_tags)
-              %b.caret
-            %ul.dropdown-menu{role: 'menu', :'aria-labelledby' => 'popular-tags'}
-              - popular_tags.each do |title, name|
-                %li= link_to title, tagged_articles_path(tagged_with: name)
           %li.divider-vertical
           - if can? :create, Article
             = link_to_nav t(:create_article), new_article_path

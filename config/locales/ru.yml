@@ -95,7 +95,7 @@ ru:
     bronze_desc: "Вставить иконку %{icon}Бронзовой медали"
 
   tag_cloud: Облако тегов
-  popular_tags: Популярные теги
+  categories: Категории
   manage_tags: Управление тегами
   edit_tag: Редактирование тега
   are_you_sure_delete_tag: При удалении тега он пропадает изо всех новостей. Удалить?
