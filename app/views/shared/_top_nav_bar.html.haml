@@ -20,8 +20,6 @@
           %li.divider-vertical
           - if can? :create, Article
             = link_to_nav t(:create_article), new_article_path
-          - if user_signed_in?
-            = link_to_team(current_user)
 
         - if user_signed_in?
           .btn-group.pull-right
@@ -32,7 +30,6 @@
             %ul.dropdown-menu
               %li= link_to t("users.profile"), user_profile_path(current_user.username)
               %li= link_to t("users.account"), edit_user_registration_path
-              %li= link_to t(:my_invites), invites_path
               - if can? :manage, User
                 %li.divider
                 %li
