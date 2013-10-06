@@ -17,6 +17,7 @@ feature 'Invites' do
   end
 
   scenario 'invited user can see his invites only' do
+    pending "Teams functionality has been disabled"
     sign_in_as 'bruce.wayne@batman.com', 'secret'
     visit '/'
     click_link I18n.t(:my_invites)
