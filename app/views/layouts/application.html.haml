@@ -33,6 +33,7 @@
     - if friends.present?
       .container-fluid.background.main-container
         .our-friends
+          %h3= t(:our_friends)
           - friends.each do |friend|
             = link_to friend.url, target: '_blank' do
               - if friend.image.present?
