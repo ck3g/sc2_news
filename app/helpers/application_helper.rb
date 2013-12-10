@@ -36,10 +36,6 @@ module ApplicationHelper
     params[:action] == 'index'
   end
 
-  def show_guest_instructions?
-    current_user.nil? && cookies[:hide_guest_instructions].blank?
-  end
-
   def link_to_social(type, url)
     link_to '', url, class: "social-#{ type }", target: '_blank'
   end

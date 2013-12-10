@@ -48,7 +48,5 @@ Sc2News::Application.routes.draw do
     put :reject, on: :member
   end
 
-  post "/hide-guest-instructions" => "welcome#hide_guest_instructions", as: :hide_guest_instructions
-
   root :to => 'articles#index'
 end
