@@ -15,6 +15,10 @@
             %ul.dropdown-menu{role: 'menu', :'aria-labelledby' => 'categories'}
               - tag_categories.each do |title, name|
                 %li= link_to title, tagged_articles_path(tagged_with: name)
+          %li
+            = link_to 'http://www.sc2ranks.com/cdiv/51e8829969d5386f5900c01e/moldova-ladder', rel: :nofollow do
+              = image_tag 'sc2ranks.ico'
+              = t(:rating)
           = link_to_page_nav "about"
           = link_to_page_nav "jobs"
           %li.divider-vertical
