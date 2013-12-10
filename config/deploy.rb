@@ -89,7 +89,7 @@ namespace :puma do
   desc 'Start puma'
   task :start, :roles => lambda { fetch(:puma_role) }, :on_no_matching_servers => :continue do
     run "rm #{shared_path}/sockets/*"
-    run "cd #{current_path} && #{fetch(:puma_cmd)} -t 4:4 -q -e #{puma_env} -b 'unix://#{shared_path}/sockets/puma.sock' -S #{fetch(:puma_state)} --control 'unix://#{shared_path}/sockets/pumactl.sock' >> #{shared_path}/log/puma-#{puma_env}.log 2>&1 &", :pty => false
+    run "cd #{current_path} && #{fetch(:puma_cmd)} -t 2:2 -q -e #{puma_env} -b 'unix://#{shared_path}/sockets/puma.sock' -S #{fetch(:puma_state)} --control 'unix://#{shared_path}/sockets/pumactl.sock' >> #{shared_path}/log/puma-#{puma_env}.log 2>&1 &", :pty => false
   end
 
   desc 'Stop puma'
