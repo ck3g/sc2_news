@@ -62,7 +62,7 @@ class Article < ActiveRecord::Base
   end
 
   def keywords
-    self.tags.map { |t| t.name }.join(", ")
+    self.tags.pluck(:name).sort.join(", ")
   end
 
   def description

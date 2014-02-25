@@ -34,7 +34,7 @@ describe Article do
 
     describe "#keywords" do
       it "collect keywords" do
-        expect(article.keywords).to eq "zerg, terran"
+        expect(article.keywords).to eq "terran, zerg"
       end
     end
 
