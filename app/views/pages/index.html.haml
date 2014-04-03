@@ -15,7 +15,7 @@
     - @pages.each do |page|
       %tr{class: page_enabled_class(page)}
         %td= page.id
-        %td= link_to "/#{page.permalink}", page_path(page.permalink)
+        %td= link_to "/#{page.permalink}", page_permalink_path(page.permalink)
         %td= page.title
         %td= t(page.enabled?.to_s)
         %td

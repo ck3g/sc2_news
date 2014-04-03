@@ -42,7 +42,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   Page.find_each do |page|
-    add page_path(page.permalink), lastmod: page.updated_at, changefreq: 'monthly'
+    add page_permalink_path(page.permalink), lastmod: page.updated_at, changefreq: 'monthly'
   end
 
   User.find_each do |user|

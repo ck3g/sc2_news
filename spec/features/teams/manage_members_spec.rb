@@ -6,6 +6,7 @@ feature 'Manage team members' do
   given!(:team) { create :team, name: 'Pirates', leader: leader }
 
   scenario 'leader can invite members as registered users' do
+    pending 'The teams temporary disabled'
     sign_in_as 'leader@example.com', 'secret'
     visit '/teams/pirates/members'
     submit_invite_form_with_name 'bob@example.com'
@@ -15,6 +16,7 @@ feature 'Manage team members' do
   end
 
   scenario 'leader cannot invite user twice' do
+    pending 'The teams temporary disabled'
     create :invite, leader: leader, user: user, team: team
 
     sign_in_as 'leader@example.com', 'secret'
@@ -25,6 +27,7 @@ feature 'Manage team members' do
   end
 
   scenario 'leader cannot invite himself' do
+    pending 'The teams temporary disabled'
     sign_in_as 'leader@example.com', 'secret'
     visit '/teams/pirates/members'
     submit_invite_form_with_name 'leader@example.com'
@@ -33,6 +36,7 @@ feature 'Manage team members' do
   end
 
   scenario 'leader cannot invite unregistered users' do
+    pending 'The teams temporary disabled'
     sign_in_as 'leader@example.com', 'secret'
     visit '/teams/pirates/members'
     submit_invite_form_with_name 'unknown'
@@ -42,6 +46,7 @@ feature 'Manage team members' do
   end
 
   scenario 'only leader can view manage members page' do
+    pending 'The teams temporary disabled'
     sign_in_as 'bob@example.com', 'secret'
     visit '/teams/pirates/members'
 

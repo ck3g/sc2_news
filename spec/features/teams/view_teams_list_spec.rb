@@ -12,6 +12,7 @@ feature 'View list of the teams' do
   end
 
   scenario 'user can visit team page from teams list' do
+    pending 'The teams temporary disabled'
     visit '/teams'
     follow_link_in_teams_list
     should_come_to_team_page

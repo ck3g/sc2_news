@@ -9,14 +9,14 @@ describe TagsController do
   describe "GET #index" do
     context "when view tag cloud" do
       before { get :index }
-      it { should_not assign_to(:tags) }
+      it { expect(assigns[:tags]).to be_nil }
       it { should respond_with :success }
       it { should render_template :index }
     end
 
     context "when view tag cloud" do
       before { get :index, manage: 1 }
-      it { should assign_to(:tags).with [tag1, tag2] }
+      it { expect(assigns[:tags]).to eq [tag1, tag2] }
     end
   end
 
@@ -24,7 +24,7 @@ describe TagsController do
     before { get :edit, id: tag1 }
     it { should render_template :edit }
     it { should respond_with :success }
-    it { should assign_to(:tag).with tag1 }
+    it { expect(assigns[:tag]).to eq tag1 }
   end
 
   describe "PUT #update" do
@@ -37,7 +37,7 @@ describe TagsController do
         update_tag_name unless example.metadata[:skip_before]
       end
 
-      it { should assign_to(:tag).with tag1 }
+      it { expect(assigns[:tag]).to eq tag1 }
       it { should redirect_to tags_path(manage: 1) }
       it { should set_the_flash[:notice].to I18n.t(:updated_successfully) }
       it "changes tag name", skip_before: true do
@@ -57,7 +57,7 @@ describe TagsController do
         update_with_no_name unless example.metadata[:skip_before]
       end
       it { should render_template :edit }
-      it { should assign_to(:tag).with tag1 }
+      it { expect(assigns[:tag]).to eq tag1 }
       it { should_not set_the_flash }
       it "dont change the name", skip_before: true do
         expect { update_with_no_name }.to_not change(tag1, :name)

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.17'
+gem 'rails', '~> 4.0.4'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -12,19 +12,18 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'meta-tags', '~> 1.5.0', :require => 'meta_tags'
 gem 'kaminari' , "~> 0.14.1"
-gem 'devise', "~> 2.2.4"
+gem 'devise'#, "~> 2.2.4"
 gem 'acts_as_commentable', "~> 3.0.1"
-gem "acts-as-taggable-on", "~> 2.3.3"
+gem "acts-as-taggable-on"#, "~> 2.3.3"
 
-gem 'anjlab-bootstrap-rails', ">= 2.3", :require => 'bootstrap-rails'
+gem 'anjlab-bootstrap-rails', "2.3.1.2", :require => 'bootstrap-rails'
 gem "font-awesome-rails", "~> 3.1.1"
 gem 'has_scope', "~> 0.5.1"
-gem "squeel", "~> 1.0.18"
-gem "bitmask_attributes", "~> 0.4.0"
+gem "squeel"#, "~> 1.0.18"
+gem "bitmask_attributes"#, "~> 0.4.0"
 gem "russian", "~> 0.6.0"
 gem "cancan", "~> 1.6.10"
-gem "simple_form", "~> 2.1.0"
-gem "client_side_validations", "~> 3.2.1"
+gem "simple_form"#, "~> 2.1.0"
 
 gem "carrierwave", "~> 0.8.0"
 gem "mini_magick", "~> 3.5.0"
@@ -37,18 +36,21 @@ gem "sanitize", "~> 2.0.3"
 gem "twitter"
 gem 'sitemap_generator', '~> 3.4'
 gem 'whenever', '~> 0.8.2', require: false
-gem 'friendly_id', '~> 4.0.0'
+gem 'friendly_id'#, '~> 4.0.0'
 gem 'state_machine'
 gem 'coveralls', require: false
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.5'
-  gem 'coffee-rails', '~> 3.2.2'
-  gem 'therubyracer'
-  gem 'uglifier',     '~> 2.0.1'
-  gem "turbo-sprockets-rails3"
-  gem "compass-rails"
-end
+gem 'sass-rails',   '~> 4.0.2'
+gem 'coffee-rails'#, '~> 4.0.0'
+gem 'therubyracer'
+gem 'uglifier'
+gem "compass-rails"
+
+gem 'protected_attributes'
+gem 'rails-observers'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
+gem 'activerecord-deprecated_finders'
 
 group :production do
   gem 'exception_notification'
@@ -79,7 +81,7 @@ group :test do
   gem 'capybara',         "~> 2.1.0"
   gem "database_cleaner", "~> 1.0.1"
   gem "launchy",          "~> 2.1.0"
-  gem "shoulda",          "~> 3.1.1"
+  gem "shoulda"#,          "~> 3.1.1"
   gem "email_spec",       "~> 1.4.0"
 end
 

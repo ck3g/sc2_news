@@ -8,6 +8,7 @@ feature 'Team page' do
   let!(:batman) { create :user, username: 'Batman', team: justice_league }
 
   scenario 'visitors can see members of viewed team' do
+    pending 'The teams temporary disabled'
     visit '/teams/justice-league'
     within '#team-members' do
       within 'h3' do

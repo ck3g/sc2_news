@@ -15,7 +15,7 @@ describe ProfilesController do
 
   describe "GET #edit" do
     before { get :edit, id: profile }
-    it { should assign_to(:profile).with profile }
+    it { expect(assigns[:profile]).to eq profile }
     it { should respond_with :success }
     it { should render_template :edit }
   end
@@ -31,7 +31,7 @@ describe ProfilesController do
 
       before { update_profile_url unless example.metadata[:skip_before] }
 
-      it { should assign_to(:profile).with profile }
+      it { expect(assigns[:profile]).to eq profile }
       it { should redirect_to profile }
       it { should set_the_flash[:notice].to I18n.t(:updated_successfully) }
       it "changes the profile url", skip_before: true do
@@ -46,7 +46,7 @@ describe ProfilesController do
       put :sync, id: profile
     end
 
-    it { should assign_to(:profile).with profile }
+    it { expect(assigns[:profile]).to eq profile }
     it { should redirect_to profile }
   end
 end

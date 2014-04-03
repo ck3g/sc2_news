@@ -8,7 +8,7 @@ describe PagesController do
     let!(:jobs) { create :jobs_page }
 
     before { get :index }
-    it { should assign_to(:pages).with [about, jobs] }
+    it { expect(assigns[:pages]).to eq [about, jobs] }
     it { should render_template :index }
     it { should respond_with :success }
   end
@@ -18,7 +18,7 @@ describe PagesController do
       let!(:about) { create :about_page }
       before { get :show, permalink: "about" }
       it { should render_template :show }
-      it { should assign_to(:page).with about }
+      it { expect(assigns[:page]).to eq about }
       it { should respond_with :success }
     end
 
@@ -32,7 +32,7 @@ describe PagesController do
   describe "GET #new" do
     before { get :new }
     it { should render_template :new }
-    it { should assign_to(:page).with_kind_of Page }
+    it { expect(assigns[:page]).to be_kind_of Page }
     it { should respond_with :success }
   end
 
@@ -60,7 +60,7 @@ describe PagesController do
         try_to_create_page unless example.metadata[:skil_before]
       end
 
-      it { should assign_to(:page).with_kind_of Page }
+      it { expect(assigns[:page]).to be_kind_of Page }
       it { should render_template :new }
       it "not create the page", skip_before: true do
         expect { try_to_create_page }.to_not change(Page, :count)
@@ -73,7 +73,7 @@ describe PagesController do
     before { get :edit, id: about }
     it { should render_template :edit }
     it { should respond_with :success }
-    it { should assign_to(:page).with about }
+    it { expect(assigns[:page]).to eq about }
   end
 
   describe "PUT #update" do

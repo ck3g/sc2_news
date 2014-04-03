@@ -12,12 +12,12 @@ describe ArticlesController do
     before { get :index }
     it { should respond_with :success }
     it { should render_template :index }
-    it { should assign_to(:sticky_articles).with [sticky] }
-    it { should assign_to(:articles).with [article, old, very_old] }
+    it { expect(assigns[:sticky_articles]).to eq [sticky] }
+    it { expect(assigns[:articles]).to eq [article, old, very_old] }
 
     context "when selected by tags" do
       before { get :index, tagged_with: "tournament" }
-      it { should assign_to(:articles).with [old, very_old] }
+      it { expect(assigns[:articles]).to eq [old, very_old] }
     end
   end
 
@@ -40,9 +40,9 @@ describe ArticlesController do
 
     it { should respond_with :success }
     it { should render_template :show }
-    it { should assign_to(:article).with article }
-    it { should assign_to(:comment).with_kind_of Comment }
-    it { should assign_to(:comments).with article.comments }
+    it { expect(assigns[:article]).to eq article }
+    it { expect(assigns[:comment]).to be_kind_of Comment }
+    it { expect(assigns[:comments]).to eq article.comments }
   end
 
   describe "GET #new" do
@@ -75,7 +75,7 @@ describe ArticlesController do
           post :create, article: attributes_for(:article)
         end
       end
-      it { should assign_to(:article).with_kind_of Article }
+      it { expect(assigns[:article]).to be_kind_of Article }
       it { should redirect_to Article.last }
       it { should set_the_flash[:notice].to I18n.t(:created_successfully) }
       it "creates new article", skip_before: true do
@@ -96,7 +96,7 @@ describe ArticlesController do
         end
       end
       it { should render_template :new }
-      it { should assign_to(:article).with_kind_of Article }
+      it { expect(assigns[:article]).to be_kind_of Article }
       it "don't creates new article", skip_before: true do
         expect {
           post :create, article: attributes_for(:invalid_article)
@@ -114,7 +114,7 @@ describe ArticlesController do
     end
     it { should respond_with :success }
     it { should render_template :edit }
-    it { should assign_to(:article).with article }
+    it { expect(assigns[:article]).to eq article }
   end
 
   describe "PUT #update" do
@@ -143,7 +143,7 @@ describe ArticlesController do
           put :update, id: article, article: attributes_for(:invalid_article)
         end
       end
-      it { should assign_to(:article).with article }
+      it { expect(assigns[:article]).to eq article }
       it { should render_template :edit }
       it "dont changes the title", skip_before: true do
         expect {
