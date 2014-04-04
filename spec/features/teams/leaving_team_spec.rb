@@ -11,6 +11,7 @@ feature 'Leaving team' do
   end
 
   scenario 'every member can leave the team' do
+    pending 'The teams temporary disabled'
     sign_in_as 'bob@example.com', 'secret'
     visit '/teams/pirates'
     click_leave_team_link
@@ -20,6 +21,7 @@ feature 'Leaving team' do
   end
 
   scenario 'leader can kick member from the team' do
+    pending 'The teams temporary disabled'
     sign_in_as 'leader@example.com', 'secret'
     visit '/teams/pirates/members'
     click_kick_user_from_team
@@ -35,6 +37,7 @@ feature 'Leaving team' do
     end
 
     scenario 'leader cannot kick unaccepted member' do
+      pending 'The teams temporary disabled'
       sign_in_as 'leader@example.com', 'secret'
       visit '/teams/pirates/members'
 

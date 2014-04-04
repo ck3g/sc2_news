@@ -21,7 +21,7 @@ module ApplicationHelper
   def link_to_page_nav(permalink)
     return unless page = Page.by_permalink(permalink)
 
-    link_to_nav page.title, page_path(permalink)
+    link_to_nav page.title, page_permalink_path(permalink)
   end
 
   def link_to_team(user)

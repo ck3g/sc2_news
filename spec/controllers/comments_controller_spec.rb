@@ -14,9 +14,9 @@ describe CommentsController do
       before do
         xhr :post, :create, article_id: article, comment: attributes_for(:comment)
       end
-      it { should assign_to(:article).with article }
-      it { should assign_to(:comment).with_kind_of Comment }
-      it { should assign_to(:new_comment).with_kind_of Comment }
+      it { expect(assigns[:article]).to eq article }
+      it { expect(assigns[:comment]).to be_kind_of Comment }
+      it { expect(assigns[:new_comment]).to be_kind_of Comment }
       it { should render_template :create }
       it "creates the comment" do
         expect {
@@ -32,8 +32,8 @@ describe CommentsController do
       before do
         xhr :post, :create, article_id: article, comment: attributes_for(:invalid_comment)
       end
-      it { should assign_to(:article).with article }
-      it { should assign_to(:comment).with_kind_of Comment }
+      it { expect(assigns[:article]).to eq article }
+      it { expect(assigns[:comment]).to be_kind_of Comment }
       it "don't changes the comment" do
         expect {
           xhr :post, :create, article_id: article, comment: attributes_for(:invalid_comment)
@@ -48,8 +48,8 @@ describe CommentsController do
       before do
         xhr :put, :update, article_id: article, id: comment, comment: attributes_for(:comment)
       end
-      it { should assign_to(:article).with article }
-      it { should assign_to(:comment).with comment }
+      it { expect(assigns[:article]).to eq article }
+      it { expect(assigns[:comment]).to eq comment }
       it { should render_template :update }
       it "changes the comment body" do
         expect {
@@ -63,8 +63,8 @@ describe CommentsController do
       before do
         xhr :put, :update, article_id: article, id: comment, comment: attributes_for(:invalid_comment)
       end
-      it { should assign_to(:article).with article }
-      it { should assign_to(:comment).with comment }
+      it { expect(assigns[:article]).to eq article }
+      it { expect(assigns[:comment]).to eq comment }
       it "don't update the title" do
         expect {
           xhr :put, :update, article_id: article, id: comment, comment: attributes_for(:invalid_comment, title: "New Title")

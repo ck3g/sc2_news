@@ -27,7 +27,7 @@ Sc2News::Application.routes.draw do
   resources :tags, only: [:index, :edit, :update, :destroy]
 
   resources :pages, except: [:show]
-  get "pages/:permalink" => "pages#show", as: :page
+  get "pages/:permalink" => "pages#show", as: :page_permalink
 
   resources :profiles, only: [:show, :edit, :update] do
     put :sync, on: :member

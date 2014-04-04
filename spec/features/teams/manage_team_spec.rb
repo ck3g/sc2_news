@@ -6,6 +6,7 @@ feature 'Edit team data' do
   given!(:team) { create :team, leader: leader, slug: 'awesome-team' }
 
   scenario 'leader can edit own team' do
+    pending 'The teams temporary disabled'
     sign_in_as 'leader@example.com', 'secret'
     visit '/teams/awesome-team'
     follow_edit_team_link
@@ -17,6 +18,7 @@ feature 'Edit team data' do
   end
 
   scenario 'leader can disband team' do
+    pending 'The teams temporary disabled'
     sign_in_as 'leader@example.com', 'secret'
     visit '/teams/awesome-team'
     follow_disband_team_link
@@ -26,6 +28,7 @@ feature 'Edit team data' do
   end
 
   scenario 'user cannot see edit and disband team link' do
+    pending 'The teams temporary disabled'
     sign_in_as 'user@example.com', 'secret'
     visit '/teams/awesome-team'
 
@@ -33,6 +36,7 @@ feature 'Edit team data' do
   end
 
   scenario 'user cannot edit ally team' do
+    pending 'The teams temporary disabled'
     sign_in_as 'user@example.com', 'secret'
     visit edit_team_path(team)
 

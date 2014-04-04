@@ -1,6 +1,0 @@
-== SC2 News
-{<img src="https://travis-ci.org/ck3g/sc2_news.png?branch=master" alt="Build Status" />}[https://travis-ci.org/ck3g/sc2_news]
-{<img src="https://codeclimate.com/github/ck3g/sc2_news.png" />}[https://codeclimate.com/github/ck3g/sc2_news]
-{<img src="https://coveralls.io/repos/ck3g/sc2_news/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/ck3g/sc2_news?branch=master]
-
-Port starcraft.md to Ruby on Rails

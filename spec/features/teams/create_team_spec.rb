@@ -4,6 +4,7 @@ feature 'Create team' do
   given!(:user) { create :user, email: "leader@team.com" }
 
   scenario 'User creates team with valid credentials' do
+    pending 'The teams temporary disabled'
     sign_in_as 'leader@team.com', 'secret'
     visit '/teams/new'
     within("#new_team") do
@@ -23,6 +24,7 @@ feature 'Create team' do
 
 
     scenario 'cannot create the second team' do
+      pending 'The teams temporary disabled'
       sign_in_as 'leader@team.com', 'secret'
       visit '/teams/new'
       page.current_path.should eq team_path(team)
@@ -32,6 +34,7 @@ feature 'Create team' do
   end
 
   scenario 'Guest cannot see create team page' do
+    pending 'The teams temporary disabled'
     visit '/teams/new'
     page.should have_content I18n.t('unauthorized.create.team')
   end
