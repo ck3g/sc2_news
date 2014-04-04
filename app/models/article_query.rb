@@ -5,7 +5,7 @@ class ArticleQuery
 
   def list
     @relation.
-      order("COALESCE(articles.published_at, articles.created_at) DESC").
-      scoped
+      order("published_date DESC").
+      select("articles.*, COALESCE(articles.published_at, articles.created_at) as published_date")
   end
 end
