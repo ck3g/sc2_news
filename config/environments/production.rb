@@ -17,13 +17,10 @@ Sc2News::Application.configure do
   config.assets.js_compress = :uglifier
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Generate digests for assets URLs
   config.assets.digest = true
-
-  # Expiry time used by turbo-sprockets-rails3 gem
-  config.assets.expire_after 2.weeks
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
