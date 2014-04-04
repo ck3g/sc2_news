@@ -71,18 +71,19 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails',        '~> 2.13.1'
-  gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'rspec-rails',        '~> 2.14.2'
+  gem 'factory_girl_rails', '~> 4.4.1'
   gem 'pry-rails'
+  gem 'pry-plus'
 end
 
 group :test do
-  gem "ffaker",           "~> 1.16.1"
-  gem 'capybara',         "~> 2.1.0"
-  gem "database_cleaner", "~> 1.0.1"
-  gem "launchy",          "~> 2.1.0"
+  gem "ffaker",           "~> 1.24.0"
+  gem 'capybara',         "~> 2.2.1"
+  gem "database_cleaner", "~> 1.2.0"
+  gem "launchy",          "~> 2.4.2"
   gem "shoulda",          "~> 3.5.0"
-  gem "email_spec",       "~> 1.4.0"
+  gem "email_spec",       "~> 1.5.0"
 end
 
 group :production do

@@ -31,7 +31,7 @@ describe ArticlesController do
       Article.stub(:accessible_by).and_return Article
       Article.stub(:find).with(article.id.to_s).and_return article
       article.comments.stub(:new).and_return(comment)
-      mock CommentQuery
+      double CommentQuery
       CommentQuery.stub_chain(:new, :list).and_return Comment
 
       article.should_receive(:add_hit!)

@@ -30,7 +30,7 @@ describe Profile do
     let(:portrait_style) { "background: url('bnet/0-90.jpg') -450px -90px no-repeat; width: 90px; height: 90px;" }
 
     before do
-      player = mock BattleNetInfo
+      player = double BattleNetInfo
       BattleNetInfo.should_receive(:new).with(zakk_url).and_return(player)
       player.stub(:to_hash).and_return({
         server: "eu",
