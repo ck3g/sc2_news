@@ -33,7 +33,7 @@ GEM
       actionpack (>= 3, < 5)
       activerecord (>= 3, < 5)
       activesupport (>= 3, < 5)
-    acts_as_commentable (3.0.1)
+    acts_as_commentable (4.0.1)
     addressable (2.3.4)
     anjlab-bootstrap-rails (2.3.1.2)
       railties (>= 3.0)
@@ -60,7 +60,7 @@ GEM
     builder (3.1.4)
     bullet (4.6.0)
       uniform_notifier
-    cancan (1.6.10)
+    cancancan (1.7.1)
     capistrano (2.15.4)
       highline
       net-scp (>= 1.0.0)
@@ -347,14 +347,14 @@ DEPENDENCIES
   actionpack-action_caching
   actionpack-page_caching
   activerecord-deprecated_finders
-  acts-as-taggable-on
-  acts_as_commentable (~> 3.0.1)
+  acts-as-taggable-on (~> 3.1.0)
+  acts_as_commentable (~> 4.0.1)
   anjlab-bootstrap-rails (= 2.3.1.2)
   battlenet_info (= 0.2.1)
-  bitmask_attributes
+  bitmask_attributes (~> 1.0.0)
   brakeman
   bullet
-  cancan (~> 1.6.10)
+  cancancan (~> 1.7.1)
   capistrano (~> 2.15.4)
   capistrano-puma
   capistrano-rbenv
@@ -363,18 +363,18 @@ DEPENDENCIES
   capybara (~> 2.1.0)
   carrierwave (~> 0.8.0)
   ckeditor (~> 4.0.4)
-  coffee-rails
+  coffee-rails (~> 4.0.1)
   compass-rails
   coveralls
   database_cleaner (~> 1.0.1)
-  devise
+  devise (~> 3.2.4)
   draper (~> 1.0)
   email_spec (~> 1.4.0)
   exception_notification
   factory_girl_rails (~> 4.2.1)
   ffaker (~> 1.16.1)
   font-awesome-rails (~> 3.1.1)
-  friendly_id
+  friendly_id (~> 5.0.3)
   haml
   has_scope (~> 0.5.1)
   jquery-rails
@@ -395,10 +395,10 @@ DEPENDENCIES
   russian (~> 0.6.0)
   sanitize (~> 2.0.3)
   sass-rails (~> 4.0.2)
-  shoulda
-  simple_form
+  shoulda (~> 3.5.0)
+  simple_form (~> 3.0.1)
   sitemap_generator (~> 3.4)
-  squeel
+  squeel (~> 1.1.1)
   state_machine
   therubyracer
   thin

@@ -21,7 +21,7 @@ describe Page do
       let!(:enabled_page) { create :page }
       let!(:disabled_page) { create :disabled_page }
       it "returns only enabled pages" do
-        expect(Page.enabled.all).to eq [enabled_page]
+        expect(Page.enabled.to_a).to eq [enabled_page]
       end
     end
   end
