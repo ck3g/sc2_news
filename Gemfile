@@ -35,7 +35,7 @@ gem "draper", "~> 1.0"
 gem "sanitize", "~> 2.0.3"
 gem "twitter"
 gem 'sitemap_generator', '~> 3.4'
-gem 'whenever', '~> 0.8.2', require: false
+gem 'whenever', '~> 0.9.2', require: false
 gem 'friendly_id', '~> 5.0.3'
 gem 'state_machine'
 gem 'coveralls', require: false
