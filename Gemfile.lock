@@ -49,6 +49,9 @@ GEM
     bitmask_attributes (1.0.0)
       activerecord (>= 3.1)
     bond (0.5.1)
+    bootstrap-glyphicons (0.0.1)
+      railties (>= 3.0)
+      sass (>= 3.2)
     brakeman (1.9.5)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
@@ -159,7 +162,7 @@ GEM
       multipart-post (~> 1.1)
     fastercsv (1.5.5)
     ffaker (1.24.0)
-    font-awesome-rails (3.1.1.1)
+    font-awesome-rails (4.0.3.1)
       railties (>= 3.2, < 5.0)
     friendly_id (5.0.3)
       activerecord (>= 4.0.0)
@@ -392,6 +395,7 @@ DEPENDENCIES
   anjlab-bootstrap-rails (= 2.3.1.2)
   battlenet_info (= 0.2.1)
   bitmask_attributes (~> 1.0.0)
+  bootstrap-glyphicons
   brakeman
   bullet
   cancancan (~> 1.7.1)
@@ -413,7 +417,7 @@ DEPENDENCIES
   exception_notification
   factory_girl_rails (~> 4.4.1)
   ffaker (~> 1.24.0)
-  font-awesome-rails (~> 3.1.1)
+  font-awesome-rails (~> 4.0.3.1)
   friendly_id (~> 5.0.3)
   haml
   has_scope (~> 0.5.1)

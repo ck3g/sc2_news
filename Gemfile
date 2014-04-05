@@ -17,7 +17,8 @@ gem 'acts_as_commentable', "~> 4.0.1"
 gem "acts-as-taggable-on", "~> 3.1.0"
 
 gem 'anjlab-bootstrap-rails', "2.3.1.2", :require => 'bootstrap-rails'
-gem "font-awesome-rails", "~> 3.1.1"
+gem 'bootstrap-glyphicons'
+gem "font-awesome-rails", "~> 4.0.3.1"
 gem 'has_scope', "~> 0.5.1"
 gem "squeel", "~> 1.1.1"
 gem "bitmask_attributes", "~> 1.0.0"
