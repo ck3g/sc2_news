@@ -46,6 +46,7 @@ gem 'coffee-rails', '~> 4.0.1'
 gem 'therubyracer'
 gem 'uglifier'
 gem "compass-rails"
+gem 'non-stupid-digest-assets', '~> 1.0.4'
 
 gem 'protected_attributes'
 gem 'rails-observers'

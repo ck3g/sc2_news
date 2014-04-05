@@ -207,6 +207,7 @@ GEM
       net-ssh (>= 2.6.5)
     newrelic_rpm (3.6.2.96)
     nokogiri (1.5.11)
+    non-stupid-digest-assets (1.0.4)
     orm_adapter (0.5.0)
     pg (0.15.1)
     polyamorous (0.6.4)
@@ -427,6 +428,7 @@ DEPENDENCIES
   meta-tags (~> 1.5.0)
   mini_magick (~> 3.5.0)
   newrelic_rpm
+  non-stupid-digest-assets (~> 1.0.4)
   pg
   protected_attributes
   pry-plus
