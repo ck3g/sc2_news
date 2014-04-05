@@ -1,6 +1,9 @@
 ru:
   helpers:
     submit:
+      article:
+        create: Создать Новость
+        update: Сохранить Новость
       comment:
         create: Оставить комментарий
       tag:

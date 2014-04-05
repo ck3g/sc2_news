@@ -28,7 +28,7 @@ gem "simple_form", "~> 3.0.1"
 
 gem "carrierwave", "~> 0.8.0"
 gem "mini_magick", "~> 3.5.0"
-gem "ckeditor", "~> 4.0.4"
+gem "ckeditor", "~> 4.0.11"
 gem "twitter_cldr", "~> 2.4.0"
 gem "battlenet_info", "0.2.1"
 gem "newrelic_rpm"

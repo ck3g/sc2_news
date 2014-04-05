@@ -8,6 +8,11 @@ FactoryGirl.define do
 
     factory :admin do
       roles :admin
+
+      factory :admin_example_com do
+        email "admin@example.com"
+        username "admin"
+      end
     end
 
     factory :editor do
