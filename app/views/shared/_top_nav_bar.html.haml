@@ -38,7 +38,7 @@
                 %li.divider
                 %li
                   = link_to users_path do
-                    %i.glyphicon.glyphicon-group
+                    = fa_icon 'group'
                     = t(:manage_users)
               - if can? :manage, OurFriend
                 %li= link_to t(:manage_our_friends), our_friends_path
