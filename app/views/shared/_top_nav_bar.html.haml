@@ -28,7 +28,7 @@
         - if user_signed_in?
           .btn-group.pull-right
             = link_to "#", class: "btn dropdown-toggle", data: { toggle: "dropdown" } do
-              %i.icon-user
+              %i.glyphicon.glyphicon-user
               = current_user.name
               %span.caret
             %ul.dropdown-menu
@@ -38,7 +38,7 @@
                 %li.divider
                 %li
                   = link_to users_path do
-                    %i.icon-group
+                    %i.glyphicon.glyphicon-group
                     = t(:manage_users)
               - if can? :manage, OurFriend
                 %li= link_to t(:manage_our_friends), our_friends_path

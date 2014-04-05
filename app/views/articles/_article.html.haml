@@ -14,7 +14,7 @@
     .pull-left
       %h3
         - if article.sticky?
-          %i.icon-pushpin
+          %i.glyphicon.glyphicon-pushpin
         = unpublished_prefix(article)
         = link_to article.title, article, class: deleted_class(article), title: deleted_title(article)
     .pull-right
@@ -37,9 +37,9 @@
         = tag.name
       &nbsp;&nbsp;
   .article-meta.pull-right
-    %i.icon-comments-alt{title: t(:comments), rel: "tooltip"}
+    %i.fa.fa-comment-o{title: t(:comments), rel: "tooltip"}
     = link_to article.comments.count, article_path(article, anchor: "comments")
     &nbsp;&nbsp;
-    %i.icon-eye-open{title: t(:views_count), rel: "tooltip"}
+    %i.fa.fa-eye{title: t(:views_count), rel: "tooltip"}
     = article.views_count
   .spacer

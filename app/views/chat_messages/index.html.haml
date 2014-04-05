@@ -2,7 +2,7 @@
   %div
     - if can? :destroy, message
       = link_to message, method: :delete, data: { confirm: t(:are_you_sure) }, :class => "non-decorated" do
-        %i.icon-trash
+        = fa_icon 'trash-o'
     %span.chat-user
       = succeed ":" do
         = link_to message.user.name, user_profile_path(message.user_username), title: l(message.created_at, format: :long), rel: "tooltip"
