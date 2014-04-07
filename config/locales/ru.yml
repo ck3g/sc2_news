@@ -103,6 +103,7 @@ ru:
   tag_cloud: Облако тегов
   categories: Категории
   rating: Рейтинг
+  discussions: Обсуждения
   manage_tags: Управление тегами
   edit_tag: Редактирование тега
   are_you_sure_delete_tag: При удалении тега он пропадает изо всех новостей. Удалить?
