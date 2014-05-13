@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.4'
+gem 'rails', '~> 4.0.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -41,7 +41,7 @@ gem 'friendly_id', '~> 5.0.3'
 gem 'state_machine'
 gem 'coveralls', require: false
 
-gem 'sass-rails',   '~> 4.0.2'
+gem 'sass-rails',   '~> 4.0.3'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'therubyracer'
 gem 'uglifier'
