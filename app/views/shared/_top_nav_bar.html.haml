@@ -18,6 +18,7 @@
           = link_to_page_nav "about"
           = link_to_page_nav "jobs"
           = link_to_page_nav 'tournament-rating'
+          = link_to_page_nav 'tournament-rules'
           %li.divider-vertical
           - if can? :create, Article
             = link_to_nav t(:create_article), new_article_path
