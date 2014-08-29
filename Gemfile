@@ -70,6 +70,7 @@ group :development do
   gem "bullet"
   gem "rubocop"
   gem 'brakeman', :require => false
+  gem 'letter_opener'
 end
 
 group :test, :development do
