@@ -21,5 +21,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) do |user|
       user.permit(:username, :email, :password, :password_confirmation)
     end
+
+    devise_parameter_sanitizer.for(:account_update) << :username
   end
 end
