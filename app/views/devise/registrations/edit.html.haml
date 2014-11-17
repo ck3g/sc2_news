@@ -5,8 +5,8 @@
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: html, defaults: defaults) do |f|
     = f.error_notification
     .form-inputs
-      = f.input :username
-      = f.input :email, autofocus: true
+      = f.input :username, autofocus: true
+      = f.input :email, readonly: true
       = f.input :password, autocomplete: "off", hint: t("hints.user.password"), required: false
       = f.input :password_confirmation, required: false
       = f.input :current_password, hint: t("hints.user.current_password")
