@@ -1,8 +1,8 @@
 server "198.211.96.190", :app, :web, :db, :primary => true
 
-# set :default_environment, {
-#   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-# }
+set :default_environment, {
+  'NEW_RELIC_LICENSE_KEY' => ENV['NEW_RELIC_LICENSE_KEY']
+}
 
 set :user, "deploy"
 set :rake, "#{rake} --trace"
