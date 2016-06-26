@@ -87,6 +87,18 @@ describe "Ability" do
     it { should_not be_able_to [:manage, :accept, :reject], Invite }
   end
 
+  describe "as banned" do
+    let!(:user) { create :banned }
+    subject { Ability.new user }
+    it_behaves_like "as common user"
+    it { should_not be_able_to :create, Comment }
+    it { should_not be_able_to :manage, create(:profile) }
+    it { should_not be_able_to :manage, Team }
+    it { should be_able_to :index, Team }
+    it { should be_able_to :show, Team }
+    it { should_not be_able_to [:manage, :accept, :reject], Invite }
+  end
+
   describe "as admin" do
     subject { Ability.new create(:admin) }
     it { should be_able_to :all, Article }

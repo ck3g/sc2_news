@@ -39,7 +39,7 @@ class Ability
       can :manage, [Ckeditor::Picture, Ckeditor::AttachmentFile]
       cannot :destroy, [Ckeditor::Picture, Ckeditor::AttachmentFile]
 
-    elsif user.persisted? # registered user
+    elsif user.persisted? && !user.banned? # registered user
       can :manage, [Profile], user_id: user.id
       can :read, Tag
       can :read, Article, Article.visible do |article|
@@ -47,7 +47,7 @@ class Ability
       end
       can [:index, :show], Team
     else
-      # Guest possibilities
+      # Guest or Banned possibilities
       cannot :create, Comment
       can :read, Tag
       can :read, Article, Article.visible do |article|

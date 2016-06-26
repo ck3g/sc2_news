@@ -26,5 +26,9 @@ FactoryGirl.define do
     factory :streamer do
       roles :streamer
     end
+
+    factory :banned do
+      roles :banned
+    end
   end
 end
