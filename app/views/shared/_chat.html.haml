@@ -2,8 +2,10 @@
   .chat-messages
   .chat-form
     - if user_signed_in?
-      = text_field_tag :chat_message, "", class: "chat-form-input"
+      - if can? :create, ChatMessage
+        = text_field_tag :chat_message, "", class: "chat-form-input"
+      - else
+        .chat-not-signed-in= t("users.no_chat_anymore")
     - else
-      .chat-not-signed-in
-        = t("users.must_sign_in")
+      .chat-not-signed-in= t("users.must_sign_in")
 .spacer

@@ -1,7 +1,6 @@
 class ChatMessagesController  < ApplicationController
   layout false
-  before_filter :authenticate_user!, :except => :index
-
+  authorize_resource
 
   def index
     @messages = ChatMessage.includes(:user).recent
@@ -22,5 +21,4 @@ class ChatMessagesController  < ApplicationController
     @chat_message.destroy
     redirect_to :back
   end
-
 end

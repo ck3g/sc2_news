@@ -26,7 +26,7 @@ class Ability
       can :access, :ckeditor
       can :manage, [Ckeditor::Picture, Ckeditor::AttachmentFile]
       can :manage, [Profile], user_id: user.id
-      can :all, [ChatMessage]
+      can [:index, :create, :delete], ChatMessage
 
     elsif user.writer? || user.streamer?
       can :create, Article
@@ -38,6 +38,8 @@ class Ability
       can :access, :ckeditor
       can :manage, [Ckeditor::Picture, Ckeditor::AttachmentFile]
       cannot :destroy, [Ckeditor::Picture, Ckeditor::AttachmentFile]
+      can [:index, :create], ChatMessage
+      cannot :delete, ChatMessage
 
     elsif user.persisted? && !user.banned? # registered user
       can :manage, [Profile], user_id: user.id
@@ -46,6 +48,8 @@ class Ability
         !article.deleted? && article.published?
       end
       can [:index, :show], Team
+      can [:index, :create], ChatMessage
+      cannot :delete, ChatMessage
     else
       # Guest or Banned possibilities
       cannot :create, Comment
@@ -57,6 +61,8 @@ class Ability
       cannot :manage, Team
       can [:index, :show], Team
       cannot [:manage, :accept, :reject], Invite
+      can :index, ChatMessage
+      cannot [:create, :delete], ChatMessage
     end
 
     #

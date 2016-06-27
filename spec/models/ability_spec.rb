@@ -27,6 +27,8 @@ shared_examples "as writer" do
   it { should be_able_to [:manage, :restore], own_deleted_article }
   it { should_not be_able_to [:manage, :restore], ally_deleted_article }
   it { should_not be_able_to [:all], User }
+  it { should be_able_to :index, ChatMessage }
+  it { should be_able_to :create, ChatMessage }
   it { should_not be_able_to :destroy, ChatMessage }
   it { should be_able_to [:read, :create], Ckeditor::Picture }
   it { should be_able_to [:read, :create], Ckeditor::AttachmentFile }
@@ -65,7 +67,6 @@ shared_examples "as common user" do
   it { should_not be_able_to :manage, Page }
   it { should_not be_able_to :restore, Article }
   it { should_not be_able_to :all, User }
-  it { should_not be_able_to :all, ChatMessage }
   it { should_not be_able_to :all, Ckeditor::Picture }
   it { should_not be_able_to :all, Ckeditor::AttachmentFile }
   it { should be_able_to :read, Page }
@@ -85,6 +86,9 @@ describe "Ability" do
     it { should be_able_to :index, Team }
     it { should be_able_to :show, Team }
     it { should_not be_able_to [:manage, :accept, :reject], Invite }
+    it { should be_able_to :index, ChatMessage }
+    it { should_not be_able_to :create, ChatMessage }
+    it { should_not be_able_to :delete, ChatMessage }
   end
 
   describe "as banned" do
@@ -97,6 +101,9 @@ describe "Ability" do
     it { should be_able_to :index, Team }
     it { should be_able_to :show, Team }
     it { should_not be_able_to [:manage, :accept, :reject], Invite }
+    it { should be_able_to :index, ChatMessage }
+    it { should_not be_able_to :create, ChatMessage }
+    it { should_not be_able_to :delete, ChatMessage }
   end
 
   describe "as admin" do
@@ -120,11 +127,13 @@ describe "Ability" do
     it { should be_able_to :all, Tag }
     it { should be_able_to :manage, Page }
     it_behaves_like "manage Profiles"
-    it { should be_able_to :all, ChatMessage }
     it { should be_able_to :manage, Ckeditor::Picture }
     it { should be_able_to :manage, Ckeditor::AttachmentFile }
     it { should be_able_to :manage, OurFriend }
     it_behaves_like "manage Teams"
+    it { should be_able_to :index, ChatMessage }
+    it { should be_able_to :create, ChatMessage }
+    it { should be_able_to :delete, ChatMessage }
   end
 
   describe "as writer" do
@@ -148,5 +157,8 @@ describe "Ability" do
     it_behaves_like "manage Profiles"
     it_behaves_like "manage Teams"
     it { should be_able_to :create, Comment }
+    it { should be_able_to :index, ChatMessage }
+    it { should be_able_to :create, ChatMessage }
+    it { should_not be_able_to :delete, ChatMessage }
   end
 end
