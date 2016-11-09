@@ -58,9 +58,9 @@ ru:
   are_you_sure_restore_article: Восстановить новость?
   are_you_sure_delete_comment: Удалить комментарий? Удаленный комментарий уже не восстановить
   are_you_sure: Вы уверены?
-  copyright: 2010-%{current_year} © StarCraft.md
-  site_name: StarCraft.md
-  terms_mini: Использование материалов сайта разрешено при условии размещения ссылок на сайт StarCraft.md
+  copyright: 2010-%{current_year} © StarCraftmd.com
+  site_name: StarCraftmd.com
+  terms_mini: Использование материалов сайта разрешено при условии размещения ссылок на сайт StarCraftmd.com
   starcraft_brood_war_tm: "StarCraft®: Brood War®"
   starcraft_brood_war_copyright: "© Blizzard Entertainment., 1998 г. Все права защищены. StarCraft, Brood War и Blizzard Entertainment являются товарными знаками или зарегистрированными товарными знаками компании Blizzard Entertainment в США и (или) других государствах."
   starcraft_wings_of_liberty_tm: "StarCraft® II: Wings of Liberty™"

@@ -2,7 +2,7 @@
 
 rails_env = ENV['RAILS_ENV'] || 'development'
 
-SitemapGenerator::Sitemap.default_host = "http://starcraft.md"
+SitemapGenerator::Sitemap.default_host = "http://starcraftmd.com"
 SitemapGenerator::Sitemap.public_path = 'public/'
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::WaveAdapter.new
 
