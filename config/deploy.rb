@@ -56,8 +56,7 @@ namespace :deploy do
   task :update_uploads, :roles => [:app] do
     run "ln -nfs #{deploy_to}#{shared_dir}/uploads #{release_path}/public/uploads"
     run "ln -nfs #{deploy_to}#{shared_dir}/system #{release_path}/public/system"
-    run "mkdir -p #{release_path}/public/Content"
-    run "ln -nfs #{deploy_to}#{shared_dir}/Gallery #{release_path}/public/Content/Gallery"
+    run "ln -nfs #{deploy_to}#{shared_dir}/Content #{release_path}/public/Content"
   end
 end
 
