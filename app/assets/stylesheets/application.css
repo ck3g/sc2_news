@@ -13,9 +13,13 @@
  *= require_tree .
 */
 
-.navbar-form .field_with_errors {display:inline}
+.navbar-form .field_with_errors {
+  display:inline
+}
 
-div.spacer {clear: both; font-size: 0; line-height: 0;}
+div.spacer {
+  clear: both; font-size: 0; line-height: 0;
+}
 
 .chat-messages {
     height: 200px;
