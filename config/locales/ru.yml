@@ -123,7 +123,7 @@ ru:
   forgot_password: Забыли пароль?
   send_me_reset_password_instructions: Выслать мне инструкции по сбросу пароля
   view_profile: Просмотр профайла
-  user_profile: "Профаил прользователя - %{user}"
+  user_profile: "Профиль - %{user}"
   common_info: Общая информация
   battlenet_info: Battle.Net информация
   game_stats: Статистика матчей
