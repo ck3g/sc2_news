@@ -54,10 +54,6 @@ gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 gem 'activerecord-deprecated_finders'
 
-group :production do
-  gem 'exception_notification'
-end
-
 group :development do
   gem "capistrano", "~> 2.15.4", :require => false
   gem 'capistrano-recipes', :require => false
@@ -90,5 +86,6 @@ group :test do
 end
 
 group :production do
-  gem "puma"
+  gem "puma", "~> 2.16.0"
+  gem 'exception_notification'
 end
