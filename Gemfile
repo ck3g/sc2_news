@@ -58,7 +58,7 @@ group :development do
   gem "capistrano", "~> 2.15.4", :require => false
   gem 'capistrano-recipes', :require => false
   gem 'capistrano_colors', :require => false
-  gem "capistrano-puma", :require => false
+  gem "capistrano-unicorn", :require => false
   gem 'capistrano-rbenv', :require => false
   gem "rails_best_practices"
   gem "thin"
@@ -86,6 +86,6 @@ group :test do
 end
 
 group :production do
-  gem "puma", "~> 2.16.0"
+  gem "unicorn"
   gem 'exception_notification'
 end
