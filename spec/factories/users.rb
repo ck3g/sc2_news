@@ -30,5 +30,13 @@ FactoryGirl.define do
     factory :banned do
       roles :banned
     end
+
+    factory :shadow_ban_chat do
+      roles :shadow_ban_chat
+    end
+
+    factory :shadow_ban_comments do
+      roles :shadow_ban_comments
+    end
   end
 end
