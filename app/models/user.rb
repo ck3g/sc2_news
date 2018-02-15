@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = [:admin, :writer, :editor, :streamer, :banned]
+  ROLES = [:admin, :writer, :editor, :streamer, :banned, :shadow_ban_chat, :shadow_ban_comments]
   bitmask :roles, as: ROLES
 
   paginates_per 50
