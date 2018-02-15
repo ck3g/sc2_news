@@ -17,3 +17,6 @@ ru:
           writer: Newsmaker
           editor: Редактор
           streamer: Стример
+          banned: Забанен
+          shadow_ban_chat: Shadow Бан в чате
+          shadow_ban_comments: Shadow Бан в комментах

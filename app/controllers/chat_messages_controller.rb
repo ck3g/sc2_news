@@ -3,7 +3,7 @@ class ChatMessagesController  < ApplicationController
   authorize_resource
 
   def index
-    @messages = ChatMessage.includes(:user).recent
+    @messages = ChatMessagesQuery.recent(current_user)
     respond_with @messages
   end
 
