@@ -180,8 +180,7 @@ GEM
       actionpack
     method_source (0.8.2)
     mime-types (2.6.1)
-    mini_magick (3.5.0)
-      subexec (~> 0.2.1)
+    mini_magick (4.9.4)
     minitest (4.7.5)
     multi_json (1.11.1)
     multipart-post (1.2.0)
@@ -298,7 +297,6 @@ GEM
       activesupport (>= 3.0)
       polyamorous (~> 0.6.0)
     state_machine (1.2.0)
-    subexec (0.2.2)
     temple (0.6.4)
     terminal-table (1.4.5)
     therubyracer (0.12.2)
@@ -380,7 +378,7 @@ DEPENDENCIES
   launchy (~> 2.4.2)
   letter_opener
   meta-tags (~> 1.5.0)
-  mini_magick (~> 3.5.0)
+  mini_magick (~> 4.9.4)
   newrelic_rpm
   non-stupid-digest-assets (~> 1.0.4)
   pg
