@@ -119,6 +119,7 @@ GEM
       rest-client
       simplecov (>= 0.7)
       thor
+    crass (1.0.5)
     daemons (1.1.9)
     database_cleaner (1.2.0)
     devise (3.2.4)
@@ -194,6 +195,8 @@ GEM
       net-ssh (>= 2.6.5)
     newrelic_rpm (3.6.2.96)
     nokogiri (1.5.11)
+    nokogumbo (1.5.0)
+      nokogiri
     non-stupid-digest-assets (1.0.4)
     orm_adapter (0.5.0)
     pg (0.15.1)
@@ -256,8 +259,10 @@ GEM
       sexp_processor (~> 4.1)
     russian (0.6.0)
       i18n (>= 0.5.0)
-    sanitize (2.0.3)
-      nokogiri (>= 1.4.4, < 1.6)
+    sanitize (4.6.3)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.4.4)
+      nokogumbo (~> 1.4)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -391,7 +396,7 @@ DEPENDENCIES
   rspec-rails (~> 2.14.2)
   rubocop
   russian (~> 0.6.0)
-  sanitize (~> 2.0.3)
+  sanitize (~> 4.6.3)
   sass-rails (~> 4.0.3)
   shoulda (~> 3.5.0)
   simple_form (~> 3.0.1)

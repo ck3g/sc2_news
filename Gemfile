@@ -33,7 +33,7 @@ gem "twitter_cldr", "~> 2.4.0"
 gem "battlenet_info", "0.2.1"
 gem "newrelic_rpm"
 gem "draper", "~> 1.0"
-gem "sanitize", "~> 2.0.3"
+gem "sanitize", "~> 4.6.3"
 gem "twitter"
 gem 'sitemap_generator', '~> 3.4'
 gem 'whenever', '~> 0.9.2', require: false
