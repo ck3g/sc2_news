@@ -8,12 +8,9 @@
     %meta{content: "GI0ODWpwyO2N5iCZWPVeXSiF1Hke1WVRGVUPNSUQS3s", name: "google-site-verification"}/
   %body{:"data-development" => Rails.env.development?}
     .row-fluid
-      .span6
+      .span12
         = link_to root_path do
           = image_tag 'logo.gif', alt: t(:site_name)
-      .span6
-        = link_to "/", class: "pull-right top-right-banner", target: "_blank" do
-          = image_tag "https://placehold.it/472x71"
     .row-fluid
       = render 'shared/top_nav_bar'
 
