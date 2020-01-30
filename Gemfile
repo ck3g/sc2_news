@@ -55,7 +55,7 @@ gem 'actionpack-action_caching'
 gem 'activerecord-deprecated_finders'
 
 group :development do
-  gem "capistrano", "~> 2.15.4", :require => false
+  gem "capistrano", "~> 2.15.9", :require => false
   gem 'capistrano-recipes', :require => false
   gem 'capistrano_colors', :require => false
   gem "capistrano-unicorn", :require => false
@@ -67,6 +67,10 @@ group :development do
   gem "rubocop"
   gem 'brakeman', :require => false
   gem 'letter_opener'
+  gem 'ed25519', '~> 1.2', '>= 1.2.4'
+  gem 'bcrypt_pbkdf', '~> 1.0', '>= 1.0.1'
+
+  gem 'rbnacl'
 end
 
 group :test, :development do
